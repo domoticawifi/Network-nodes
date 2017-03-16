@@ -16,6 +16,5 @@ Le comunicazioni fra i nodi e il terminale avviene a questa maniera:
   4. Se il terminale deve contattare il nodo2, la sua richiesta passerà prima a tutti i nodi
   
   
-Ecco un'immagine rappresentativa del progetto da realizzare:
   
 
