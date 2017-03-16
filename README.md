@@ -23,6 +23,24 @@ Le comunicazioni fra i nodi e il terminale avviene a questa maniera:
 
 Come possiamo vedere dall'immagine, abbiamo un PC, che funziona da terminale, collegato alla rete WI-FI, invia e riceve informazioni attraverso il Nodo Master.
 Il nodo master, collegato alla rete, instrada le richieste e le informazioni, mandate dal terminale e dagli altri nodi, nella giusta direzione.
+
+## Occorrente Hardware
+  1. 1 terminale (PC, Tablet, Smartphone)
+  2. 1 Router WI-FI
+  3. 1 ESP8266 ESP-12E oppure una shield WI-FI
+  4. 2 Arduino NANO
+  5. 4 TX Diodo LED infrarossi
+  6. 4 RX Sensori IR
+  
+## Occorrente Software
+  1. [Arduino IDE 1.8.0](https://www.arduino.cc/en/main/software) o superiori
+  2. [Firebase](https://firebase.google.com/)
+  3. [Core ESP8266](https://github.com/esp8266/Arduino#installing-with-boards-manager)
+  4. Librerie per gestioni arduino:
+    4.1: [Librearia interfacciamento Firebase](https://github.com/googlesamples/firebase-arduino/archive/master.zip)
+    4.2: Libreria gestione segnare IR
+  
+  
   
   
   
