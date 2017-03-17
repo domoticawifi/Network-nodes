@@ -35,10 +35,10 @@ Il nodo master, collegato alla rete, instrada le richieste e le informazioni, ma
 ## Occorrente Software
   1. [Arduino IDE 1.8.0](https://www.arduino.cc/en/main/software) o superiori
   2. [Firebase](https://firebase.google.com/)
-  3. [Core ESP8266](https://github.com/esp8266/Arduino#installing-with-boards-manager)
-  4. Librerie per gestioni arduino:
-    4.1: [Librearia interfacciamento Firebase](https://github.com/googlesamples/firebase-arduino/archive/master.zip)
-    4.2: Libreria gestione segnare IR
+  3. [Core ESP8266](https://github.com/domoticawifi/Network-nodes/blob/master/GestioneShieldESP8266.md)
+  4. [Librearia gestione ESP8266](https://github.com/googlesamples/firebase-arduino/archive/master.zip)
+  5. [Libreria gestione segnale IR](https://www.pjrc.com/teensy/arduino_libraries/IRremote.zip)
+  6. [Libreria gestione Display LCD](https://www.dropbox.com/s/62x4w48kwf5biko/LiquidCrystalI2C.zip?dl=0)
   
   
   
