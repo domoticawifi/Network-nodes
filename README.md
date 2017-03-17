@@ -33,6 +33,9 @@ Il nodo master, collegato alla rete, instrada le richieste e le informazioni, ma
   4. 2 Arduino NANO/UNO/MEGA/Mino PRO
   5. 4 TX Diodo LED infrarossi
   6. 4 RX Sensori IR
+  7. 3 Breadboard (830 fori)
+  8. Cavetti e jumper per i collegamenti
+  9. 3 Display LCD per verificare lo stato di ogni nodo
   
 ## Occorrente Software
   1. [Arduino IDE 1.8.0](https://www.arduino.cc/en/main/software) o superiori
@@ -41,6 +44,10 @@ Il nodo master, collegato alla rete, instrada le richieste e le informazioni, ma
   4. [Librearia gestione ESP8266](https://github.com/googlesamples/firebase-arduino/archive/master.zip)
   5. [Libreria gestione segnale IR](https://www.pjrc.com/teensy/arduino_libraries/IRremote.zip)
   6. [Libreria gestione Display LCD](https://www.dropbox.com/s/62x4w48kwf5biko/LiquidCrystalI2C.zip?dl=0)
+  
+Per la gestione delle librerie clicca [QUI](https://github.com/domoticawifi/Network-nodes/blob/master/GestioneLibreryArduino.md)
+
+
   
   
   
