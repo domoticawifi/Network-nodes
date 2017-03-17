@@ -14,3 +14,8 @@
 Noi utilizziamo, per questo progetto, una ESP8266 ESP-12E, quindi selezioneremo la scheda ESP-12E
 
 N.B: Installazione di questo pacchetto aggiuntivo per l'IDE di Arduino, comprende tante schede WI-FI in commercio
+
+
+## Come collegare la scheda ESP8266 alla rete WI-FI
+
+IN AGGIORAMENTO...
