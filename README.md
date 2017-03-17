@@ -47,9 +47,36 @@ Il nodo master, collegato alla rete, instrada le richieste e le informazioni, ma
   
 Per la gestione delle librerie clicca [QUI](https://github.com/domoticawifi/Network-nodes/blob/master/GestioneLibraryArduino.md)
 
+# Esempio di comunicazione
+## Terminale > Nodo Master > Nodo Interessato
+* Il PC avrà una pagina HTML, in locale, in cui sarà presente lo stato di ogni nodo
+* Se vorrà azionare un attuatore o relè di un determinato nodo, cliccerà su l'apposito bottore o link della pagina HTML
+* Verrà mandata una richiesta tramite rete WI-FI al nodo master, in cui sarà presente l'ESP8266
+* La scheda Wi-Fi riceverà la richiesta e manderà un segnale ad infrarossi al nodo adiacente
+* Il nodo adiacente riceve questo segnale e lo elabora per capire se è lui il destinatario
+* Se così non fosse lo manda all'altro nodo adiacente con il collegamento ottico
+* Quando il messaggio è arrivato a destinazione, l'arduino presente su tale nodo spegnerà/accenderà l'attuatore o relè
+* Verrà mandato, in ritorno, l'avvenuta/o accensione/spegnimento
+* Il messaggio di ritorno arriverà fino al nodo master che darà in risposta al PC un'altra pagina HTML aggiornata
+* Il nodo master, successivamente, manderà questo dato sul database per poterlo consultare in remoto tramite smartphone
+* Il pc riceverà la pagina HTML aggiornata e vedrà lo stato attuale di tutti i nodi per una prossima operazione
+  
+## Nodo Master > Nodo Interessato
+* Il nodo master avrà un proprio indirizzo IP nella rete (es: 192.168.1.100)
+* Il nodo master riceve la richiesta dal PC da instradare al giusto nodo
+* Il nodo master comunicherà con il nodo1, essendo il suo adiacente
+* Verrà mandato un segnale ottico al nodo1 per informarlo che sta per avvenire una trasmissione
+* Il nodo1 accetta questa trasmissione
+* Il nodo master invia il dato seguito dalla chiusura della comunicazione
+* Il nodo1 riceve questo dato e la chiusura, in modo da capire che tutto è andato nel modo giusto, se così non fosse fa ristrasmettere il dato
+* Il nodo1 elabora questo dato e capisce se appartiene a lui altrimenti lo manda, alla stessa maniera della prima comunicazione, al nodo adiacente (nodo2)
+* Elaborato il dato ed eseguita la modifica su tale nodo, il nodo1 manda un messaggio ottico al nodo master per informarli che sta per trasmettere
+* Il nodo master accetta e il nodo1 comincia a trasmettere il dato seguito dalla chiusura
+* Così come il nodo1 ha elaborato il dato all'andata, il nodo master lo farà per il ritorno
+* Una volta chiusa la comunicazione il nodo master aggiorna la pagina HTML e comunica il cambiamneto al database
 
-  
-  
+N.B: Se non dovesse esserci rete internet nella rete domestica, comunque quest'ultima non ne risentirebbe e continuerebbe ad operare. Il database verrà aggiornato appena sarà presente una connessione in uscita.
+Per verificare lo stato di ogni nodo, si è pensato di collegare un Display LCD o OLED. Su questo diaplay comparirà le azioni che sta eseguendo tale nodo. Esempio: Nodo1 - Display (Sto comunicando...) -> Nodo2 - Display (Sto ricevendo...)
   
   
   
