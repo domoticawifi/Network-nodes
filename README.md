@@ -1,20 +1,20 @@
 # Network-nodes
 
-Questo progetto vede la realizzazione, tramite Arduino, di una rete a nodi (domestica o aziendale).
-Lo scopo principale è quello di far comunicare il terminale (PC) con i nodi della rete, passando o trasmettendo informazioni.
+Questo progetto vede la realizzazione, tramite Arduino, di una rete locale (domestica o aziendale).
+Lo scopo principale è quello di far comunicare il terminale (PC) con i nodi della rete trasmettendo informazioni.
 
 ## Struttura
-Abbiamo presvisto un terminale pc, un nodo master e due nodi, schematizzati a questa maniera:
+Abbiamo presvisto un terminale PC, un nodo master e due nodi, schematizzati a questa maniera (classifichiamo questa rete come P2P):
   * Terminale (Invia e riceve le informazioni di tutta la rete)
-  * Router (Instrada le richieste fatte tra terminale e nodo master sulla rete domestica e anche quella esterna andando ad aggiornare un database)
-  * Nodo Master (Nodo formato da un modulo [ESP8266 ESP-12E](https://acrobotic.com/acr-00018) per il collegamento WI-FI con il terminale e l'invio delle informazioni sul database)
-  * Nodo1 (Nodo formato da un arduino [Arduino NANO](https://www.arduino.cc/en/Main/arduinoBoardNano) che gestisce un attuatore/relè/led e un sensore
+  * Router (Instrada le richieste fatte tra terminale e nodo master sulla rete domestica e anche quella esterna andando ad aggiornare un DB)
+  * Nodo Master (Nodo formato da un modulo [ESP8266 ESP-12E](https://acrobotic.com/acr-00018) per il collegamento WI-FI con il terminale, l'invio delle informazioni sul DB e la trasmissione di informazioni tra i vari nodi presenti nella rete locale.
+  * Nodo1 (Nodo formato da [Arduino NANO](https://www.arduino.cc/en/Main/arduinoBoardNano) che gestisce un attuatore/relè/led e un sensore
   * Nodo2 (Stessa cosa del nodo precedente)
   
-  N.B: Lo storage delle informazioni su un database, ci serve per cotrollare lo stato della rete, anche da smartphone o tablet, in remoto. 
+  N.B: Lo storage delle informazioni su un DB, ci serve per cotrollare lo stato della rete, anche da smartphone o tablet, in         remoto (Internetworking: il router fungerà da gateway).
   
 ## Comunicazioni  
-Le comunicazioni fra i nodi e il terminale avviene a questa maniera:
+Le comunicazioni fra i nodi e il terminale avviene in questa maniera:
   * Il terminale comunica con il solo Nodo Master tramite la rete WI-FI, e riceve ed invia a questo nodo le richieste da fare agli altri due nodi della rete.
   * Il nodo master comunica con il terminale, via WI-FI, e, con il nodo1, attraverso un collegamento ottico (LED IR e Sensor IR), e la stessa comunicazione avviene tra il nodo1 e nodo2
   * Ogni nodo può comunicare solamente con il suo nodo adiacente formando un ponte di nodi
@@ -22,7 +22,6 @@ Le comunicazioni fra i nodi e il terminale avviene a questa maniera:
   
 ## Schema Network
 <img src="https://i.imgbox.com/dVumVRec.png"/>
-
 Come possiamo vedere dall'immagine, abbiamo un PC, che funziona da terminale, collegato alla rete WI-FI, invia e riceve informazioni attraverso il Nodo Master.
 Il nodo master, collegato alla rete, instrada le richieste e le informazioni, mandate dal terminale e dagli altri nodi, nella giusta direzione.
 
@@ -47,10 +46,10 @@ Il nodo master, collegato alla rete, instrada le richieste e le informazioni, ma
   
 Per la gestione delle librerie clicca [QUI](https://github.com/domoticawifi/Network-nodes/blob/master/GestioneLibraryArduino.md)
 
-# Esempio di comunicazione
+# Esempio di comunicazione: Connected Oriented
 ## Terminale > Nodo Master > Nodo Interessato
 * Il PC avrà una pagina HTML, in locale, in cui sarà presente lo stato di ogni nodo
-* Se vorrà azionare un attuatore o relè di un determinato nodo, cliccerà su l'apposito bottore o link della pagina HTML
+* Se vorrà azionare un attuatore o relè di un determinato nodo, cliccerà su l'apposito bottone o link della pagina HTML
 * Verrà mandata una richiesta tramite rete WI-FI al nodo master, in cui sarà presente l'ESP8266
 * La scheda Wi-Fi riceverà la richiesta e manderà un segnale ad infrarossi al nodo adiacente
 * Il nodo adiacente riceve questo segnale e lo elabora per capire se è lui il destinatario
