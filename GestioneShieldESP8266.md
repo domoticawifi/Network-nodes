@@ -1,5 +1,14 @@
 # Gesione ESP8266
 
+## Cos'è l'ESP8266?
+L'ESP8266 è una scheda che incorpora l'uso del Wi-Fi.
+Si hanno tanti tipi di ESP8266, cambiano forme e costi, ma essenzialmente svolgono lo stesso principio.
+Per questo progetto si è utilizzato un ESP8266 ESP-12E con scheda di programmazione già integrata, per facilitarne l'utilizzo.
+<img src="https://i.imgbox.com/nPil6DJk.png"/>
+La scheda presenta 30 pin e un'alimentazione attraverso micro USB.
+Questo tipo di scheda èuò sostituire una scheda di arduino per le piccole cose, perchè dispone di pin che possono essere utilizzati per la gestione di dati di INPUT e/o OUTPUT.
+
+
 ## Come installare la scheda su Arduino
 * Installa [Arduino IDE](https://www.arduino.cc/en/main/software) 
 * Lancia l'IDE di Arduino dal tuo PC
