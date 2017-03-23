@@ -17,5 +17,27 @@ N.B: Installazione di questo pacchetto aggiuntivo per l'IDE di Arduino, comprend
 
 
 ## Come collegare la scheda ESP8266 alla rete WI-FI
+Per collegare la shield Wi-Fi, ad un router, dobbiamo seguire questi passi:
+* Collegare la shield, tramite cavo mini USB, al PC
+* Aprire l'IDE di Arduino 1.8.0 o superiori
+* Andare su strumenti e selezionale la scheda ESP8266 corrispondente a quella inserita(nel nostro caso MODE MCU 1.0)
+* Impostare la porta di collegamento seriale
+* Impostare il bound rate a 115200
+* Lanciare il [programma](https://github.com/domoticawifi/Network-nodes/blob/master/sketch_Connessione_Rete_WiFi.ino), per arduino, per la connessione
+* Inseriamo SSID della rete e Password
+* Una volta connesso, sul terminale, verrà rilasciato l'indirizzo IP della scheda
 
-IN AGGIORAMENTO...
+## Programma di lancio per il collegamento
+Analizziamo, riga per riga, il programma di lancio per il collegamento della scheda al router.
+
+N.B: abbiamo utilizzato, per le varie prove, un hotspot Wi-Fi con un HUAWEI P8. Il telefono fungeva da router...
+
+Codice:
+* Includiamo la libreria che abbiamo scaricato in precedenza, per utilizzare, più facilmente, le funzionalità della shield Wi-Fi (#include ESP8266.h)
+* Creiamo due variabili di tipo string ed andiamo ad inserire le credenziali per l'accesso al router SSID e Password
+* SSID è il nome della rete, nel nostro caso HUAWEI P8
+* La Password è quella con cui accedete al router, per andare su internet
+* Impostiamo la porta 80 per la comunicazione
+* Nel ciclo di loop è presente la parte di programma che andrà a connettere la shield al router
+* Una volta avvenuta la connessione verrà visualizzato, sulla porta seriale di arduino, l'indirizzo IP della scheda
+* La scheda risulterà collegata alla rete LAN
