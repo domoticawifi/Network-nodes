@@ -78,5 +78,16 @@ N.B: Se non dovesse esserci rete internet nella rete domestica, comunque quest'u
 Per verificare lo stato di ogni nodo, si è pensato di collegare un Display LCD o OLED. Su questo diaplay comparirà le azioni che sta eseguendo tale nodo. Esempio: Nodo1 - Display (Sto comunicando...) -> Nodo2 - Display (Sto ricevendo...)
   
   
+# Fase Operativa
+ ## Prima fase: Collegamento Scheda WI-FI ad una rete LAN
+ Come prima fase operativa, si è collegata la scheda ESP8266 alla rete LAN, formata da un semplite PC e uno smartphone.
+ Lo smartphone funge da router attraverso il collegamento hotspot Wi-Fi.
+ La semplice connessiuone Wi-Fi la trovate [qui](https://github.com/domoticawifi/Network-nodes/blob/master/GestioneShieldESP8266.md).
+ Eseguita la semplice connessione abbiamo implementato un'interfaccia grafica in HTML per comunicare i cambiamenti di stati di alcuni attuatori e relè presenti sul nodo master (attuatori e relè sono sostituiti da semplici led per facilitare i collegamenti, ma il concetto non cambia).
+ La pagina HTML viene mandata al terminale dalla scheda ESP8266 e aggiornata ogni qual volta avviene un cambiamento di stato dettato dal terminale.
+ Il terminale, per accedere a tale pagina HTML, dovrà allocarsi, tramite browser(Chrome, Firefox, Edge, ....) all'indirizzo associato alla shield Wi-Fi.
+ Il programma di lancio lo trovate qui.
+ 
+  
   
 
