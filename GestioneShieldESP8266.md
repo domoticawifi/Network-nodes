@@ -6,6 +6,7 @@
 * Vai su File > Impostazioni
 * Inserisci questo link `http://arduino.esp8266.com/stable/package_esp8266com_index.json` nelle URL aggiuntive per la gestione delle schede e clicca su OK
 * Vai su Strumenti > Gestione Schede e installa la piattaforma "ESP8266"
+* Installare la [libreria](https://github.com/googlesamples/firebase-arduino/archive/master.zip) aggiuntiva della scheda
 
 ## Come utilizzare la scheda ESP8266
 * Lancia Arduino
