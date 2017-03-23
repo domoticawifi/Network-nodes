@@ -2,8 +2,8 @@
 #include <ESP8266WiFi.h>
 
 //Definizione delle credenziali per la connessione per accedere al Router
-const char* ssid = "HUAWEI P8";
-const char* password = "pierino123";
+const char* ssid = "****";
+const char* password = "****";
 
 // Definiamo la mappatura della Shield ESP8266(Datasheet)
 #define D0 16
