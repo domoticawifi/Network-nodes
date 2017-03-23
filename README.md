@@ -93,7 +93,9 @@ Per verificare lo stato di ogni nodo, si è pensato di collegare un Display LCD 
  <img src="https://i.imgbox.com/JAIu9wio.png"/>
  Su fritzing non è presente l'ESP-12E compreso di basetta per i collegamenti e USB incorporata, ma una semplice ESP-12E.
  Con un pò di fantasia immaginiamo che questa scheda sia quella che stiamo utilizzando noi(la scheda con 30 pin), per facilitarne la spiegazione.
+ 
  *N.B: Possiamo anche non utilizzare i resistori, perchè la tensione di uscita sui pin non supera i 3volt*
+ 
  I due collegamenti che vanno ai led sono i pin D1 e D2.
  Fatto questo possiamo passare ad aggiungere una coppia di LED infrarossi-Ricevitore IR, per la comunicazione ottica con il nodo 1.
  Lo schema che andremo a realizzare sarà il seguente:
