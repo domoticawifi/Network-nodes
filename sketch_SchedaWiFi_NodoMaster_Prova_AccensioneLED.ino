@@ -7,8 +7,8 @@ const char* password = "****";
 
 // Definiamo la mappatura della Shield ESP8266(Datasheet)
 #define D0 16
-#define D1 5 // Emettitore a infrarossi
-#define D2 4 // Ricevitore a infrarossi
+#define D1 5 // LED 1
+#define D2 4 // LED 2
 #define D3 0
 #define D4 2 
 #define D5 14
