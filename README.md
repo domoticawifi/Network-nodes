@@ -83,13 +83,22 @@ Per verificare lo stato di ogni nodo, si è pensato di collegare un Display LCD 
  ## Prima fase: Collegamento Scheda WI-FI ad una rete LAN
  Come prima fase operativa, si è collegata la scheda ESP8266 alla rete LAN, formata da un semplite PC e uno smartphone.
  Lo smartphone funge da router attraverso il collegamento hotspot Wi-Fi.
- La semplice connessiuone Wi-Fi la trovate [qui](https://github.com/domoticawifi/Network-nodes/blob/master/GestioneShieldESP8266.md).
+ La connessione Wi-Fi della scheda la trovate [qui](https://github.com/domoticawifi/Network-nodes/blob/master/GestioneShieldESP8266.md).
  Eseguita la semplice connessione abbiamo implementato un'interfaccia grafica in HTML per comunicare i cambiamenti di stati di alcuni attuatori e relè presenti sul nodo master (attuatori e relè sono sostituiti da semplici led per facilitare i collegamenti, ma il concetto non cambia).
  La pagina HTML viene mandata al terminale dalla scheda ESP8266 e aggiornata ogni qual volta avviene un cambiamento di stato dettato dal terminale.
  Il terminale, per accedere a tale pagina HTML, dovrà allocarsi, tramite browser(Chrome, Firefox, Edge, ....) all'indirizzo associato alla shield Wi-Fi.
  Tale indirizzo sarà visualizzato su terminale e, in un secondo momento, su un display posizionato sul nodo.
  Il programma di lancio lo trovate [qui](https://github.com/domoticawifi/Network-nodes/blob/master/sketch_SchedaWiFi_NodoMaster_Prova_AccensioneLED.ino).
- Fatto questo possiamo passare alla fase di comunicazione ottica, per poter far comunicare i nodi adiacenti.
+ Ecco i collegamenti attraverso questo schema:
+ <img src="https://i.imgbox.com/JAIu9wio.png"/>
+ Su fritzing non è presente l'ESP-12E compreso di basetta per i collegamenti e USB incorporata, ma una semplice ESP-12E.
+ Con un pò di fantasia immaginiamo che questa scheda sia quella che stiamo utilizzando noi(la scheda con 30 pin), per facilitarne la spiegazione.
+ I due collegamenti che vanno ai led sono i pin D1 e D2.
+ Fatto questo possiamo passare ad aggiungere una coppia di LED infrarossi-Ricevitore IR, per la comunicazione ottica con il nodo 1.
+ Lo schema che andremo a realizzare sarà il seguente:
+ <img src="https://i.imgbox.com/25MNds3H.png"/>
+ Una volta realizzato il seguente collegamento ed effetuata la connessione ottica, con relativo programma di gestione, sarà possibile unire i due circuiti per realizzarne uno solo; così facendo otterremmo il nostro Nodo Master.
+ 
  
  ## Seconda fase: Collegamento Ottico Nodo Master -> Nodo 1
  
