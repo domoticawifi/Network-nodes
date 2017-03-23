@@ -79,6 +79,7 @@ Per verificare lo stato di ogni nodo, si è pensato di collegare un Display LCD 
   
   
 # Fase Operativa
+
  ## Prima fase: Collegamento Scheda WI-FI ad una rete LAN
  Come prima fase operativa, si è collegata la scheda ESP8266 alla rete LAN, formata da un semplite PC e uno smartphone.
  Lo smartphone funge da router attraverso il collegamento hotspot Wi-Fi.
@@ -86,7 +87,13 @@ Per verificare lo stato di ogni nodo, si è pensato di collegare un Display LCD 
  Eseguita la semplice connessione abbiamo implementato un'interfaccia grafica in HTML per comunicare i cambiamenti di stati di alcuni attuatori e relè presenti sul nodo master (attuatori e relè sono sostituiti da semplici led per facilitare i collegamenti, ma il concetto non cambia).
  La pagina HTML viene mandata al terminale dalla scheda ESP8266 e aggiornata ogni qual volta avviene un cambiamento di stato dettato dal terminale.
  Il terminale, per accedere a tale pagina HTML, dovrà allocarsi, tramite browser(Chrome, Firefox, Edge, ....) all'indirizzo associato alla shield Wi-Fi.
- Il programma di lancio lo trovate qui.
+ Tale indirizzo sarà visualizzato su terminale e, in un secondo momento, su un display posizionato sul nodo.
+ Il programma di lancio lo trovate [qui](https://github.com/domoticawifi/Network-nodes/blob/master/sketch_SchedaWiFi_NodoMaster_Prova_AccensioneLED.ino).
+ Fatto questo possiamo passare alla fase di comunicazione ottica, per poter far comunicare i nodi adiacenti.
+ 
+ ## Seconda fase: Collegamento Ottico Nodo Master -> Nodo 1
+ 
+ ## Terza fase: Collegamneto Ottico Nodo Master -> Nodo 1 -> Nodo 2
  
   
   
