@@ -115,11 +115,17 @@ Ecco i collegamenti:
  
  
  ## Seconda fase: Collegamento Ottico Nodo Master -> Nodo 1
+ Per questa fase, avremo la comunicazione fra due nodi, quindi dividiamola, per semplicità in due sotto-fasi.
+ 
+ ### *Nodo Master: Collegamento Ottico*
  Lo schema che andremo a realizzare sarà il seguente:
  <img src="https://i.imgbox.com/25MNds3H.png"/>
- Una volta realizzato il seguente collegamento ed effetuata la connessione ottica, con relativo programma di gestione, sarà possibile unire i due circuiti per realizzarne uno solo; così facendo otterremmo il nostro Nodo Master.
+ Tale schema dovrà essere incorporato con lo schema della prima fase; così facendo avremmo il nostro Nodo Master completo!
  
  *N.B: Possiamo anche non utilizzare i resistori, perchè la tensione di uscita sui pin non supera i 3volt. Se dovessimo usare resistenze alte la luce risulterebbe più fievole, comportando un possibile ostacolo alla comunicazione*
+ 
+ 
+ ### *Nodo 1: Collegamento Ottico*
  
  
  ## Terza fase: Collegamneto Ottico Nodo Master -> Nodo 1 -> Nodo 2
