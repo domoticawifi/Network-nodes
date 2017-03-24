@@ -109,14 +109,18 @@ Ecco i collegamenti:
  
  
  Fatto questo possiamo passare ad aggiungere una coppia di LED infrarossi-Ricevitore IR, per la comunicazione ottica con il nodo 1.
+  
+ 
+ *N.B: Possiamo anche non utilizzare i resistori, perchè la tensione di uscita sui pin non supera i 3volt.*
+ 
+ 
+ ## Seconda fase: Collegamento Ottico Nodo Master -> Nodo 1
  Lo schema che andremo a realizzare sarà il seguente:
  <img src="https://i.imgbox.com/25MNds3H.png"/>
  Una volta realizzato il seguente collegamento ed effetuata la connessione ottica, con relativo programma di gestione, sarà possibile unire i due circuiti per realizzarne uno solo; così facendo otterremmo il nostro Nodo Master.
  
  *N.B: Possiamo anche non utilizzare i resistori, perchè la tensione di uscita sui pin non supera i 3volt. Se dovessimo usare resistenze alte la luce risulterebbe più fievole, comportando un possibile ostacolo alla comunicazione*
  
- 
- ## Seconda fase: Collegamento Ottico Nodo Master -> Nodo 1
  
  ## Terza fase: Collegamneto Ottico Nodo Master -> Nodo 1 -> Nodo 2
  
