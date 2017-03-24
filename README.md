@@ -14,6 +14,7 @@ Abbiamo presvisto un terminale PC, un nodo master e due nodi, schematizzati a qu
   *N.B: Lo storage delle informazioni su un DB, ci serve per cotrollare lo stato della rete, anche da smartphone o tablet, in         remoto (Internetworking: il router fungerà da gateway).
   Il Nodo Master può essere provvisto di attuatori e sensori.*
   
+____________________________________________________________________________________________  
 # Comunicazioni  
 Le comunicazioni fra i nodi e il terminale avviene in questa maniera:
   * Il terminale comunica con il solo Nodo Master tramite la rete WI-FI, e riceve ed invia a questo nodo le richieste da fare agli altri due nodi della rete.
@@ -22,6 +23,7 @@ Le comunicazioni fra i nodi e il terminale avviene in questa maniera:
   * Se il terminale deve contattare il Nodo2, la sua richiesta passerà prima a tutti i nodi
   
 ## Esempio di comunicazione: Connected Oriented
+
 ## Terminale > Nodo Master > Nodo Interessato
 * Il PC avrà una pagina HTML, in locale, in cui sarà presente lo stato di ogni nodo(attuatori ON/OFF e sensori)
 * Se vorrà azionare un attuatore e/o relè di un determinato nodo, cliccerà su l'apposito radio-button della pagina HTML
@@ -33,8 +35,7 @@ Le comunicazioni fra i nodi e il terminale avviene in questa maniera:
 * Verrà mandato, in ritorno, l'avvenuta/o accensione/spegnimento
 * Il messaggio di ritorno arriverà fino al nodo master che darà in risposta al PC un'altra pagina HTML aggiornata
 * Il Nodo Master, successivamente, manderà questo dato sul database per poterlo consultare in remoto tramite smartphone
-* Il PC riceverà la pagina HTML aggiornata e vedrà lo stato attuale di tutti i nodi per una prossima operazione
-  
+* Il PC riceverà la pagina HTML aggiornata e vedrà lo stato attuale di tutti i nodi per una prossima operazione  
 ## Nodo Master > Nodo Interessato
 * Il Nodo Master avrà un proprio indirizzo IP nella rete (es: 192.168.1.100)
 * Il Nodo Master riceve la richiesta dal PC da instradare al giusto nodo
@@ -52,8 +53,8 @@ Le comunicazioni fra i nodi e il terminale avviene in questa maniera:
 *N.B: Se non dovesse esserci rete internet nella rete domestica, comunque quest'ultima non ne risentirebbe e continuerebbe ad operare. Il database verrà aggiornato appena sarà presente una connessione in uscita.
 Per verificare lo stato di ogni nodo, si è pensato di collegare un Display LCD o OLED. Su questo display comparirà le azioni che sta eseguendo tale nodo. Esempio: Nodo1 - Display (Sto comunicando...) -> Nodo2 - Display (Sto ricevendo...)  *
 
-
-## Schema Network
+___________________________________________________________________________________
+# Schema Network
 <img src="https://i.imgbox.com/dVumVRec.png"/>
 Come possiamo vedere dall'immagine, abbiamo un PC, che funziona da terminale, collegato alla rete WI-FI, invia e riceve informazioni attraverso il Nodo Master.
 Il nodo master, collegato alla rete, instrada le richieste e le informazioni, mandate dal terminale e dagli altri nodi, nella giusta direzione.
@@ -80,7 +81,7 @@ Il nodo master, collegato alla rete, instrada le richieste e le informazioni, ma
 Per l'installazione e la gestione delle librerie clicca [QUI](https://github.com/domoticawifi/Network-nodes/blob/master/GestioneLibraryArduino.md)
 
 
-  
+________________________________________________________________________________________  
   
 # Fase Operativa
 
