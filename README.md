@@ -100,7 +100,14 @@ Ecco i collegamenti:
  Su Fritzing non è presente l'ESP-12E compreso di basetta per i collegamenti e USB incorporata, ma una semplice ESP-12E.
  Con un pò di fantasia immaginiamo che questa scheda sia quella che stiamo utilizzando noi(la scheda con 30 pin), per facilitarne la spiegazione.
  
- I due collegamenti che vanno ai led sono i pin D1 e D2.
+ I due collegamenti che vanno ai led sono i pin D1 e D2
+ 
+ Ecco una foto dei collegamenti su breadbord:
+ <img src="https://i.imgbox.com/CCOwCYoq.jpg"/>
+ Purtroppo la shield Wi-Fi ha una larghezza che va ha coprire tutta la breadbord e per facilitare i collegamneti abbiamo utilizzato dei jumper.
+ Dalla foto risulta acceso il led 2, questo perchè abbiamo attivato, attraverso la pagina HTML visualizzata dal PC, l'accensione del led 2(Che rappresenta un semplice relè).
+ 
+ 
  Fatto questo possiamo passare ad aggiungere una coppia di LED infrarossi-Ricevitore IR, per la comunicazione ottica con il nodo 1.
  Lo schema che andremo a realizzare sarà il seguente:
  <img src="https://i.imgbox.com/25MNds3H.png"/>
