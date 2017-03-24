@@ -11,15 +11,48 @@ Abbiamo presvisto un terminale PC, un nodo master e due nodi, schematizzati a qu
   * Nodo1 (Nodo formato da [Arduino NANO](https://www.arduino.cc/en/Main/arduinoBoardNano) che gestisce un attuatore/relè/led e un sensore
   * Nodo2 (Stessa cosa del nodo precedente)
   
-  N.B: Lo storage delle informazioni su un DB, ci serve per cotrollare lo stato della rete, anche da smartphone o tablet, in         remoto (Internetworking: il router fungerà da gateway).
+  *N.B: Lo storage delle informazioni su un DB, ci serve per cotrollare lo stato della rete, anche da smartphone o tablet, in         remoto (Internetworking: il router fungerà da gateway).
+  Il Nodo Master può essere provvisto di attuatori e sensori.*
   
-## Comunicazioni  
+# Comunicazioni  
 Le comunicazioni fra i nodi e il terminale avviene in questa maniera:
   * Il terminale comunica con il solo Nodo Master tramite la rete WI-FI, e riceve ed invia a questo nodo le richieste da fare agli altri due nodi della rete.
-  * Il nodo master comunica con il terminale, via WI-FI, e, con il nodo1, attraverso un collegamento ottico (LED IR e Sensor IR), e la stessa comunicazione avviene tra il nodo1 e nodo2
+  * Il Nodo Master comunica con il terminale, via WI-FI, e, con il Nodo1, attraverso un collegamento ottico (LED IR e Sensor IR), e la stessa comunicazione avviene tra il Nodo1 e Nodo2
   * Ogni nodo può comunicare solamente con il suo nodo adiacente formando un ponte di nodi
-  * Se il terminale deve contattare il nodo2, la sua richiesta passerà prima a tutti i nodi
+  * Se il terminale deve contattare il Nodo2, la sua richiesta passerà prima a tutti i nodi
   
+## Esempio di comunicazione: Connected Oriented
+## Terminale > Nodo Master > Nodo Interessato
+* Il PC avrà una pagina HTML, in locale, in cui sarà presente lo stato di ogni nodo(attuatori ON/OFF e sensori)
+* Se vorrà azionare un attuatore e/o relè di un determinato nodo, cliccerà su l'apposito radio-button della pagina HTML
+* Verrà mandata una richiesta tramite rete WI-FI al Nodo Master, in cui sarà presente l'ESP8266
+* La scheda Wi-Fi riceverà la richiesta, la elaborerà e controllerà se il dato dovà essere mandato, tramite segnale infrarossi, al nodo adiacente
+* Il nodo adiacente riceve questo segnale e lo elabora per capire se è lui il destinatario
+* Se così non fosse lo manda all'altro nodo adiacente con il collegamento ottico
+* Quando il messaggio è arrivato a destinazione, la scheda arduino presente su tale nodo spegnerà/accenderà l'attuatore o relè
+* Verrà mandato, in ritorno, l'avvenuta/o accensione/spegnimento
+* Il messaggio di ritorno arriverà fino al nodo master che darà in risposta al PC un'altra pagina HTML aggiornata
+* Il Nodo Master, successivamente, manderà questo dato sul database per poterlo consultare in remoto tramite smartphone
+* Il PC riceverà la pagina HTML aggiornata e vedrà lo stato attuale di tutti i nodi per una prossima operazione
+  
+## Nodo Master > Nodo Interessato
+* Il Nodo Master avrà un proprio indirizzo IP nella rete (es: 192.168.1.100)
+* Il Nodo Master riceve la richiesta dal PC da instradare al giusto nodo
+* Il Nodo Master comunicherà con il Nodo1, essendo il suo adiacente
+* Verrà mandato un segnale ottico al Nodo1 per informarlo che sta per avvenire una trasmissione
+* Il Nodo1 accetta questa trasmissione(ACK)
+* Il Nodo Master invia il dato seguito dalla chiusura della comunicazione
+* Il Nodo1 riceve questo dato e la chiusura, in modo da capire che tutto è andato a buon fine, se così non fosse fa ristrasmettere il dato
+* Il Nodo1 elabora questo dato e capisce se appartiene a lui altrimenti lo manda, alla stessa maniera della prima comunicazione, al nodo adiacente (Nodo2)
+* Elaborato il dato ed eseguita la modifica su tale nodo, il Nodo1 manda un messaggio ottico al Nodo Master per informarli che sta per trasmettere
+* Il Nodo Master accetta(ACK) e il Nodo1 comincia a trasmettere il dato seguito dalla chiusura
+* Così come il Nodo1 ha elaborato il dato all'andata, il Nodo Master lo farà per il ritorno
+* Una volta chiusa la comunicazione il Nodo Master aggiorna la pagina HTML e comunica il cambiamento al database
+
+*N.B: Se non dovesse esserci rete internet nella rete domestica, comunque quest'ultima non ne risentirebbe e continuerebbe ad operare. Il database verrà aggiornato appena sarà presente una connessione in uscita.
+Per verificare lo stato di ogni nodo, si è pensato di collegare un Display LCD o OLED. Su questo display comparirà le azioni che sta eseguendo tale nodo. Esempio: Nodo1 - Display (Sto comunicando...) -> Nodo2 - Display (Sto ricevendo...)  *
+
+
 ## Schema Network
 <img src="https://i.imgbox.com/dVumVRec.png"/>
 Come possiamo vedere dall'immagine, abbiamo un PC, che funziona da terminale, collegato alla rete WI-FI, invia e riceve informazioni attraverso il Nodo Master.
@@ -44,38 +77,9 @@ Il nodo master, collegato alla rete, instrada le richieste e le informazioni, ma
   * [Libreria gestione segnale IR](https://www.pjrc.com/teensy/arduino_libraries/IRremote.zip)
   * [Libreria gestione Display LCD](https://www.dropbox.com/s/62x4w48kwf5biko/LiquidCrystalI2C.zip?dl=0)
   
-Per la gestione delle librerie clicca [QUI](https://github.com/domoticawifi/Network-nodes/blob/master/GestioneLibraryArduino.md)
+Per l'installazione e la gestione delle librerie clicca [QUI](https://github.com/domoticawifi/Network-nodes/blob/master/GestioneLibraryArduino.md)
 
-# Esempio di comunicazione: Connected Oriented
-## Terminale > Nodo Master > Nodo Interessato
-* Il PC avrà una pagina HTML, in locale, in cui sarà presente lo stato di ogni nodo
-* Se vorrà azionare un attuatore o relè di un determinato nodo, cliccerà su l'apposito bottone o link della pagina HTML
-* Verrà mandata una richiesta tramite rete WI-FI al nodo master, in cui sarà presente l'ESP8266
-* La scheda Wi-Fi riceverà la richiesta e manderà un segnale ad infrarossi al nodo adiacente
-* Il nodo adiacente riceve questo segnale e lo elabora per capire se è lui il destinatario
-* Se così non fosse lo manda all'altro nodo adiacente con il collegamento ottico
-* Quando il messaggio è arrivato a destinazione, l'arduino presente su tale nodo spegnerà/accenderà l'attuatore o relè
-* Verrà mandato, in ritorno, l'avvenuta/o accensione/spegnimento
-* Il messaggio di ritorno arriverà fino al nodo master che darà in risposta al PC un'altra pagina HTML aggiornata
-* Il nodo master, successivamente, manderà questo dato sul database per poterlo consultare in remoto tramite smartphone
-* Il pc riceverà la pagina HTML aggiornata e vedrà lo stato attuale di tutti i nodi per una prossima operazione
-  
-## Nodo Master > Nodo Interessato
-* Il nodo master avrà un proprio indirizzo IP nella rete (es: 192.168.1.100)
-* Il nodo master riceve la richiesta dal PC da instradare al giusto nodo
-* Il nodo master comunicherà con il nodo1, essendo il suo adiacente
-* Verrà mandato un segnale ottico al nodo1 per informarlo che sta per avvenire una trasmissione
-* Il nodo1 accetta questa trasmissione
-* Il nodo master invia il dato seguito dalla chiusura della comunicazione
-* Il nodo1 riceve questo dato e la chiusura, in modo da capire che tutto è andato nel modo giusto, se così non fosse fa ristrasmettere il dato
-* Il nodo1 elabora questo dato e capisce se appartiene a lui altrimenti lo manda, alla stessa maniera della prima comunicazione, al nodo adiacente (nodo2)
-* Elaborato il dato ed eseguita la modifica su tale nodo, il nodo1 manda un messaggio ottico al nodo master per informarli che sta per trasmettere
-* Il nodo master accetta e il nodo1 comincia a trasmettere il dato seguito dalla chiusura
-* Così come il nodo1 ha elaborato il dato all'andata, il nodo master lo farà per il ritorno
-* Una volta chiusa la comunicazione il nodo master aggiorna la pagina HTML e comunica il cambiamneto al database
 
-N.B: Se non dovesse esserci rete internet nella rete domestica, comunque quest'ultima non ne risentirebbe e continuerebbe ad operare. Il database verrà aggiornato appena sarà presente una connessione in uscita.
-Per verificare lo stato di ogni nodo, si è pensato di collegare un Display LCD o OLED. Su questo diaplay comparirà le azioni che sta eseguendo tale nodo. Esempio: Nodo1 - Display (Sto comunicando...) -> Nodo2 - Display (Sto ricevendo...)
   
   
 # Fase Operativa
