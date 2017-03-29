@@ -100,7 +100,9 @@ Ecco i collegamenti:
  Su Fritzing non è presente l'ESP-12E compreso di basetta per i collegamenti e USB incorporata, ma una semplice ESP-12E.
  Con un pò di fantasia immaginiamo che questa scheda sia quella che stiamo utilizzando noi(la scheda con 30 pin), per facilitarne la spiegazione.
  
- I due collegamenti che vanno ai led sono i pin D1 e D2
+ I due collegamenti che vanno ai led sono i pin D1 e D2.
+ 
+ *N.B: Nella seconda fase lasceremo solo un led che rappresenterà un solo relè/attuatore, perchè abbiamo poca disponibilità di piedini nella ESP-12E. In questo caso il led sarà collegato al piedino D3; i piedini D1 e D2 saranno riservati al display lcd I2C.
  
  Ecco una foto dei collegamenti su breadbord:
  <img src="https://i.imgbox.com/CCOwCYoq.jpg"/>
