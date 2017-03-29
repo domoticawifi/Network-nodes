@@ -127,7 +127,6 @@ Ecco i collegamenti:
  <img src="https://i.imgbox.com/zCAaPlCH.png"/>
  
  I collegamenti sono i seguenti:
- ------------------------
  <table align='center'>
   <tr align='center'>
    <td> </td>
@@ -157,6 +156,22 @@ Ecco i collegamenti:
  
  ### *Nodo 1: Collegamento Ottico*
  <img src="https://i.imgbox.com/YX0SWJy9.png"/>
+ 
+ *N.B:Può essere usato, tranquillamente, Arduino UNO! Arduino Nano è esattamente uguale(tranne nella dimensione) ad Arduino UNO!
+ 
+ Per le prime prove, si è installato, sui due nodi, un emettitore(Nodo Master) e un sensore infrarossi(Nodo 1), per verificare che la comunicazione avvenga.
+ Si è inviato un piccolo dato, sottoforma di codifica NEC, dal Nodo Master al Nodo 1. Si hanno a disposizione tanti tipi di codifica: NEC, Sony, Sharp e tante altre...
+ Il punto che va a favore è che si sa già che dato potrebbe arrivare, questo perchè possono verificarsi solo queste situazioni:
+ * Attivazione Relè Nodo 1
+ * Attivazione Attuatore Nodo 1
+ * Attivazione Relè Nodo 2
+ * Attivazione Attuatore Nodo 2
+Quindi i segnali che possono essere inoltrato dall'emmettitore IR(Nodo Master) sono essenzialmente 4.
+A questi ce da aggiungere un soolo segnale di ritorno(Nodo 1, Nodo 2) che verifica la corretta ricezione del dato.
+
+Procediamo per gradi...
+
+
  
  
  ## Terza fase: Collegamneto Ottico Nodo Master -> Nodo 1 -> Nodo 2
