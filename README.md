@@ -122,7 +122,29 @@ Ecco i collegamenti:
  ### *Nodo Master: Collegamento Ottico*
  Lo schema che andremo a realizzare sarà il seguente:
  <img src="https://i.imgbox.com/25MNds3H.png"/>
+ 
  Tale schema dovrà essere incorporato con lo schema della prima fase; così facendo avremmo il nostro Nodo Master completo!
+ <img src="https://i.imgbox.com/zCAaPlCH.png"/>
+ 
+ I collegamenti sono i seguenti:
+ ------------------------
+ <table align='center'>
+  <tr>
+   <td> </td>
+   <td>DISPLAY</td>
+   <td>LED</td>
+   <td>EMETTITORE IR</td>
+   <td>RICEVITORE IR</td>
+  </tr>
+  <tr>
+   <td>ESP8266</td>
+   <td>D1, D2</td>
+   <td>D3</td>
+   <td>D0</td>
+   <td>D4</td>
+   </tr>
+ </table>
+  
  
  *N.B: Possiamo anche non utilizzare i resistori, perchè la tensione di uscita sui pin non supera i 3volt. Se dovessimo usare resistenze alte la luce risulterebbe più fievole, comportando un possibile ostacolo alla comunicazione*
  
