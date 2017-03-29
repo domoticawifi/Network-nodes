@@ -151,8 +151,12 @@ Ecco i collegamenti:
  
  *N.B: Possiamo anche non utilizzare i resistori, perchè la tensione di uscita sui pin non supera i 3volt. Se dovessimo usare resistenze alte la luce risulterebbe più fievole, comportando un possibile ostacolo alla comunicazione*
  
+ Da aggiungere all'occorrente software, per la realizzazione del Nodo Master, è la libreria per la gestione dei segnali infrarossi per la shield ESP8266 (purtroppo non può essere utilizzata la stessa libreria di arduino!).
+ Possiamo scaricarla da [qui](https://github.com/markszabo/IRremoteESP8266/), dove è presente una piccola guida per l'installazione.
+ 
  
  ### *Nodo 1: Collegamento Ottico*
+ <img src="https://i.imgbox.com/YX0SWJy9.png"/>
  
  
  ## Terza fase: Collegamneto Ottico Nodo Master -> Nodo 1 -> Nodo 2
