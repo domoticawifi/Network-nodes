@@ -102,7 +102,7 @@ Ecco i collegamenti:
  
  I due collegamenti che vanno ai led sono i pin D1 e D2.
  
- *N.B: Nella seconda fase lasceremo solo un led che rappresenterà un solo relè/attuatore, perchè abbiamo poca disponibilità di piedini nella ESP-12E. In questo caso il led sarà collegato al piedino D3; i piedini D1 e D2 saranno riservati al display lcd I2C.
+ *N.B: Nella seconda fase lasceremo solo un led che rappresenterà un solo relè/attuatore, perchè abbiamo poca disponibilità di piedini nella ESP-12E. In questo caso il led sarà collegato al piedino D3; i piedini D1 e D2 saranno riservati al display lcd I2C.*
  
  Ecco una foto dei collegamenti su breadbord:
  <img src="https://i.imgbox.com/CCOwCYoq.jpg"/>
