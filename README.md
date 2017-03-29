@@ -129,14 +129,14 @@ Ecco i collegamenti:
  I collegamenti sono i seguenti:
  ------------------------
  <table align='center'>
-  <tr>
+  <tr align='center'>
    <td> </td>
    <td>DISPLAY</td>
    <td>LED</td>
    <td>EMETTITORE IR</td>
    <td>RICEVITORE IR</td>
   </tr>
-  <tr>
+  <tr align='center'>
    <td>ESP8266</td>
    <td>D1, D2</td>
    <td>D3</td>
@@ -144,6 +144,9 @@ Ecco i collegamenti:
    <td>D4</td>
    </tr>
  </table>
+ 
+ Così facendo occuperemo tutti i pin disponibili.
+ Purtroppo ESP-12E non ha tanti pin da poter essere utilizzati, perchè gli altri sono tutti gestiti dalla scheda stessa.
   
  
  *N.B: Possiamo anche non utilizzare i resistori, perchè la tensione di uscita sui pin non supera i 3volt. Se dovessimo usare resistenze alte la luce risulterebbe più fievole, comportando un possibile ostacolo alla comunicazione*
