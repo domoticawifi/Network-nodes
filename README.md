@@ -161,19 +161,26 @@ Ecco i collegamenti:
  
  Per le prime prove, si è installato, sui due nodi, un emettitore(Nodo Master) e un sensore infrarossi(Nodo 1), per verificare che la comunicazione avvenga.
  Si è inviato un piccolo dato, sottoforma di codifica NEC, dal Nodo Master al Nodo 1. Si hanno a disposizione tanti tipi di codifica: NEC, Sony, Sharp e tante altre...
+ 
+ Nel nostro caso ogni nodo avrà almeno una coppia led-sensore per l'invio e ricezione infrarossi, quindi il procedimento è più complesso.
  Il punto che va a favore è che si sa già che dato potrebbe arrivare, questo perchè possono verificarsi solo queste situazioni:
  * Attivazione Relè Nodo 1
  * Attivazione Attuatore Nodo 1
  * Attivazione Relè Nodo 2
  * Attivazione Attuatore Nodo 2
  
-Quindi i segnali che possono essere inoltrato dall'emmettitore IR(Nodo Master) sono essenzialmente 4.
-A questi ce da aggiungere un soolo segnale di ritorno(Nodo 1, Nodo 2) che verifica la corretta ricezione del dato.
+Quindi i segnali che possono essere inoltrato dall'emmettitore IR(Nodo Master) sono essenzialmente 4; a questi ce da aggiungere un solo segnale di ritorno(Nodo 1, Nodo 2) che verifica la corretta ricezione del dato.
 
 Procediamo per gradi...
 
+* Il Nodo 1 riceve un dato dal Nodo Master attraverso la comunicazione infrarossi
+* Il Nodo Master, una volta inviato il dato, rimane in ascolto per l'ok(ACK)
+* Il Nodo 1 elabora tale dato e verifica se può usarlo
+* Se può usarlo, lo elabora eìd esegue un comando. Fatto questo manda l'ok al Nodo Master
+* Se non può usarlo manda al Nodo Master un dato per il rinvio del dato(il dato potrebbe essere corrotto)
+* Il Nodo Master, in base alla risposta del Nodo 1, ritrasmette il dato oppure chiude la comunicazione
 
- 
+Tutto questo dovrà essere implementato con un elegante e bell'algoritmo. 
  
  ## Terza fase: Collegamneto Ottico Nodo Master -> Nodo 1 -> Nodo 2
  
