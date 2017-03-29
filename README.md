@@ -181,6 +181,7 @@ Procediamo per gradi...
 * Il Nodo Master, in base alla risposta del Nodo 1, ritrasmette il dato oppure chiude la comunicazione
 
 Tutto questo dovrà essere implementato con un elegante e bell'algoritmo. 
+<img src="https://i.imgbox.com/9DhB1g8O.png"/>
  
  ## Terza fase: Collegamneto Ottico Nodo Master -> Nodo 1 -> Nodo 2
  
