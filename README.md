@@ -181,7 +181,13 @@ Procediamo per gradi...
 * Il Nodo Master, in base alla risposta del Nodo 1, ritrasmette il dato oppure chiude la comunicazione
 
 Tutto questo dovrà essere implementato con un elegante e bell'algoritmo. 
+
 <img src="https://i.imgbox.com/9DhB1g8O.png"/>
+
+Questo è il flow chart che dovrà eseguire il Nodo Master una volta inviato il dato.
+Il Nodo 1 dovrè elaborare il dato inviato e mandarli la conferma.
+
+*N.B: Se dovesse passare un certo lasso di tempo(comunicazione interrotta) la comunicazione si interrompe!*
  
  ## Terza fase: Collegamneto Ottico Nodo Master -> Nodo 1 -> Nodo 2
  
