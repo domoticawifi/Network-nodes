@@ -213,7 +213,7 @@ Procediamo per gradi...
 * Il Nodo 1 riceve un dato dal Nodo Master attraverso la comunicazione infrarossi
 * Il Nodo Master, una volta inviato il dato, rimane in ascolto per l'ok(ACK)
 * Il Nodo 1 elabora tale dato e verifica se può usarlo
-* Se può usarlo, lo elabora eìd esegue un comando. Fatto questo manda l'ok al Nodo Master
+* Se può usarlo, lo elabora ed esegue un comando. Fatto questo manda l'ok al Nodo Master
 * Se non può usarlo manda al Nodo Master un dato per il rinvio del dato(il dato potrebbe essere corrotto)
 * Il Nodo Master, in base alla risposta del Nodo 1, ritrasmette il dato oppure chiude la comunicazione
 
