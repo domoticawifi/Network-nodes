@@ -158,7 +158,7 @@ Ecco i collegamenti:
  
  
  ### *Nodo 1: Collegamento Ottico*
- <img src="https://5-t.imgbox.com/LUux2KCv.jpg"/>
+ <img src="https://i.imgbox.com/LUux2KCv.png"/>
  
  *N.B:Può essere usato, tranquillamente, Arduino UNO! Arduino Nano è esattamente uguale(tranne nella dimensione) ad Arduino UNO! Noi per le prove abbiamo utilizzato Arduino UNO per comodità...*
  
