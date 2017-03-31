@@ -150,14 +150,51 @@ Ecco i collegamenti:
  
  *N.B: Possiamo anche non utilizzare i resistori, perchè la tensione di uscita sui pin non supera i 3volt. Se dovessimo usare resistenze alte la luce risulterebbe più fievole, comportando un possibile ostacolo alla comunicazione*
  
+ *Durante i collegamneti e i test abbiamo riscontrato un problema! Non sappiamo a cosa sia dovuto, ma se dovessimo alimentare il sensore IR ai 5v della shield Wi-Fi, i dati sono molto corrotti! Utilizzando l'alimentazione di Arduino i risultati sono migliori... comunque abbiamo dei piccoli problemi, dovuti a disturbi e alla scarsa schermatura, nel rilevare il valore dal sensore. Spiegheremo questo più avanti...*
+ 
+ 
  Da aggiungere all'occorrente software, per la realizzazione del Nodo Master, è la libreria per la gestione dei segnali infrarossi per la shield ESP8266 (purtroppo non può essere utilizzata la stessa libreria di arduino!).
  Possiamo scaricarla da [qui](https://github.com/markszabo/IRremoteESP8266/), dove è presente una piccola guida per l'installazione.
  
  
  ### *Nodo 1: Collegamento Ottico*
- <img src="https://i.imgbox.com/YX0SWJy9.png"/>
+ <img src="https://5-t.imgbox.com/LUux2KCv.jpg"/>
  
- *N.B:Può essere usato, tranquillamente, Arduino UNO! Arduino Nano è esattamente uguale(tranne nella dimensione) ad Arduino UNO!*
+ *N.B:Può essere usato, tranquillamente, Arduino UNO! Arduino Nano è esattamente uguale(tranne nella dimensione) ad Arduino UNO! Noi per le prove abbiamo utilizzato Arduino UNO per comodità...*
+ 
+ Connessioni:
+ 
+ <table>
+ <tr align='center'>
+  <td>Arduino UNO/NANO</td>
+  <td> </td>
+ </tr>
+ <tr>
+  <td>PIN 2</td>
+  <td>Relè</td>
+ </tr>
+ <tr>
+  <td>PIN 3 </td>
+  <td>Emettitore LED IR</td>
+ </tr>
+ <tr>
+  <td>PIN 4 </td>
+  <td>Attuatore</td>
+ </tr>
+ <tr>
+  <td>PIN 8 </td>
+  <td>Ricevitore IR</td>
+ </tr>
+ <tr>
+  <td>5v </td>
+  <td>Breadboard</td>
+ </tr>
+ <tr>
+  <td>GND </td>
+  <td>Breadboard</td>
+ </tr>
+</table>
+ 
  
  Per le prime prove, si è installato, sui due nodi, un emettitore(Nodo Master) e un sensore infrarossi(Nodo 1), per verificare che la comunicazione avvenga.
  Si è inviato un piccolo dato, sottoforma di codifica NEC, dal Nodo Master al Nodo 1. Si hanno a disposizione tanti tipi di codifica: NEC, Sony, Sharp e tante altre...
@@ -188,6 +225,12 @@ Questo è il flow chart che dovrà eseguire il Nodo Master una volta inviato il 
 Il Nodo 1 dovrè elaborare il dato inviato e mandarli la conferma.
 
 *N.B: Se dovesse passare un certo lasso di tempo(comunicazione interrotta) la comunicazione si interrompe!*
+
+________________________________________
+
+Una volta eseguiti tutti i collegamenti, possiamo eseguire i programmi dei due nodi:
+* [Programma Nodo Master](https://github.com/domoticawifi/Network-nodes/blob/master/Nodo%20Master(Comunicazione%201%20Nodo).ino)
+* [Programma Nodo 1](https://github.com/domoticawifi/Network-nodes/blob/master/Nodo%201%20-%20Comunicazione%201%20Nodo.ino)
  
  ## Terza fase: Collegamneto Ottico Nodo Master -> Nodo 1 -> Nodo 2
  
