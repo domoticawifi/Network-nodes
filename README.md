@@ -51,7 +51,7 @@ Le comunicazioni fra i nodi e il terminale avviene in questa maniera:
 * Una volta chiusa la comunicazione il Nodo Master aggiorna la pagina HTML e comunica il cambiamento al database
 
 *N.B: Se non dovesse esserci rete internet nella rete domestica, comunque quest'ultima non ne risentirebbe e continuerebbe ad operare. Il database verrà aggiornato appena sarà presente una connessione in uscita.
-Per verificare lo stato di ogni nodo, si è pensato di collegare un Display LCD o OLED. Su questo display comparirà le azioni che sta eseguendo tale nodo. Esempio: Nodo1 - Display (Sto comunicando...) -> Nodo2 - Display (Sto ricevendo...)  *
+Per verificare lo stato di ogni nodo, si è pensato di collegare un Display LCD o OLED. Su questo display comparirà le azioni che sta eseguendo tale nodo. Esempio: Nodo1 - Display (Sto comunicando...) -> Nodo2 - Display (Sto ricevendo...)*
 
 ___________________________________________________________________________________
 # Schema Network
