@@ -253,6 +253,10 @@ Il compito del Nodo Master è quello di un server web e di un comunicatore di in
 Potremmo risolvere questo problema mandando in ritorno una pagina con un WARNING di comunicazione attraverso un javascript.
 purtroppo non possiamo prevenire ostacoli durante la comunicazione, ma su 100 comunicazione provate, solamente un 10%, ostacolando il flusso durante l'invio, non ha ricevuto l'ACK!*
 
+<img src="https://i.imgbox.com/mrTsEoQf.jpg"/></a>
+
+Come dicevamo in precedenza: il terzo arduino serve solo per alimentare il ricevitore del Nodo Master e in secondo a prelevare i valori del sensore, solamente per essere testati.
+
  
  ## Terza fase: Collegamneto Ottico Nodo Master -> Nodo 1 -> Nodo 2
  
