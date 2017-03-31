@@ -246,10 +246,10 @@ Con il lancio di questi due programmi otteniamo il risultato voluto:
 
 Il compito del Nodo Master è quello di un server web e di un comunicatore di informazioni.
 
-*N.B: Potrebbe capitare che:
-* La comunicazione sia interrotta da un ostacolo(in questo caso il Nodo Master invia per 10 secondi lo stesso dato) durante l'invio dell'informazione e solamente quando la viabilità è buona instrada il dato
-* La comunicazione viene interrotta solo dopo che il Nodo 1 ha ricevuto il dato corretto(in questo caso non potrà comunicare l'ok)
-L'unico problema lo abbiamo solamente se la comunicazione viene interrotta dopo la ricezione del dato al Nodo 1.
+*N.B: Potrebbe capitare che:*
+* *La comunicazione sia interrotta da un ostacolo(in questo caso il Nodo Master invia per 10 secondi lo stesso dato) durante l'invio dell'informazione e solamente quando la viabilità è buona instrada il dato*
+* *La comunicazione viene interrotta solo dopo che il Nodo 1 ha ricevuto il dato corretto(in questo caso non potrà comunicare l'ok)*
+*L'unico problema lo abbiamo solamente se la comunicazione viene interrotta dopo la ricezione del dato al Nodo 1.
 Potremmo risolvere questo problema mandando in ritorno una pagina con un WARNING di comunicazione attraverso un javascript.
 purtroppo non possiamo prevenire ostacoli durante la comunicazione, ma su 100 comunicazione provate, solamente un 10%, ostacolando il flusso durante l'invio, non ha ricevuto l'ACK!*
 
