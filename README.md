@@ -194,6 +194,8 @@ Ecco i collegamenti:
   <td>Breadboard</td>
  </tr>
 </table>
+
+Il collegamento dell'emettitore IR è obbligatorio! Perchè la libreria di Arduino sull'invio del segnare infrarosso utilizza quel piedino per default. Se volessimo cambiare piedino dovremmo andare ad agire sulla libreria.
  
  
  Per le prime prove, si è installato, sui due nodi, un emettitore(Nodo Master) e un sensore infrarossi(Nodo 1), per verificare che la comunicazione avvenga.
@@ -231,6 +233,26 @@ ________________________________________
 Una volta eseguiti tutti i collegamenti, possiamo eseguire i programmi dei due nodi:
 * [Programma Nodo Master](https://github.com/domoticawifi/Network-nodes/blob/master/Nodo%20Master(Comunicazione%201%20Nodo).ino)
 * [Programma Nodo 1](https://github.com/domoticawifi/Network-nodes/blob/master/Nodo%201%20-%20Comunicazione%201%20Nodo.ino)
+
+*N.B: Questi due programmi sono per la comunicazione fra Nodo Master e Nodo 1. Se dovessimo collegare un altro nodo(come faremo più in la) i due programmi cambieranno*
+
+Con il lancio di questi due programmi otteniamo il risultato voluto:
+* Il client si connette all'indirizzo della scheda wi-fi
+* Decide di cambiare lo stato di un attuatore e/o relè sul Nodo 1 
+* Il Nodo Master riceve il dato inviato e lo elabora inviandolo al Nodo 1
+* Il Nodo 1 elabora il dato ricevuto; in qusta fase il Nodo Master rimane in ascolto per 10 secondi
+* Il Nodo 1, se accetta il dato, manda un ACK al Nodo Master
+* Il Nodo Master riceve l'ok è chiude la comunicazione aggiornando la pagina HTML che visualizzerà il client
+
+Il compito del Nodo Master è quello di un server web e di un comunicatore di informazioni.
+
+*N.B: Potrebbe capitare che:
+* La comunicazione sia interrotta da un ostacolo(in questo caso il Nodo Master invia per 10 secondi lo stesso dato) durante l'invio dell'informazione e solamente quando la viabilità è buona instrada il dato
+* La comunicazione viene interrotta solo dopo che il Nodo 1 ha ricevuto il dato corretto(in questo caso non potrà comunicare l'ok)
+L'unico problema lo abbiamo solamente se la comunicazione viene interrotta dopo la ricezione del dato al Nodo 1.
+Potremmo risolvere questo problema mandando in ritorno una pagina con un WARNING di comunicazione attraverso un javascript.
+purtroppo non possiamo prevenire ostacoli durante la comunicazione, ma su 100 comunicazione provate, solamente un 10%, ostacolando il flusso durante l'invio, non ha ricevuto l'ACK!*
+
  
  ## Terza fase: Collegamneto Ottico Nodo Master -> Nodo 1 -> Nodo 2
  
