@@ -8,7 +8,7 @@ Abbiamo presvisto un terminale PC, un nodo master e due nodi, schematizzati a qu
   * Terminale (Invia e riceve le informazioni di tutta la rete)
   * Router (Instrada le richieste fatte tra terminale e nodo master sulla rete domestica e anche quella esterna andando ad aggiornare un DB)
   * Nodo Master (Nodo formato da un modulo [ESP8266 ESP-12E](https://acrobotic.com/acr-00018) per il collegamento WI-FI con il terminale, l'invio delle informazioni sul DB e la trasmissione di informazioni tra i vari nodi presenti nella rete locale.
-  * Nodo1 (Nodo formato da [Arduino NANO](https://www.arduino.cc/en/Main/arduinoBoardNano) che gestisce un attuatore/relè/led e un sensore
+  * Nodo1 (Nodo formato da [Arduino NANO](https://www.arduino.cc/en/Main/arduinoBoardNano) che gestisce un attuatore/relè/led e, in futuro, un eventuale sensore
   * Nodo2 (Stessa cosa del nodo precedente)
   
   *N.B: Lo storage delle informazioni su un DB, ci serve per cotrollare lo stato della rete, anche da smartphone o tablet, in         remoto (Internetworking: il router fungerà da gateway).
@@ -57,7 +57,7 @@ ________________________________________________________________________________
 # Schema Network
 <img src="https://i.imgbox.com/dVumVRec.png"/>
 Come possiamo vedere dall'immagine, abbiamo un PC, che funziona da terminale, collegato alla rete WI-FI, invia e riceve informazioni attraverso il Nodo Master.
-Il nodo master, collegato alla rete, instrada le richieste e le informazioni, mandate dal terminale e dagli altri nodi, nella giusta direzione.
+Il Nodo Master, collegato alla rete, instrada le richieste e le informazioni, mandate dal terminale e dagli altri nodi, nella giusta direzione.
 
 ## Occorrente Hardware
   * 1 terminale (PC, Tablet, Smartphone)
@@ -102,7 +102,7 @@ Ecco i collegamenti:
  
  I due collegamenti che vanno ai led sono i pin D1 e D2.
  
- *N.B: Nella seconda fase lasceremo solo un led che rappresenterà un solo relè/attuatore, perchè abbiamo poca disponibilità di piedini nella ESP-12E. In questo caso il led sarà collegato al piedino D3; i piedini D1 e D2 saranno riservati al display lcd I2C.*
+ *N.B: Nella seconda fase lasceremo solo un led che rappresenterà un solo relè/attuatore, perchè abbiamo poca disponibilità di piedini nella ESP-12E. In questo caso il led sarà collegato al piedino D4; i piedini D1 e D2 saranno riservati al display lcd I2C.*
  
  Ecco una foto dei collegamenti su breadbord:
  <img src="https://i.imgbox.com/CCOwCYoq.jpg"/>
@@ -110,14 +110,14 @@ Ecco i collegamenti:
  Dalla foto risulta acceso il led 2, questo perchè abbiamo attivato, attraverso la pagina HTML visualizzata dal PC, l'accensione del led 2(Che rappresenta un semplice relè).
  
  
- Fatto questo possiamo passare ad aggiungere una coppia di LED infrarossi-Ricevitore IR, per la comunicazione ottica con il nodo 1.
+ Fatto questo possiamo passare ad aggiungere una coppia di LED infrarossi-Ricevitore IR, per la comunicazione ottica con il Nodo 1.
   
  
  *N.B: Possiamo anche non utilizzare i resistori, perchè la tensione di uscita sui pin non supera i 3volt.*
  
  
  ## Seconda fase: Collegamento Ottico Nodo Master -> Nodo 1
- Per questa fase, avremo la comunicazione fra due nodi, quindi dividiamola, per semplicità in due sotto-fasi.
+ Per questa fase, avremo la comunicazione fra due nodi, quindi dividiamola, per semplicità, in due sotto-fasi.
  
  ### *Nodo Master: Collegamento Ottico*
  Lo schema che andremo a realizzare sarà il seguente:
@@ -138,9 +138,9 @@ Ecco i collegamenti:
   <tr align='center'>
    <td>ESP8266</td>
    <td>D1, D2</td>
-   <td>D3</td>
-   <td>D0</td>
    <td>D4</td>
+   <td>D0</td>
+   <td>D3</td>
    </tr>
  </table>
  
@@ -195,14 +195,14 @@ Ecco i collegamenti:
  </tr>
 </table>
 
-Il collegamento dell'emettitore IR è obbligatorio! Perchè la libreria di Arduino sull'invio del segnare infrarosso utilizza quel piedino per default. Se volessimo cambiare piedino dovremmo andare ad agire sulla libreria.
+Il collegamento dell'emettitore IR è obbligatorio farlo sul PIN3! Perchè la libreria di Arduino sull'invio del segnare infrarosso utilizza quel piedino per default. Se volessimo cambiare piedino dovremmo andare ad agire sulla libreria.
  
  
- Per le prime prove, si è installato, sui due nodi, un emettitore(Nodo Master) e un sensore infrarossi(Nodo 1), per verificare che la comunicazione avvenga.
+ Per le prime prove, si è installato, sui due nodi, un emettitore(Nodo Master) e un sensore infrarossi(Nodo 1), per un semplice test di comunicazione.
  Si è inviato un piccolo dato, sottoforma di codifica NEC, dal Nodo Master al Nodo 1. Si hanno a disposizione tanti tipi di codifica: NEC, Sony, Sharp e tante altre...
  
- Nel nostro caso ogni nodo avrà almeno una coppia led-sensore per l'invio e ricezione infrarossi, quindi il procedimento è più complesso.
- Il punto che va a favore è che si sa già che dato potrebbe arrivare, questo perchè possono verificarsi solo queste situazioni:
+ Nel nostro caso, ogni nodo avrà almeno una coppia led-sensore per l'invio e ricezione infrarossi, quindi il procedimento è più complesso.
+ Il punto che va a favore è che si conosce il dato che potrebbe arrivare, questo perchè possono verificarsi solo queste situazioni:
  * Attivazione Relè Nodo 1
  * Attivazione Attuatore Nodo 1
  * Attivazione Relè Nodo 2
@@ -234,10 +234,10 @@ Una volta eseguiti tutti i collegamenti, possiamo eseguire i programmi dei due n
 * [Programma Nodo Master](https://github.com/domoticawifi/Network-nodes/blob/master/Nodo%20Master(Comunicazione%201%20Nodo).ino)
 * [Programma Nodo 1](https://github.com/domoticawifi/Network-nodes/blob/master/Nodo%201%20-%20Comunicazione%201%20Nodo.ino)
 
-*N.B: Questi due programmi sono per la comunicazione fra Nodo Master e Nodo 1. Se dovessimo collegare un altro nodo(come faremo più in la) i due programmi cambieranno*
+*N.B: Questi due programmi sono per la comunicazione fra Nodo Master e Nodo 1. Se dovessimo collegare un altro nodo(come faremo più in la) i due programmi cambieranno...*
 
 Con il lancio di questi due programmi otteniamo il risultato voluto:
-* Il client si connette all'indirizzo della scheda wi-fi
+* Il client si connette all'indirizzo IP della scheda wi-fi
 * Decide di cambiare lo stato di un attuatore e/o relè sul Nodo 1 
 * Il Nodo Master riceve il dato inviato e lo elabora inviandolo al Nodo 1
 * Il Nodo 1 elabora il dato ricevuto; in qusta fase il Nodo Master rimane in ascolto per 10 secondi
@@ -247,11 +247,11 @@ Con il lancio di questi due programmi otteniamo il risultato voluto:
 Il compito del Nodo Master è quello di un server web e di un comunicatore di informazioni.
 
 *N.B: Potrebbe capitare che:*
-* *La comunicazione sia interrotta da un ostacolo(in questo caso il Nodo Master invia per 10 secondi lo stesso dato) durante l'invio dell'informazione e solamente quando la viabilità è buona instrada il dato*
-* *La comunicazione viene interrotta solo dopo che il Nodo 1 ha ricevuto il dato corretto(in questo caso non potrà comunicare l'ok)*
-*L'unico problema lo abbiamo solamente se la comunicazione viene interrotta dopo la ricezione del dato al Nodo 1.
-Potremmo risolvere questo problema mandando in ritorno una pagina con un WARNING di comunicazione attraverso un javascript.
-purtroppo non possiamo prevenire ostacoli durante la comunicazione, ma su 100 comunicazione provate, solamente un 10%, ostacolando il flusso durante l'invio, non ha ricevuto l'ACK!*
+* *La comunicazione sia interrotta da un ostacolo:in questo caso il Nodo Master invia per 10 secondi lo stesso dato fino a che non riceverà conferma. Se non dovesse ricevere conferma chiude comunicazione e la pagina HTML non viene aggiornata*
+* *La comunicazione viene interrotta solo dopo che il Nodo 1 ha ricevuto il dato corretto(in questo caso non potrà comunicare l'ok):*
+*Potremmo risolvere questo problema mandando in ritorno una pagina con un WARNING di comunicazione attraverso un javascript.
+Purtroppo non possiamo prevenire ostacoli durante la comunicazione, ma su 100 comunicazione provate, solamente un 10%, non ha ricevuto l'ACK dal Nodo 1!
+Mandando il WARNING il client sa che qualcosa non è andato nel modo giusto, perchè potrebbe risultare anche un guasto a qualche componente di comunicazione.*
 
 <img src="https://i.imgbox.com/mrTsEoQf.jpg"/></a>
 
