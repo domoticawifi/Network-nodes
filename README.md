@@ -226,6 +226,8 @@ Tutto questo dovrà essere implementato con un elegante e bell'algoritmo.
 Questo è il flow chart che dovrà eseguire il Nodo Master una volta inviato il dato.
 Il Nodo 1 dovrè elaborare il dato inviato e mandarli la conferma.
 
+<img src="https://i.imgbox.com/TKkQQuHc.png"/>
+
 *N.B: Se dovesse passare un certo lasso di tempo(comunicazione interrotta) la comunicazione si interrompe!*
 
 ________________________________________
