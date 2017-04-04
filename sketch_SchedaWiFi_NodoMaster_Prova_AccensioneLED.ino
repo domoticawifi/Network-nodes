@@ -27,7 +27,7 @@ void setup() {
   Serial.begin(115200);
   delay(10);
 
-  // Inicializamos los GPIO D1, D2, D3, D4 como 'output' y estado 'low'.
+  // Inizializziamo i pin per i LED.
   pinMode(D1, OUTPUT);
   pinMode(D2, OUTPUT);
   digitalWrite(D1, LOW);
