@@ -289,6 +289,29 @@ Il codice sorgente è leggermente diverso rispetto al primo.
 Lo sketch lo trovate [qui]().
 
 * Lo schema del Nodo 2 è il seguente:
+<img src="https://i.imgbox.com/5ZlkmJ1t.png"/>
+
+I collegamenti:
+<table>
+ <tr>
+ <td>Arduino NANO</td>
+ <td> </td>
+ </tr>
+ <tr>
+ <td>PIN 2</td>
+ <td>LED(Relay)</td>
+ </tr>
+ <tr>
+ <td>PIN 4</td>
+ <td>LED(Attuatore)</td>
+ </tr>
+ <tr>
+ <td>PIN 8</td>
+ <td>Ricevitore IR</td> 
+ </tr>
+</table>
+
+Lo sketch da eseguire su questa scheda è il [seguente]()
 
  
  __________________________________________________________________
