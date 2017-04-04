@@ -313,6 +313,9 @@ I collegamenti:
 
 Lo sketch da eseguire su questa scheda è il [seguente]()
 
+La disposizione dei tre nodi è il seguente:
+<img src="https://i.imgbox.com/YpUxccux.jpg"/>
+
  
  __________________________________________________________________
  
