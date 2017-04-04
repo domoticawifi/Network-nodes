@@ -92,7 +92,8 @@ ________________________________________________________________________________
  * La pagina HTML viene mandata al terminale dalla scheda ESP8266 e aggiornata ogni qual volta avviene un cambiamento di stato dettato dal terminale.
  * Il cambiamento di stato avviene attraverso una semplice FORM HTML che invia i dati cambiati all'URL della pagina.
  Ecco la pagina HTML con la relativa Form:
- <img src="https://i.imgbox.com/3rCuspAy.png" alt="image host"/>
+ <img src="https://i.imgbox.com/3rCuspAy.png"/>
+ 
  * Il terminale, per accedere a tale pagina HTML, dovrà allocarsi, tramite browser(Chrome, Firefox, Edge, ....) all'indirizzo associato alla shield Wi-Fi.
  * Tale indirizzo sarà visualizzato su terminale, per le prime prove, e, in un secondo momento, su un display posizionato sul nodo.
  * Il programma di lancio lo trovate [Qui](https://github.com/domoticawifi/Network-nodes/blob/master/sketch_SchedaWiFi_NodoMaster_Prova_AccensioneLED.ino).
@@ -278,7 +279,17 @@ Fortunatamente, nell'arco dei 10 secondi di ascolto, il dato, inviato dal Nodo 1
 
  
  ## Terza fase: Collegamneto Ottico Nodo Master -> Nodo 1 -> Nodo 2
+ * Lo schema per il Nodo Master rimane lo stesso, senza nessuna variazione neanche nel codice(essendo già tutta implementata)
+ * Lo schema del Nodo 1 subische piccolissime variazioni(un'aggiunta di un solo LED infrarossi):
+ <img src="https://i.imgbox.com/DO09XROU.png"/>
  
+Si è semplicemente aggiunto un altro diodo led infrarossi per inviare il segnale al Nodo 2.
+In questo caso abbiamo il LED IR aggiuntivo collegato allo stesso piedino del primo LED IR.
+Il codice sorgente è leggermente diverso rispetto al primo.
+Lo sketch lo trovate [qui]().
+
+* Lo schema del Nodo 2 è il seguente:
+
  
  __________________________________________________________________
  
