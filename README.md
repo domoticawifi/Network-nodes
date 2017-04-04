@@ -25,9 +25,9 @@ Le comunicazioni fra i nodi e il terminale avviene in questa maniera:
 ## Esempio di comunicazione: Connected Oriented
 
 ## Terminale > Nodo Master > Nodo Interessato
-* Il PC avrà una pagina HTML, in locale, in cui sarà presente lo stato di ogni nodo(attuatori ON/OFF e sensori)
-* Se vorrà azionare un attuatore e/o relè di un determinato nodo, cliccerà su l'apposito radio-button della pagina HTML
-* Verrà mandata una richiesta tramite rete WI-FI al Nodo Master, in cui sarà presente l'ESP8266
+* Attraverso una pagina HTML, appositamente caricata in locale attraverso la scheda Wi-Fi, avremo la possibilità di inviare informazioni alla shield da qualsiasi terminale noi vogliamo (es. PC, smartphone, tablet). inoltre da questa sarà possibile reperire lo stato di ogni nodo(attuatori ON/OFF e sensori)
+* Se volessimo inviare una certa informazione, come ad esempio l'accensione o lo spegnimento di un LED, non dovremmo far altro che selezionare l'apposito 'Radio Button' per poi determinare l'invio della Form attraverso il'Button' 'Invio'
+* In questa maniera verrà mandata una richiesta tramite rete WI-FI al Nodo Master gestito dalla scheda ESP8266
 * La scheda Wi-Fi riceverà la richiesta, la elaborerà e controllerà se il dato dovà essere mandato, tramite segnale infrarossi, al nodo adiacente
 * Il nodo adiacente riceve questo segnale e lo elabora per capire se è lui il destinatario
 * Se così non fosse lo manda all'altro nodo adiacente con il collegamento ottico
