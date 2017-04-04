@@ -246,7 +246,7 @@ Con il lancio di questi due programmi otteniamo il risultato voluto:
 * Il Nodo 1, se accetta il dato, manda un ACK al Nodo Master
 * Il Nodo Master riceve l'ok è chiude la comunicazione aggiornando la pagina HTML che visualizzerà il client
 
-Il compito del Nodo Master è quello di un server web e di un comunicatore di informazioni.
+Il compito del Nodo Master è quello di un server web e di un "Ponte di comunicazione" tra il terminale e gli altri nodi.
 
 *N.B: Potrebbe capitare che:*
 * *La comunicazione sia interrotta da un ostacolo:in questo caso il Nodo Master invia per 10 secondi lo stesso dato fino a che non riceverà conferma. Se non dovesse ricevere conferma chiude comunicazione e la pagina HTML non viene aggiornata*
