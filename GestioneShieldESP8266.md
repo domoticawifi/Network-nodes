@@ -17,13 +17,13 @@ La scheda, come si può vedere, è compatta, leggera, di buona fattura e può es
 * Vai su *Strumenti* > *Gestione Schede* e installa la piattaforma "ESP8266"
 * Installare la [libreria ESP8266](https://github.com/googlesamples/firebase-arduino/archive/master.zip) aggiuntiva della scheda
 
+*N.B: Installazione di questo pacchetto aggiuntivo per l'IDE di Arduino, comprende tante schede WI-FI in commercio*
+
 ## Come utilizzare la scheda ESP8266
 * Lancia Arduino
 * Selezione *Strumenti* > *Schede* e seleziona la shcheda che vuoi utilizzare nella sezione "ESP8266 Modules"
 
 Noi utilizziamo, per questo progetto, una ESP8266 ESP-12E, quindi selezioneremo la scheda ESP-12E MODE MCU 1.0.
-
-*N.B: Installazione di questo pacchetto aggiuntivo per l'IDE di Arduino, comprende tante schede WI-FI in commercio*
 
 
 ## Come collegare la scheda ESP8266 alla rete WI-FI
