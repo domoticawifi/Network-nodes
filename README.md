@@ -277,6 +277,10 @@ Fortunatamente, nell'arco dei 10 secondi di ascolto, il dato, inviato dal Nodo 1
  
  ## Terza fase: Collegamneto Ottico Nodo Master -> Nodo 1 -> Nodo 2
  
+ 
+ 
+ ### Network-Nodes: Pietro Rignanese & Andrea Polenta Aprile 2017
+ 
   
   
 
