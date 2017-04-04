@@ -278,7 +278,7 @@ Fortunatamente, nell'arco dei 10 secondi di ascolto, il dato, inviato dal Nodo 1
 *N.B: potrebbe capitare che il dato, inviato dal Nodo 1, non venga letto del sensore del Nodo Master, ma su 100 prove non è mai successo!*
 
  
- ## Terza fase: Collegamneto Ottico Nodo Master -> Nodo 1 -> Nodo 2
+ ## Terza fase: Collegamento Ottico Nodo Master -> Nodo 1 -> Nodo 2
  * Lo schema per il Nodo Master rimane lo stesso, senza nessuna variazione neanche nel codice(essendo già tutta implementata)
  * Lo schema del Nodo 1 subische piccolissime variazioni(un'aggiunta di un solo LED infrarossi):
  <img src="https://i.imgbox.com/DO09XROU.png"/>
@@ -316,7 +316,20 @@ Lo sketch da eseguire su questa scheda è il [seguente]()
 La disposizione dei tre nodi è il seguente:
 <img src="https://i.imgbox.com/YpUxccux.jpg"/>
 
- 
+Da sinistra verso destra: Nodo Master(con modulo ESP8266), Nodo 1(con Arduino UNO), Nodo 2(con Arduino UNO).
+
+*N.B: In questo caso la comunicazione, per attivare attuatori e relè sul Nodo 2 è del tipo semplice... cioè senza ack. Non si è ancora implementata una Connected Oriented tra Nodo 1 e Nodo 2.*
+_____________________________________
+# Conclusioni e costi complessivi
+### *Costi:*
+I costi dei vari moduli, schede, cavi, breadboard, led e altro si aggira intorno a questo range: 30€ - 70€.
+il tutto dipende da dove comprate il materiale.
+Il consiglio che vi diamo è quello di comprare tutto su e-Bay... è un sito molto sicuro e trovate tutto quello di cui avete bisogno.
+Vi allego il link del venditore dove abbiamo reperito tutto il materiale:
+http://www.ebay.it/usr/nouteclab?_trksid=p2047675.l2559
+
+### *Conclusioni:*
+
  __________________________________________________________________
  
  ### Network-Nodes: Pietro Rignanese & Andrea Polenta Aprile 2017
