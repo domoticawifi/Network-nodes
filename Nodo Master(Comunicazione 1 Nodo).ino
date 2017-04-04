@@ -12,8 +12,8 @@
 #include <LiquidCrystal_I2C.h>
 
 //Definizione delle credenziali per la connessione per accedere al Router
-const char* ssid = "****";
-const char* password = "****";
+const char* ssid = "HUAWEI P8";
+const char* password = "pierino123";
 
 // Definiamo la mappatura della Shield ESP8266(Datasheet)
 #define D0 16 // Trasmettitore IR
@@ -141,185 +141,17 @@ void comunicazione()
   
 }
 
-void loop() 
-{  
-  i=0;  //Settaggio a zero della variabile che conta il tempo di attesa
-  
-  // Vediamo se esiste una connessione con un client. Se non esiste ritorniamo al loop.
-  WiFiClient cliente = server.available();
-  if (!cliente) 
-  {
-    return;
-  }
-
-  // Nela caso ci sia una connessione con un client, mostriamo un messaggio di avvenuta connessione
-  // mantenendo aperta la connessione.
-  Serial.println("Client connesso: ");
-  while (!cliente.available()) 
-  {
-    delay(1);
-  }
-
-  //Realizziamo la lettura della form.
-  String form = cliente.readStringUntil('\r');
-  Serial.println(form);
-  cliente.flush();
-
   int RM = LOW;   // Relè nodo master
   int RN1 = LOW;  // Relè Nodo 1
   int AN1 = LOW;  // Attuatore Nodo 1
   int RN2 = LOW;  // Relè Nodo 2
   int AN2 = LOW;  // Attuatore Nodo 2
 
-// Controllo della from restituita dall'aggiornamento della pagina HTML
-  if(form.indexOf("RelayMaster=ON")!=-1)
-    {
-      digitalWrite(D4, HIGH); // Accensione Relè nodo master
-      RM = HIGH;
-    }
-  if(form.indexOf("RelayMaster=OFF")!=-1)
-    {
-      digitalWrite(D4, LOW);  // Spegnimento relè nodo master
-      RM = LOW;
-    }
-  if(form.indexOf("Relay1=ON")!=-1)
-    {
-      Serial.println("NEC");
-      do
-      {
-        //Controllo tempo di attesa
-        if(i<1000)
-        {
-          irsend.sendNEC(0x0000000001, 32); //Invio dato al nodo 1 per l'accensione del relè nodo 1
-          comunicazione();
-          i++;  //Aumenta di +1 il tempo di attesa
-        }
-        else
-        {
-          controllo_invio = false;
-        }
-       }while(controllo_invio);
-      
-      Serial.println("Anch'io...");
-      //Controllo stato connessione per modificare o meno la pagina HTML
-      if(stato_conn)
-      {
-        RN1 = HIGH;
-      }
-      else
-      {
-        RN1 = LOW;
-      }
-      //Resetto le variabili di controllo per una prossima comunicazione
-      stato_conn = true;
-      controllo_invio=true;
-      controllo_ricezione=true;
-      i=0;      
-    }
-    
-  if(form.indexOf("Relay1=OFF")!=-1)
-    {
-      Serial.println("NEC");
-      do
-      {
-        if(i<1000)
-        {
-          irsend.sendNEC(0x0000000101, 32); // Invio dato al nodo 1 per lo spegnimento del relè nodo 1
-          comunicazione();
-          i++;
-        }
-        else
-        {
-          controllo_invio = false;
-        }
-       }while(controllo_invio);
-      
-      Serial.println("Anch'io...");
-      //Controllo stato connessione per modificare o meno la pagina HTML
-      if(stato_conn)
-      {
-        RN1 = LOW;
-      }
-      else
-      {
-        RN1 = HIGH;
-      }
-      //Resetto le variabili di controllo per una prossima comunicazione
-      stato_conn = true;
-      controllo_invio=true;
-      controllo_ricezione=true;
-      i=0;
-    }
-  if(form.indexOf("Attuatore1=ON")!=-1)
-    {
-      Serial.println("NEC");
-      do
-      {
-        if(i<1000)
-        {
-          irsend.sendNEC(0x0000000011, 32); //Invio dato al nodo 1 per l'accensione dell'attuatore nodo 1
-          comunicazione();
-          i++;
-        }
-        else
-        {
-          controllo_invio = false;
-        }
-       }while(controllo_invio);
-      
-      Serial.println("Anch'io...");
-      //Controllo stato connessione per modificare o meno la pagina HTML
-      if(stato_conn)
-      {
-        AN1 = HIGH;
-      }
-      else
-      {
-        AN1 = LOW;
-      }
-      //Resetto le variabili di controllo per una prossima comunicazione
-      stato_conn = true;
-      controllo_invio=true;
-      controllo_ricezione=true;
-      i=0;
-    }
-  if(form.indexOf("Attuatore1=OFF")!=-1)
-    {
-      Serial.println("NEC");
-      do
-      {
-        if(i<1000)
-        {
-          irsend.sendNEC(0x0000000010, 32); // Invio dato al nodo 1 per lo spegnimento dell'attuatore nodo 1
-          comunicazione();
-          i++;
-        }
-        else
-        {
-          controllo_invio = false;
-        }
-       }while(controllo_invio);
-      
-      Serial.println("Anch'io...");
-      //Controllo stato connessione per modificare o meno la pagina HTML
-      if(stato_conn)
-      {
-        AN1 = LOW;
-      }
-      else
-      {
-        AN1 = HIGH;
-      }
-      //Resetto le variabili di controllo per una prossima comunicazione
-      stato_conn = true;
-      controllo_invio=true;
-      controllo_ricezione=true;
-      i=0;
-    }
+  WiFiClient cliente;
 
-    
-
-  // Pagina HTML 
+void pag_html()
+{
+   // Pagina HTML 
   cliente.println("HTTP/1.1 200 OK");
   cliente.println("Content-Type: text/html");
   cliente.println(""); //Separatore
@@ -507,14 +339,45 @@ void loop()
   cliente.println("                          <td>Sensore n°1</td>");
   cliente.println("                          <td>Sensore n°2</td>");
   cliente.println("                      </tr>");
-  cliente.println("                          <td>OFF</td>");
-  cliente.println("                          <td>OFF</td>");
+  
+  //Controllo stato Relè e Attuatore nodo 2
+  if(RN2==HIGH)
+  {
+    cliente.println("                          <td>ON</td>");
+  }
+  else
+  {
+    cliente.println("                          <td>OFF</td>");
+  }
+  if(AN2 ==HIGH)
+  {
+    cliente.println("                          <td>ON</td>");
+  }
+  else
+  {
+    cliente.println("                          <td>OFF</td>");
+  }  
   cliente.println("                          <td>0.00</td>");
   cliente.println("                          <td>0.00</td>");
   cliente.println("                      <tr>");
   cliente.println("                      <tr>");
-  cliente.println("                          <td><input type='radio' value='ON' name='Relay2'>ON</input><input type='radio' value='OFF' name='Relay2' checked='checked'>OFF</input></td>");
-  cliente.println("                          <td><input type='radio' value='ON' name='Attuatore2'>ON</input><input type='radio' value='OFF' name='Attuatore2' checked='checked'>OFF</input></td>");
+  //Stato radio button Nodo 1
+  if(RN2==HIGH)
+  {
+    cliente.println("                          <td><input type='radio' value='ON' name='Relay2' checked='checked'>ON</input><input type='radio' value='OFF' name='Relay2'>OFF</input></td>");
+  }
+  else
+  {
+    cliente.println("                          <td><input type='radio' value='ON' name='Relay2' >ON</input><input type='radio' value='OFF' name='Relay2' checked='checked'>OFF</input></td>");
+  }
+  if(AN2==HIGH)
+  {
+    cliente.println("                          <td><input type='radio' value='ON' name='Attuatore2' checked='checked'>ON</input><input type='radio' value='OFF' name='Attuatore2'>OFF</input></td>");
+  }
+  else
+  {
+    cliente.println("                          <td><input type='radio' value='ON' name='Attuatore2' >ON</input><input type='radio' value='OFF' name='Attuatore2' checked='checked'>OFF</input></td>");
+  }
   cliente.println("                          <td>/</td>");
   cliente.println("                          <td>/</td>");
   cliente.println("                      </tr>");
@@ -530,6 +393,228 @@ void loop()
   cliente.println("      </form>");
   cliente.println("   </body>");
   cliente.println("</html>");
+}
+
+  
+void loop() 
+{  
+  i=0;  //Settaggio a zero della variabile che conta il tempo di attesa
+  
+  // Vediamo se esiste una connessione con un client. Se non esiste ritorniamo al loop.
+  cliente = server.available();
+  if (!cliente) 
+  {
+    return;
+  }
+
+  // Nela caso ci sia una connessione con un client, mostriamo un messaggio di avvenuta connessione
+  // mantenendo aperta la connessione.
+  Serial.println("Client connesso: ");
+  while (!cliente.available()) 
+  {
+    delay(1);
+  }
+
+  //Realizziamo la lettura della form.
+  String form = cliente.readStringUntil('\r');
+  Serial.println(form);
+  cliente.flush();
+
+// Controllo della from restituita dall'aggiornamento della pagina HTML
+  if(form.indexOf("RelayMaster=ON")!=-1)
+    {
+      digitalWrite(D4, HIGH); // Accensione Relè nodo master
+      RM = HIGH;
+    }
+  if(form.indexOf("RelayMaster=OFF")!=-1)
+    {
+      digitalWrite(D4, LOW);  // Spegnimento relè nodo master
+      RM = LOW;
+    }
+  if(form.indexOf("Relay1=ON")!=-1)
+    {
+      Serial.println("NEC");
+      do
+      {
+        //Controllo tempo di attesa
+        if(i<1000)
+        {
+          irsend.sendNEC(0x0000000001, 32); //Invio dato al nodo 1 per l'accensione del relè nodo 1
+          comunicazione();
+          i++;  //Aumenta di +1 il tempo di attesa
+        }
+        else
+        {
+          controllo_invio = false;
+        }
+       }while(controllo_invio);
+      
+      Serial.println("Anch'io...");
+      //Controllo stato connessione per modificare o meno la pagina HTML
+      if(stato_conn)
+      {
+        RN1 = HIGH;
+      }
+      else
+      {
+        RN1 = LOW;
+      }
+      //Resetto le variabili di controllo per una prossima comunicazione
+      stato_conn = true;
+      controllo_invio=true;
+      controllo_ricezione=true;
+      i=0;      
+    }
+    
+  if(form.indexOf("Relay1=OFF")!=-1)
+    {
+      Serial.println("NEC");
+      do
+      {
+        if(i<1000)
+        {
+          irsend.sendNEC(0x0000000101, 32); // Invio dato al nodo 1 per lo spegnimento del relè nodo 1
+          comunicazione();
+          i++;
+        }
+        else
+        {
+          controllo_invio = false;
+        }
+       }while(controllo_invio);
+      
+      Serial.println("Anch'io...");
+      //Controllo stato connessione per modificare o meno la pagina HTML
+      if(stato_conn)
+      {
+        RN1 = LOW;
+      }
+      else
+      {
+        RN1 = HIGH;
+      }
+      //Resetto le variabili di controllo per una prossima comunicazione
+      stato_conn = true;
+      controllo_invio=true;
+      controllo_ricezione=true;
+      i=0;
+    }
+  if(form.indexOf("Attuatore1=ON")!=-1)
+    {
+      Serial.println("NEC");
+      do
+      {
+        if(i<1000)
+        {
+          irsend.sendNEC(0x0000000011, 32); //Invio dato al nodo 1 per l'accensione dell'attuatore nodo 1
+          comunicazione();
+          i++;
+        }
+        else
+        {
+          controllo_invio = false;
+        }
+       }while(controllo_invio);
+      
+      Serial.println("Anch'io...");
+      //Controllo stato connessione per modificare o meno la pagina HTML
+      if(stato_conn)
+      {
+        AN1 = HIGH;
+      }
+      else
+      {
+        AN1 = LOW;
+      }
+      //Resetto le variabili di controllo per una prossima comunicazione
+      stato_conn = true;
+      controllo_invio=true;
+      controllo_ricezione=true;
+      i=0;
+    }
+  if(form.indexOf("Attuatore1=OFF")!=-1)
+    {
+      Serial.println("NEC");
+      do
+      {
+        if(i<1000)
+        {
+          irsend.sendNEC(0x0000000010, 32); // Invio dato al nodo 1 per lo spegnimento dell'attuatore nodo 1
+          comunicazione();
+          i++;
+        }
+        else
+        {
+          controllo_invio = false;
+        }
+       }while(controllo_invio);
+      
+      Serial.println("Anch'io...");
+      //Controllo stato connessione per modificare o meno la pagina HTML
+      if(stato_conn)
+      {
+        AN1 = LOW;
+      }
+      else
+      {
+        AN1 = HIGH;
+      }
+      //Resetto le variabili di controllo per una prossima comunicazione
+      stato_conn = true;
+      controllo_invio=true;
+      controllo_ricezione=true;
+      i=0;
+    }
+
+    if(form.indexOf("Relay2=ON")!=-1)
+    {
+      int invio = 0;
+      do
+      {
+        irsend.sendNEC(0x0000011000, 32);
+        invio++;
+      }while(invio<10);
+      RN2 = HIGH;
+      
+    }
+
+    if(form.indexOf("Relay2=OFF")!=-1)
+    {
+      int invio = 0;
+      do
+      {
+        irsend.sendNEC(0x0000010000, 32);
+        invio++;
+      }while(invio<10);
+      RN2 = LOW;
+      
+    }
+
+    if(form.indexOf("Attuatore2=ON")!=-1)
+    {
+      int invio = 0;
+      do
+      {
+        irsend.sendNEC(0x0001111000, 32);
+        invio++;
+      }while(invio<10);
+      AN2 = HIGH;
+      
+    }
+
+    if(form.indexOf("Attuatore2=OFF")!=-1)
+    {
+      int invio = 0;
+      do
+      {
+        irsend.sendNEC(0x0011100000, 32);
+        invio++;
+      }while(invio<10);
+      AN2 = LOW;
+      
+    }
+
+  pag_html(); //Pagina HTML
 
   //
   delay(1);
