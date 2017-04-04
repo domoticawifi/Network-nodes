@@ -259,6 +259,21 @@ Mandando il WARNING il client sa che qualcosa non è andato nel modo giusto, per
 
 Come dicevamo in precedenza: il terzo arduino serve solo per alimentare il ricevitore del Nodo Master e in secondo a prelevare i valori del sensore, solamente per essere testati.
 
+Il ricevitore IR, del Nodo Master, ci ha dato parecchi problemi:
+* I valori rilevati erano falsati(riceveva valori anche quando non venivano inviati segnali infrarossi)
+* L'alimentazione della shield Wi-Fi dava parecchi problemi al sensore durante la lettura
+
+Come si è risolto tutto ciò?
+Si è utilizzata, prima di tutto, un'alimentazione esterna, presa da un altro Arduino UNO (l'alimentazione può essere presa anche da una pila esterna), risolvendo in parte i problemi di lettura del sensore.
+Per il primo problema, una parte è stata risolta risolvendo il secondo problema, ma continuava, in modo random a ricevere valori casuali.
+Non si è venuto a capo di questo!!!
+Si è cercato di risolvere la cosa nel migliore dei modi: Potrebbe essere un problema della scheda, un problema del sensore, un problema di alimentazione... Potrebbe essere tutto o niente... 
+
+Durante la fase di ascolto del Nodo Master, il Nodo 1 manda un ACK per circa 10 secondi; nei dieci secondi di ascolto, da parte del Nodo Master, vengono prelevati valori random non inviati dal Nodo 1. 
+Fortunatamente, nell'arco dei 10 secondi di ascolto, il dato, inviato dal Nodo 1, viene letto dal Nodo Master ricevendo l'ok di avvenuta ricezione, quindi i 2 problemi riscontrati sono stati risolti.
+
+*N.B: potrebbe capitare che il dato, inviato dal Nodo 1, non venga letto del sensore del Nodo Master, ma su 100 prove non è mai successo!*
+
  
  ## Terza fase: Collegamneto Ottico Nodo Master -> Nodo 1 -> Nodo 2
  
