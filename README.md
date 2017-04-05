@@ -286,7 +286,7 @@ Fortunatamente, nell'arco dei 10 secondi di ascolto, il dato, inviato dal Nodo 1
 Si è semplicemente aggiunto un altro diodo led infrarossi per inviare il segnale al Nodo 2.
 In questo caso abbiamo il LED IR aggiuntivo collegato allo stesso piedino del primo LED IR.
 Il codice sorgente è leggermente diverso rispetto al primo.
-Lo sketch lo trovate [qui]().
+Lo sketch lo trovate [qui](https://github.com/domoticawifi/Network-nodes/blob/master/Sketch/Sketch%20Definitivi/Nodo_1%20-%20Comunicazione%20Nodo%20Master%20e%20Nodo%201.ino).
 
 * Lo schema del Nodo 2 è il seguente:
 <img src="https://github.com/domoticawifi/Network-nodes/blob/master/img/Schemi%20%26%20Circuiti/Nodo%202.png"/>
@@ -311,7 +311,7 @@ I collegamenti:
  </tr>
 </table>
 
-Lo sketch da eseguire su questa scheda è il [seguente]()
+Lo sketch da eseguire su questa scheda è il [seguente](https://github.com/domoticawifi/Network-nodes/blob/master/Sketch/Sketch%20Definitivi/Nodo_2%20-%20Incompleto.ino)
 
 La disposizione dei tre nodi è il seguente:
 <img src="https://github.com/domoticawifi/Network-nodes/blob/master/img/Foto/IMG_20170404_150244.jpg"/>
