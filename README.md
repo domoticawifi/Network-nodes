@@ -55,7 +55,7 @@ Per verificare lo stato di ogni nodo, si è pensato di collegare un Display LCD 
 
 ___________________________________________________________________________________
 # Schema Network
-<img src="https://i.imgbox.com/dVumVRec.png"/>
+<img src="https://github.com/domoticawifi/Network-nodes/blob/master/img/Schemi%20%26%20Circuiti/Progetto_Schema.png"/>
 Come possiamo vedere dall'immagine, abbiamo un PC, che funziona da terminale, collegato alla rete WI-FI, invia e riceve informazioni attraverso il Nodo Master.
 Il Nodo Master, collegato alla rete, instrada le richieste e le informazioni, mandate dal terminale e dagli altri nodi, nella giusta direzione.
 
