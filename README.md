@@ -78,7 +78,7 @@ Il Nodo Master, collegato alla rete, instrada le richieste e le informazioni, ma
   * [Libreria gestione segnale IR](https://www.pjrc.com/teensy/arduino_libraries/IRremote.zip)
   * [Libreria gestione Display LCD](https://www.dropbox.com/s/62x4w48kwf5biko/LiquidCrystalI2C.zip?dl=0)
   
-Per l'installazione e la gestione delle librerie clicca [QUI](https://github.com/domoticawifi/Network-nodes/blob/master/GestioneLibraryArduino.md)
+Per l'installazione e la gestione delle librerie clicca [QUI](https://github.com/domoticawifi/Network-nodes/blob/master/Library/GestioneLibraryArduino.md)
 
 
 ________________________________________________________________________________________  
@@ -92,14 +92,14 @@ ________________________________________________________________________________
  * La pagina HTML viene mandata al terminale dalla scheda ESP8266 e aggiornata ogni qual volta avviene un cambiamento di stato dettato dal terminale.
  * Il cambiamento di stato avviene attraverso una semplice FORM HTML che invia i dati cambiati all'URL della pagina.
  Ecco la pagina HTML con la relativa Form:
- <img src="https://i.imgbox.com/3rCuspAy.png"/>
+ <img src="https://github.com/domoticawifi/Network-nodes/blob/master/Pagina%20HTML/Pagina%20HTML.png"/>
  
  * Il terminale, per accedere a tale pagina HTML, dovrà allocarsi, tramite browser(Chrome, Firefox, Edge, ....) all'indirizzo associato alla shield Wi-Fi.
  * Tale indirizzo sarà visualizzato su terminale, per le prime prove, e, in un secondo momento, su un display posizionato sul nodo.
- * Il programma di lancio lo trovate [Qui](https://github.com/domoticawifi/Network-nodes/blob/master/sketch_SchedaWiFi_NodoMaster_Prova_AccensioneLED.ino).
+ * Il programma di lancio lo trovate [Qui](https://github.com/domoticawifi/Network-nodes/blob/master/Sketch/Sketch%20Di%20Prova/sketch_SchedaWiFi_NodoMaster_Prova_AccensioneLED.ino).
  
 Ecco i collegamenti:
- <img src="https://i.imgbox.com/JAIu9wio.png"/>
+ <img src="https://github.com/domoticawifi/Network-nodes/blob/master/img/Schemi%20%26%20Circuiti/Nodo%20Master%20-%20Prova%20accensione%20LED.png"/>
  Su Fritzing non è presente l'ESP-12E compreso di basetta per i collegamenti e USB incorporata, ma una semplice ESP-12E.
  Con un pò di fantasia immaginiamo che questa scheda sia quella che stiamo utilizzando noi(la scheda con 30 pin), per facilitarne la spiegazione.
  
@@ -108,7 +108,7 @@ Ecco i collegamenti:
  *N.B: Nella seconda fase lasceremo solo un led che rappresenterà un solo relè/attuatore, perchè abbiamo poca disponibilità di piedini nella ESP-12E. In questo caso il led sarà collegato al piedino D4; i piedini D1 e D2 saranno riservati al display lcd I2C.*
  
  Ecco una foto dei collegamenti su breadbord:
- <img src="https://i.imgbox.com/CCOwCYoq.jpg"/>
+ <img src="https://github.com/domoticawifi/Network-nodes/blob/master/img/Foto/Nodo%20Master(Incompleto).jpg"/>
  Purtroppo la shield Wi-Fi ha una larghezza che va ha coprire tutta la breadbord e per facilitare i collegamneti abbiamo utilizzato dei jumper.
  Dalla foto risulta acceso il led 2, questo perchè abbiamo attivato, attraverso la pagina HTML visualizzata dal PC, l'accensione del led 2(Che rappresenta un semplice relè).
  
@@ -124,10 +124,10 @@ Ecco i collegamenti:
  
  ### *Nodo Master: Collegamento Ottico*
  Lo schema che andremo a realizzare sarà il seguente:
- <img src="https://i.imgbox.com/25MNds3H.png"/>
+ <img src="https://github.com/domoticawifi/Network-nodes/blob/master/img/Schemi%20%26%20Circuiti/Nodo%20Master%20-%20Immagine.png"/>
  
  Tale schema dovrà essere incorporato con lo schema della prima fase; così facendo avremmo il nostro Nodo Master completo!
- <img src="https://i.imgbox.com/zCAaPlCH.png"/>
+ <img src="https://github.com/domoticawifi/Network-nodes/blob/master/img/Schemi%20%26%20Circuiti/Nodo%20Master%20-%20Completo.png"/>
  
  I collegamenti sono i seguenti:
  <table align='center'>
@@ -161,7 +161,7 @@ Ecco i collegamenti:
  
  
  ### *Nodo 1: Collegamento Ottico*
- <img src="https://i.imgbox.com/LUux2KCv.png"/>
+ <img src="https://github.com/domoticawifi/Network-nodes/blob/master/img/Schemi%20%26%20Circuiti/Nodo%201%20-%20Incompleto.png"/>
  
  *N.B:Può essere usato, tranquillamente, Arduino UNO! Arduino Nano è esattamente uguale(tranne nella dimensione) ad Arduino UNO! Noi per le prove abbiamo utilizzato Arduino UNO per comodità...*
  
@@ -224,20 +224,20 @@ Procediamo per gradi...
 
 Tutto questo dovrà essere implementato con un elegante e bell'algoritmo. 
 
-<img src="https://i.imgbox.com/9DhB1g8O.png"/>
+<img src="https://github.com/domoticawifi/Network-nodes/blob/master/img/Flow-Chart/Flowchart%20-%20Nodo%20Master.png"/>
 
 Questo è il flow chart che dovrà eseguire il Nodo Master una volta inviato il dato.
 Il Nodo 1 dovrè elaborare il dato inviato e mandarli la conferma.
 
-<img src="https://i.imgbox.com/TKkQQuHc.png"/>
+<img src="https://github.com/domoticawifi/Network-nodes/blob/master/img/Flow-Chart/Flowchart%20-%20Nodo%201.png"/>
 
 *N.B: Se dovesse passare un certo lasso di tempo(comunicazione interrotta) la comunicazione si interrompe!*
 
 ________________________________________
 
 Una volta eseguiti tutti i collegamenti, possiamo eseguire i programmi dei due nodi:
-* [Programma Nodo Master](https://github.com/domoticawifi/Network-nodes/blob/master/Nodo%20Master(Comunicazione%201%20Nodo).ino)
-* [Programma Nodo 1](https://github.com/domoticawifi/Network-nodes/blob/master/Nodo%201%20-%20Comunicazione%201%20Nodo.ino)
+* [Programma Nodo Master](https://github.com/domoticawifi/Network-nodes/blob/master/Sketch/Sketch%20Definitivi/Nodo%20Master(Comunicazione%201%20Nodo).ino)
+* [Programma Nodo 1](https://github.com/domoticawifi/Network-nodes/blob/master/Sketch/Sketch%20Definitivi/Nodo%20Master(Comunicazione%201%20Nodo).ino)
 
 *N.B: Questi due programmi sono per la comunicazione fra Nodo Master e Nodo 1. Se dovessimo collegare un altro nodo(come faremo più in la) i due programmi cambieranno...*
 
@@ -258,7 +258,7 @@ Il compito del Nodo Master è quello di un server web e di un "Ponte di comunica
 Purtroppo non possiamo prevenire ostacoli durante la comunicazione, ma su 100 comunicazione provate, solamente un 10%, non ha ricevuto l'ACK dal Nodo 1!
 Mandando il WARNING il client sa che qualcosa non è andato nel modo giusto, perchè potrebbe risultare anche un guasto a qualche componente di comunicazione.*
 
-<img src="https://i.imgbox.com/mrTsEoQf.jpg"/></a>
+<img src="https://github.com/domoticawifi/Network-nodes/blob/master/img/Foto/Nodo%20Master%20%2B%20Nodo%201(Completo).jpg"/></a>
 
 Come dicevamo in precedenza: il terzo arduino serve solo per alimentare il ricevitore del Nodo Master e in secondo a prelevare i valori del sensore, solamente per essere testati.
 
@@ -281,7 +281,7 @@ Fortunatamente, nell'arco dei 10 secondi di ascolto, il dato, inviato dal Nodo 1
  ## Terza fase: Collegamento Ottico Nodo Master -> Nodo 1 -> Nodo 2
  * Lo schema per il Nodo Master rimane lo stesso, senza nessuna variazione neanche nel codice(essendo già tutta implementata)
  * Lo schema del Nodo 1 subische piccolissime variazioni(un'aggiunta di un solo LED infrarossi):
- <img src="https://i.imgbox.com/DO09XROU.png"/>
+ <img src="https://github.com/domoticawifi/Network-nodes/blob/master/img/Schemi%20%26%20Circuiti/Nodo%201%20-%20Comunicazione%20Nodo%20Master%20-%20Nodo%201(Incompleta).png"/>
  
 Si è semplicemente aggiunto un altro diodo led infrarossi per inviare il segnale al Nodo 2.
 In questo caso abbiamo il LED IR aggiuntivo collegato allo stesso piedino del primo LED IR.
@@ -289,7 +289,7 @@ Il codice sorgente è leggermente diverso rispetto al primo.
 Lo sketch lo trovate [qui]().
 
 * Lo schema del Nodo 2 è il seguente:
-<img src="https://i.imgbox.com/5ZlkmJ1t.png"/>
+<img src="https://github.com/domoticawifi/Network-nodes/blob/master/img/Schemi%20%26%20Circuiti/Nodo%202.png"/>
 
 I collegamenti:
 <table>
@@ -314,7 +314,7 @@ I collegamenti:
 Lo sketch da eseguire su questa scheda è il [seguente]()
 
 La disposizione dei tre nodi è il seguente:
-<img src="https://i.imgbox.com/YpUxccux.jpg"/>
+<img src="https://github.com/domoticawifi/Network-nodes/blob/master/img/Foto/IMG_20170404_150244.jpg"/>
 
 Da sinistra verso destra: Nodo Master(con modulo ESP8266), Nodo 1(con Arduino UNO), Nodo 2(con Arduino UNO).
 
