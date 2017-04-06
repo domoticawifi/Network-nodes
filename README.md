@@ -1,7 +1,9 @@
-# Network-nodes
+# Network-Nodes
 
 Questo progetto vede la realizzazione, tramite Arduino, di una rete locale (domestica o aziendale).
 Lo scopo principale è quello di far comunicare il terminale (PC) con i nodi della rete trasmettendo informazioni.
+
+_____________________________________
 
 ## Struttura
 Abbiamo presvisto un terminale PC, un nodo master e due nodi, schematizzati a questa maniera (classifichiamo questa rete come P2P):
@@ -346,6 +348,7 @@ Abbiamo bisogno, per il collegamento dell'HOSTNAME e dell'autorizzazione:
 * Andate su Firebase > Impostazioni > Database > Database Secret
 * Cliccate su SHOW e copiate il codice di autorizzazione
 * Incollate il codice nella variabile FIREBASE_AUTH presente nello sketch
+
 *N.B:Nello sketch postato su GitHub, non è presente ne SSID, Password, FIREBASE_HOST, FIREBASE_AUTH, perchè sono dati sensibili!
 Dovrete inserire al posto dei "****" le vostre credenziali.*
 
@@ -362,12 +365,27 @@ Dalla semplice app, realizzata con [AppInventor](http://appinventor.mit.edu/expl
 In futuro potrebbe essere implementato anche un controllo, in remoto, dell'intera rete.
 
 ## *App Android*
+<img src="https://github.com/domoticawifi/Network-nodes/blob/master/img/Screenshot/Screenshot_2017-04-06-09-32-16.png"/>
 
+<img src="https://github.com/domoticawifi/Network-nodes/blob/master/img/Screenshot/Screenshot_2017-04-06-09-32-34.png"/>
+
+Come dicevamo, l'app è stata realizzata attraverso un software open source online della Google: App Inventor.
+Tale software è molto semplice ed intuitivo.
+in futuro verrà fatta una guida su come utilizzarlo.
+
+L'app presenta una schermata principale in cui ci sono due grassi bottoni:
+* Un occhio = rappresenta il controllo dello stato della rete
+* Un joypad = rappresenta il controllo in remoto delle modifiche da portare ai nodi
+
+Per il momento il controllo della modifica dei nodi non può essere effettuato (verrà implementato in un secondo momento)
+Cliccando sull'occhio abbiamo l'apertura della pagina "Controllo stato", in cui sarà presente lo stato di ogni nodo.
+tale stati saranno prelevati da Firebase.
 _____________________________________
 # Conclusioni e costi complessivi
+
 ### *Costi:*
 I costi dei vari moduli, schede, cavi, breadboard, led e altro si aggira intorno a questo range: 30€ - 70€.
-il tutto dipende da dove comprate il materiale.
+il tutto dipende da dove compriate il materiale.
 Il consiglio che vi diamo è quello di comprare tutto su e-Bay... è un sito molto sicuro e trovate tutto quello di cui avete bisogno.
 Vi allego il link del venditore dove abbiamo reperito tutto il materiale:
 http://www.ebay.it/usr/nouteclab?_trksid=p2047675.l2559
