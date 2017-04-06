@@ -235,11 +235,11 @@ Il Nodo 1 dovrè elaborare il dato inviato e mandarli la conferma.
 
 ________________________________________
 
-Una volta eseguiti tutti i collegamenti, possiamo eseguire i programmi dei due nodi:
+Una volta eseguiti tutti i collegamenti, possiamo eseguire gli sketch dei due nodi:
 * [Programma Nodo Master](https://github.com/domoticawifi/Network-nodes/blob/master/Sketch/Sketch%20Definitivi/Nodo%20Master(Comunicazione%201%20Nodo).ino)
 * [Programma Nodo 1](https://github.com/domoticawifi/Network-nodes/blob/master/Sketch/Sketch%20Definitivi/Nodo%20Master(Comunicazione%201%20Nodo).ino)
 
-*N.B: Questi due programmi sono per la comunicazione fra Nodo Master e Nodo 1. Se dovessimo collegare un altro nodo(come faremo più in la) i due programmi cambieranno...*
+*N.B: Questi due programmi sono per la comunicazione fra Nodo Master e Nodo 1. Se dovessimo collegare un altro nodo(come faremo più in la) i due programmi cambieranno(cambiuerà solo il programma del Nodo 1).*
 
 Con il lancio di questi due programmi otteniamo il risultato voluto:
 * Il client si connette all'indirizzo IP della scheda wi-fi
@@ -266,7 +266,7 @@ Il ricevitore IR, del Nodo Master, ci ha dato parecchi problemi:
 * I valori rilevati erano falsati(riceveva valori anche quando non venivano inviati segnali infrarossi)
 * L'alimentazione della shield Wi-Fi dava parecchi problemi al sensore durante la lettura
 
-Come si è risolto tutto ciò?
+##### *Come si è risolto tutto ciò?*
 Si è utilizzata, prima di tutto, un'alimentazione esterna, presa da un altro Arduino UNO (l'alimentazione può essere presa anche da una pila esterna), risolvendo in parte i problemi di lettura del sensore.
 Per il primo problema, una parte è stata risolta risolvendo il secondo problema, ma continuava, in modo random a ricevere valori casuali.
 Non si è venuto a capo di questo!!!
@@ -279,12 +279,15 @@ Fortunatamente, nell'arco dei 10 secondi di ascolto, il dato, inviato dal Nodo 1
 
  
  ## Terza fase: Collegamento Ottico Nodo Master -> Nodo 1 -> Nodo 2
+ Per questa terza fase implementiamo due prototipi:il primo avrà una semplice comunicazione senza risposta del Nodo 2(cioè senza verificare la ricezione del dato), mentre il secondo sarà quello più completo e strutturato in cui anche il Nodo 2 interagisce attraverso l'rchitettura "Connected Oriented" sfruttata già dagli altri due nodi.
+ 
+ ### *Primo prototipo: Simple Connection*
  * Lo schema per il Nodo Master rimane lo stesso, senza nessuna variazione neanche nel codice(essendo già tutta implementata)
  * Lo schema del Nodo 1 subische piccolissime variazioni(un'aggiunta di un solo LED infrarossi):
  <img src="https://github.com/domoticawifi/Network-nodes/blob/master/img/Schemi%20%26%20Circuiti/Nodo%201%20-%20Comunicazione%20Nodo%20Master%20-%20Nodo%201(Incompleta).png"/>
  
 Si è semplicemente aggiunto un altro diodo led infrarossi per inviare il segnale al Nodo 2.
-In questo caso abbiamo il LED IR aggiuntivo collegato allo stesso piedino del primo LED IR.
+In questo caso abbiamo il LED IR aggiuntivo collegato allo stesso piedino del primo LED IR(in modo da sfruttare la libreria per l'invio del segnale IR, questo perchè, come dicevamo, la libreria IRremote utilizza, per default, il PIN3 di arduino).
 Il codice sorgente è leggermente diverso rispetto al primo.
 Lo sketch lo trovate [qui](https://github.com/domoticawifi/Network-nodes/blob/master/Sketch/Sketch%20Definitivi/Nodo_1%20-%20Comunicazione%20Nodo%20Master%20e%20Nodo%201.ino).
 
@@ -311,14 +314,16 @@ I collegamenti:
  </tr>
 </table>
 
-Lo sketch da eseguire su questa scheda è il [seguente](https://github.com/domoticawifi/Network-nodes/blob/master/Sketch/Sketch%20Definitivi/Nodo_2%20-%20Incompleto.ino)
+Lo sketch da far eseguire a questa scheda è il [seguente](https://github.com/domoticawifi/Network-nodes/blob/master/Sketch/Sketch%20Definitivi/Nodo_2%20-%20Incompleto.ino)
 
 La disposizione dei tre nodi è il seguente:
 <img src="https://github.com/domoticawifi/Network-nodes/blob/master/img/Foto/IMG_20170404_150244.jpg"/>
 
-Da sinistra verso destra: Nodo Master(con modulo ESP8266), Nodo 1(con Arduino UNO), Nodo 2(con Arduino UNO).
+Da destra verso sinistra: Nodo Master(con modulo ESP8266), Nodo 1(con Arduino UNO), Nodo 2(con Arduino UNO).
 
 *N.B: In questo caso la comunicazione, per attivare attuatori e relè sul Nodo 2 è del tipo semplice... cioè senza ack. Non si è ancora implementata una Connected Oriented tra Nodo 1 e Nodo 2.*
+
+### *Secondo prototipo: Connected Oriented*
 
 _____________________________________
 # Database (Firebase)
