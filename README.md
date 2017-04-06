@@ -332,7 +332,37 @@ Da destra verso sinistra: Nodo Master(con modulo ESP8266), Nodo 1(con Arduino UN
 _____________________________________
 # Database (Firebase)
 Adesso non ci resta che implementare un database dove salvare i nostri dati, che saranno visibili in remoto attraverso un'app Android.
-Questo è lo sketch da mettere nel Nodo Master:[Sketch Nodo Master Completo](https://github.com/domoticawifi/Network-nodes/blob/master/Sketch/Sketch%20Definitivi/Nodo_Master_Database.ino). Questo sketch fa si che ogni volta che si aggiorni la pagina, viene aggiornato il database.
+Questo è lo sketch da mettere nel Nodo Master:[Sketch Nodo Master Completo](https://github.com/domoticawifi/Network-nodes/blob/master/Sketch/Sketch%20Definitivi/Nodo_Master_Database.ino). Questo sketch fa si che ogni volta che si aggiorni la pagina, venga aggiornato anche il database.
+il database che si è utilizzato per questo progetto è [Firebase](https://firebase.google.com/) (database NoSQL).
+Firebase è semplice ed intuitivo da utilizzare.
+La struttura che utilizza non è una struttura tabellare ma ad albero.
+
+Una volta implementato il DB dobbiamo effettuare la connessione a Firebase grazie ad una librearia per l'ESP8266 che è presente nell'occorrente software elencato a inizio pagina.
+Abbiamo bisogno, per il collegamento dell'HOSTNAME e dell'autorizzazione:
+* Accedete allo sketch del Nodo Master attraverso Arduino IDE
+* Aprite Firebase
+* Andate al vostro DB creato in precedenza
+* Copiate l'hostname del DB e incollatelo nello sketch alla variabile FIREBASE_HOST senza https:// e lo / finale
+* Andate su Firebase > Impostazioni > Database > Database Secret
+* Cliccate su SHOW e copiate il codice di autorizzazione
+* Incollate il codice nella variabile FIREBASE_AUTH presente nello sketch
+*N.B:Nello sketch postato su GitHub, non è presente ne SSID, Password, FIREBASE_HOST, FIREBASE_AUTH, perchè sono dati sensibili!
+Dovrete inserire al posto dei "****" le vostre credenziali.*
+
+Elenchiamo quello che succede nello sketch da eseguire sul Nodo Master(gli altri sketch, delle altre schede poste sugli altri nodi, rimangono invariati):
+* Il client accede all'indirizzo IP della pagina HTML e fa una richiesta di modifica dei nodi
+* Il Nodo Master riceve questa modifica attraverso la forma e manda i dati, attraverso la connessione ottica, al Nodo 1
+* Il Nodo 1 elabora i dati e li esegue o li invia al Nodo 2
+* Il Nodo 1, una volta eseguito tutto, manda una risposta al Nodo Master, confermando l'avvenuta ricezione
+* Il Nodo Master aggiorna la pagina HTML da mandare al client e contemporaneamente aggiorna il DB
+* La pagina HTML viene aggiornata
+
+In remoto sarà presente uno smartphone o tablet android con un'app per il controllo dello stato in remoto.
+Dalla semplice app, realizzata con [AppInventor](http://appinventor.mit.edu/explore/), sarà possibile monitorare lo stato della rete e di tutti i noti.
+In futuro potrebbe essere implementato anche un controllo, in remoto, dell'intera rete.
+
+## *App Android*
+
 _____________________________________
 # Conclusioni e costi complessivi
 ### *Costi:*
