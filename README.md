@@ -94,6 +94,8 @@ ________________________________________________________________________________
  Ecco la pagina HTML con la relativa Form:
  <img src="https://github.com/domoticawifi/Network-nodes/blob/master/Pagina%20HTML/Pagina%20HTML.png"/>
  
+*N.B:La pagina HTML ha tutte le funzionalità! Ma di queste solo l'accensione del relè e dell'attuatore sul Nodo Master funziona! Il resto verrà implementato man mano...*
+ 
  * Il terminale, per accedere a tale pagina HTML, dovrà allocarsi, tramite browser(Chrome, Firefox, Edge, ....) all'indirizzo associato alla shield Wi-Fi.
  * Tale indirizzo sarà visualizzato su terminale, per le prime prove, e, in un secondo momento, su un display posizionato sul nodo.
  * Il programma di lancio lo trovate [Qui](https://github.com/domoticawifi/Network-nodes/blob/master/Sketch/Sketch%20Di%20Prova/sketch_SchedaWiFi_NodoMaster_Prova_AccensioneLED.ino).
@@ -239,7 +241,7 @@ Una volta eseguiti tutti i collegamenti, possiamo eseguire gli sketch dei due no
 * [Programma Nodo Master](https://github.com/domoticawifi/Network-nodes/blob/master/Sketch/Sketch%20Definitivi/Nodo%20Master(Comunicazione%201%20Nodo).ino)
 * [Programma Nodo 1](https://github.com/domoticawifi/Network-nodes/blob/master/Sketch/Sketch%20Definitivi/Nodo%20Master(Comunicazione%201%20Nodo).ino)
 
-*N.B: Questi due programmi sono per la comunicazione fra Nodo Master e Nodo 1. Se dovessimo collegare un altro nodo(come faremo più in la) i due programmi cambieranno(cambiuerà solo il programma del Nodo 1).*
+*N.B: Questi due programmi sono per la comunicazione fra Nodo Master e Nodo 1. Se dovessimo collegare un altro nodo(come faremo più in la) i due programmi cambieranno(cambierà solo il programma del Nodo 1).*
 
 Con il lancio di questi due programmi otteniamo il risultato voluto:
 * Il client si connette all'indirizzo IP della scheda wi-fi
@@ -256,7 +258,9 @@ Il compito del Nodo Master è quello di un server web e di un "Ponte di comunica
 * *La comunicazione viene interrotta solo dopo che il Nodo 1 ha ricevuto il dato corretto(in questo caso non potrà comunicare l'ok):*
 *Potremmo risolvere questo problema mandando in ritorno una pagina con un WARNING di comunicazione attraverso un javascript.
 Purtroppo non possiamo prevenire ostacoli durante la comunicazione, ma su 100 comunicazione provate, solamente un 10%, non ha ricevuto l'ACK dal Nodo 1!
-Mandando il WARNING il client sa che qualcosa non è andato nel modo giusto, perchè potrebbe risultare anche un guasto a qualche componente di comunicazione.*
+Mandando il WARNING il client sa che qualcosa non è andato nel modo giusto, perchè potrebbe risultare anche un guasto a qualche componente di comunicazione.
+Questo problema potrebbe essere in parte gestito...
+Si è pensato di mandare, attraverso il Nodo Master, lo stato precedente del dato che non è stato ricevuto; così facendo si ha la sicurezza, in parte, di far tornare il Nodo 1 allo stato precedente. Questo è possibile se e solo se la comunicazione è interrotta solo nella ricezione della risposta e non nell'invio del dato!*
 
 <img src="https://github.com/domoticawifi/Network-nodes/blob/master/img/Foto/Nodo%20Master%20%2B%20Nodo%201(Completo).jpg"/></a>
 
@@ -275,7 +279,7 @@ Si è cercato di risolvere la cosa nel migliore dei modi: Potrebbe essere un pro
 Durante la fase di ascolto del Nodo Master, il Nodo 1 manda un ACK per circa 10 secondi; nei dieci secondi di ascolto, da parte del Nodo Master, vengono prelevati valori random non inviati dal Nodo 1. 
 Fortunatamente, nell'arco dei 10 secondi di ascolto, il dato, inviato dal Nodo 1, viene letto dal Nodo Master ricevendo l'ok di avvenuta ricezione, quindi i 2 problemi riscontrati sono stati risolti.
 
-*N.B: potrebbe capitare che il dato, inviato dal Nodo 1, non venga letto del sensore del Nodo Master, ma su 100 prove non è mai successo!*
+*N.B: potrebbe capitare che il dato, inviato dal Nodo 1, non venga letto del sensore del Nodo Master, ma su 100 prove non è mai successo! Il dato prima o poi verrà letto!*
 
  
  ## Terza fase: Collegamento Ottico Nodo Master -> Nodo 1 -> Nodo 2
