@@ -235,7 +235,6 @@ Il Nodo 1 dovrè elaborare il dato inviato e mandarli la conferma.
 
 *N.B: Se dovesse passare un certo lasso di tempo(comunicazione interrotta) la comunicazione si interrompe!*
 
-________________________________________
 
 Una volta eseguiti tutti i collegamenti, possiamo eseguire gli sketch dei due nodi:
 * [Programma Nodo Master](https://github.com/domoticawifi/Network-nodes/blob/master/Sketch/Sketch%20Definitivi/Nodo%20Master(Comunicazione%201%20Nodo).ino)
@@ -333,7 +332,7 @@ _____________________________________
 # Database (Firebase)
 Adesso non ci resta che implementare un database dove salvare i nostri dati, che saranno visibili in remoto attraverso un'app Android.
 Questo è lo sketch da mettere nel Nodo Master:[Sketch Nodo Master Completo](https://github.com/domoticawifi/Network-nodes/blob/master/Sketch/Sketch%20Definitivi/Nodo_Master_Database.ino). Questo sketch fa si che ogni volta che si aggiorni la pagina, venga aggiornato anche il database.
-il database che si è utilizzato per questo progetto è [Firebase](https://firebase.google.com/) (database NoSQL).
+Il database che si è utilizzato per questo progetto è [Firebase](https://firebase.google.com/) (database NoSQL).
 Firebase è semplice ed intuitivo da utilizzare.
 La struttura che utilizza non è una struttura tabellare ma ad albero.
 
