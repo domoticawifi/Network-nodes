@@ -6,11 +6,11 @@ _____________________________________
 
 ## Struttura
 Abbiamo presvisto un terminale PC, un nodo master e due nodi, schematizzati a questa maniera (classifichiamo questa rete come P2P):
-  * Terminale (Invia e riceve le informazioni di tutta la rete accedendo all'indirizzo IP del Nodo Master)
-  * Router (Instrada le richieste fatte tra terminale e Nodo Master sulla rete domestica e anche quella esterna andando ad aggiornare un DB)
-  * Nodo Master (Nodo formato da un modulo [ESP8266 ESP-12E](https://acrobotic.com/acr-00018) per il collegamento WI-FI con il terminale, l'invio delle informazioni sul DB e la trasmissione di informazioni tra i vari nodi presenti nella rete locale).
-  * Nodo1 (Nodo formato da [Arduino NANO](https://www.arduino.cc/en/Main/arduinoBoardNano) che gestisce un attuatore/relè/led e, in futuro, un eventuale sensore
-  * Nodo2 (Stessa cosa del nodo precedente)
+  * <h4>Terminale</h4> (Invia e riceve le informazioni di tutta la rete accedendo all'indirizzo IP del Nodo Master)
+  * <h4>Router</h4> (Instrada le richieste fatte tra terminale e Nodo Master sulla rete domestica e anche quella esterna andando ad aggiornare un DB)
+  * <h4>Nodo Master</h4> (Nodo formato da un modulo [ESP8266 ESP-12E](https://acrobotic.com/acr-00018) per il collegamento WI-FI con il terminale, l'invio delle informazioni sul DB e la trasmissione di informazioni tra i vari nodi presenti nella rete locale).
+  * <h4>Nodo1</h4> (Nodo formato da [Arduino NANO](https://www.arduino.cc/en/Main/arduinoBoardNano) che gestisce un attuatore/relè/led e, in futuro, un eventuale sensore
+  * <h4>Nodo2</h4>(Stessa cosa del nodo precedente)
   
   *N.B: Lo storage delle informazioni su un DB, ci serve per cotrollare lo stato della rete, anche da smartphone o tablet, in         remoto (Internetworking: il router fungerà da gateway).
   Il Nodo Master può essere, a sua volta, provvisto di attuatori e sensori.
