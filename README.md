@@ -351,13 +351,13 @@ Dovrete inserire al posto dei "****" le vostre credenziali.*
 
 Elenchiamo quello che succede nello sketch da eseguire sul Nodo Master(gli altri sketch, delle altre schede poste sugli altri nodi, rimangono invariati):
 * Il client accede all'indirizzo IP della pagina HTML e fa una richiesta di modifica dei nodi
-* Il Nodo Master riceve questa modifica attraverso la forma e manda i dati, attraverso la connessione ottica, al Nodo 1
+* Il Nodo Master riceve questa modifica attraverso la form e manda i dati, attraverso la connessione ottica, al Nodo 1
 * Il Nodo 1 elabora i dati e li esegue o li invia al Nodo 2
 * Il Nodo 1, una volta eseguito tutto, manda una risposta al Nodo Master, confermando l'avvenuta ricezione
 * Il Nodo Master aggiorna la pagina HTML da mandare al client e contemporaneamente aggiorna il DB
 * La pagina HTML viene aggiornata
 
-In remoto sarà presente uno smartphone o tablet android con un'app per il controllo dello stato in remoto.
+In remoto sarà presente uno smartphone o tablet android con un'app per il controllo dello stato.
 Dalla semplice app, realizzata con [AppInventor](http://appinventor.mit.edu/explore/), sarà possibile monitorare lo stato della rete e di tutti i noti.
 In futuro potrebbe essere implementato anche un controllo, in remoto, dell'intera rete.
 
