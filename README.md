@@ -27,32 +27,30 @@ Le comunicazioni fra i nodi e il terminale avviene in questa maniera:
 ## Esempio di comunicazione: Connected Oriented
 
 ## Terminale > Nodo Master > Nodo Interessato
-* Attraverso una pagina HTML, appositamente caricata in locale attraverso la scheda Wi-Fi, avremo la possibilità di inviare informazioni alla shield da qualsiasi terminale noi vogliamo (es. PC, smartphone, tablet). inoltre da questa sarà possibile reperire lo stato di ogni nodo(attuatori ON/OFF e sensori)
-* Se volessimo inviare una certa informazione, come ad esempio l'accensione o lo spegnimento di un LED, non dovremmo far altro che selezionare l'apposito 'Radio Button' per poi determinare l'invio della Form attraverso il'Button' 'Invio'
+* Attraverso una pagina HTML, appositamente caricata in locale attraverso la scheda Wi-Fi, avremo la possibilità di inviare informazioni alla shield da qualsiasi terminale noi vogliamo (es. PC, smartphone, tablet); inoltre dalla stessa pagina sarà possibile reperire lo stato di ogni nodo(attuatori ON/OFF e sensori)
+* Se volessimo inviare una certa informazione, come ad esempio l'accensione o lo spegnimento di un LED(Attuatore e/o Relè), non dovremmo far altro che selezionare l'apposito 'Radio Button' per poi determinare l'invio della Form attraverso il Bottone 'Invio'
 * In questa maniera verrà mandata una richiesta tramite rete WI-FI al Nodo Master gestito dalla scheda ESP8266
-* La scheda Wi-Fi riceverà la richiesta, la elaborerà e controllerà se il dato dovà essere mandato, tramite segnale infrarossi, al nodo adiacente
-* Il nodo adiacente riceve questo segnale e lo elabora per capire se è lui il destinatario
-* Se così non fosse lo manda all'altro nodo adiacente con il collegamento ottico
+* La scheda Wi-Fi riceverà la richiesta, la elaborerà e controllerà se il dato dovà essere inoltrato, tramite segnale infrarossi, al nodo adiacente(Nodo 1)
+* Il nodo adiacente(Nodo 1) riceve questo segnale e lo elabora per capire se è lui il destinatario
+* Se così non fosse lo manda all'altro nodo adiacente(Nodo 2) con il collegamento ottico
 * Quando il messaggio è arrivato a destinazione, la scheda arduino presente su tale nodo spegnerà/accenderà l'attuatore o relè
 * Verrà mandato, in ritorno, l'avvenuta/o accensione/spegnimento
-* Il messaggio di ritorno arriverà fino al nodo master che darà in risposta al PC un'altra pagina HTML aggiornata
+* Il messaggio di ritorno arriverà fino al Nodo Master che darà in risposta al PC un'altra pagina HTML aggiornata
 * Il Nodo Master, successivamente, manderà questo dato sul database per poterlo consultare in remoto tramite smartphone
 * Il PC riceverà la pagina HTML aggiornata e vedrà lo stato attuale di tutti i nodi per una prossima operazione  
 ## Nodo Master > Nodo Interessato
 * Il Nodo Master avrà un proprio indirizzo IP nella rete (es: 192.168.1.100)
 * Il Nodo Master riceve la richiesta dal PC da instradare al giusto nodo
 * Il Nodo Master comunicherà con il Nodo1, essendo il suo adiacente
-* Verrà mandato un segnale ottico al Nodo1 per informarlo che sta per avvenire una trasmissione
-* Il Nodo1 accetta questa trasmissione(ACK)
-* Il Nodo Master invia il dato seguito dalla chiusura della comunicazione
-* Il Nodo1 riceve questo dato e la chiusura, in modo da capire che tutto è andato a buon fine, se così non fosse fa ristrasmettere il dato
-* Il Nodo1 elabora questo dato e capisce se appartiene a lui altrimenti lo manda, alla stessa maniera della prima comunicazione, al nodo adiacente (Nodo2)
-* Elaborato il dato ed eseguita la modifica su tale nodo, il Nodo1 manda un messaggio ottico al Nodo Master per informarli che sta per trasmettere
-* Il Nodo Master accetta(ACK) e il Nodo1 comincia a trasmettere il dato seguito dalla chiusura
+* Verrà mandato un segnale ottico al Nodo1 con il dato da elaborare
+* Il Nodo1 riceve questo dato e lo elabora; una volta elaborato restituisce un ACK al Nodo Master
+* Il Nodo Master chiude la comunicazione
+* Il Nodo1 se dovesse ricevere un dato corrotto richiede il rinvio del dato
+* Il Nodo1 elabora il dato ricevuto e capisce se appartiene a lui altrimenti lo manda, alla stessa maniera della prima comunicazione, al nodo adiacente (Nodo2)
 * Così come il Nodo1 ha elaborato il dato all'andata, il Nodo Master lo farà per il ritorno
 * Una volta chiusa la comunicazione il Nodo Master aggiorna la pagina HTML e comunica il cambiamento al database
 
-*N.B: Se non dovesse esserci rete internet nella rete domestica, comunque quest'ultima non ne risentirebbe e continuerebbe ad operare. Il database verrà aggiornato appena sarà presente una connessione in uscita.
+*N.B: Se non dovesse esserci instradamento in uscita(connessione internet) sulla rete LAN, comunque quest'ultima non ne risentirebbe e continuerebbe ad operare. Il database verrà aggiornato appena sarà presente una connessione in uscita.
 Per verificare lo stato di ogni nodo, si è pensato di collegare un Display LCD o OLED. Su questo display comparirà le azioni che sta eseguendo tale nodo. Esempio: Nodo1 - Display (Sto comunicando...) -> Nodo2 - Display (Sto ricevendo...)*
 
 ___________________________________________________________________________________
