@@ -377,6 +377,8 @@ L'app presenta una schermata principale in cui ci sono due grassi bottoni:
 Per il momento il controllo della modifica dei nodi non può essere effettuato (verrà implementato in un secondo momento)
 Cliccando sull'occhio abbiamo l'apertura della pagina "Controllo stato", in cui sarà presente lo stato di ogni nodo.
 tale stati saranno prelevati da Firebase.
+
+Potete scaricare il file APK da [QUI](https://github.com/domoticawifi/Network-nodes/blob/master/Android%20APP/NetworkNodes_App_Android.apk) oppure accedere alla cartella "Android APP" sulla pagina principale della reposity di GitHub.
 _____________________________________
 # Conclusioni e costi complessivi
 
