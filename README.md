@@ -1,7 +1,6 @@
 # Network-Nodes
 
-Questo progetto vede la realizzazione, tramite Arduino, di una rete locale (domestica o aziendale).
-Lo scopo principale è quello di far comunicare il terminale (PC) con i nodi della rete trasmettendo informazioni.
+Questo progetto vede la realizzazione, tramite Arduino, di una piccola rete LAN (domestica o aziendale) che permette di comunicare, attraverso un terminale PC (o qualsiasi altro device connesso alla rete), i nodi della rete; i nodi a loro volta saranno collegati tra loro attraverso un collegamento ottico(infrarossi).
 
 _____________________________________
 
