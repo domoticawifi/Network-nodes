@@ -50,13 +50,13 @@ La comunicazione fra i nodi e il terminale avviene in questa maniera:
 * Così come il Nodo1 ha elaborato il dato all'andata, il Nodo Master lo farà per il ritorno
 * Una volta chiusa la comunicazione il Nodo Master aggiorna la pagina HTML e comunica il cambiamento al database
 
-*N.B: Se non dovesse esserci instradamento in uscita(connessione internet) sulla rete LAN, comunque quest'ultima non ne risentirebbe e continuerebbe ad operare. Il database verrà aggiornato appena sarà presente una connessione in uscita.
-Per verificare lo stato di ogni nodo, si è pensato di collegare un Display LCD o OLED. Su questo display comparirà le azioni che sta eseguendo tale nodo. Esempio: Nodo1 - Display (Sto comunicando...) -> Nodo2 - Display (Sto ricevendo...)*
+*N.B: Se non dovesse esserci instradamento in uscita(connessione internet) sulla rete LAN, la connessione tra i nodi non ne risentirebbe e continuerebbe ad operare. Il database verrà aggiornato appena sarà presente una connessione in uscita.
+Per verificare lo stato di ogni nodo, si è pensato di collegare un Display LCD o OLED. Su questo display compariranno le azioni che sta eseguendo tale nodo. Esempio: Nodo1 - Display (Sto comunicando...) -> Nodo2 - Display (Sto ricevendo...)*
 
 ___________________________________________________________________________________
 # Schema Network
 <img src="https://github.com/domoticawifi/Network-nodes/blob/master/img/Schemi%20%26%20Circuiti/Progetto_Schema.png"/>
-Come possiamo vedere dall'immagine, abbiamo un PC, che funziona da terminale, collegato alla rete WI-FI, invia e riceve informazioni attraverso il Nodo Master.
+Come possiamo vedere dall'immagine, abbiamo un PC che funziona da terminale:collegato alla rete WI-FI, invia e riceve informazioni attraverso il Nodo Master.
 Il Nodo Master, collegato alla rete, instrada le richieste e le informazioni, mandate dal terminale e dagli altri nodi, nella giusta direzione.
 
 ## Occorrente Hardware
@@ -88,7 +88,7 @@ ________________________________________________________________________________
  ## Prima fase: Collegamento Scheda WI-FI ad una rete LAN
  Potete vedere la connessione Wi-Fi della shield cliccando [QUI](https://github.com/domoticawifi/Network-nodes/blob/master/GestioneShieldESP8266.md).
  
- * Una volta testata la connessione di questa shield, si è implementato un'interfaccia grafica in HTML per comunicare i cambiamenti di stati di alcuni attuatori e relè presenti sul Nodo Master (attuatori e relè sono sostituiti da semplici led per facilitare i collegamenti, ma il concetto non cambia).
+ * Una volta testata la connessione di questa shield, si è implementata un'interfaccia grafica in HTML per comunicare i cambiamenti di stati di alcuni attuatori e relè presenti sul Nodo Master (attuatori e relè sono sostituiti da semplici led per facilitare i collegamenti, ma il concetto non cambia).
  * La pagina HTML viene mandata al terminale dalla scheda ESP8266 e aggiornata ogni qual volta avviene un cambiamento di stato dettato dal terminale.
  * Il cambiamento di stato avviene attraverso una semplice FORM HTML che invia i dati cambiati all'URL della pagina.
  Ecco la pagina HTML con la relativa Form:
@@ -96,7 +96,7 @@ ________________________________________________________________________________
  
 *N.B:La pagina HTML ha tutte le funzionalità! Ma di queste solo l'accensione del relè e dell'attuatore sul Nodo Master funziona! Il resto verrà implementato man mano...*
  
- * Il terminale, per accedere a tale pagina HTML, dovrà allocarsi, tramite browser(Chrome, Firefox, Edge, ....) all'indirizzo associato alla shield Wi-Fi.
+ * Il terminale, per accedere a tale pagina HTML, dovrà allocarsi, tramite browser(Chrome, Firefox, Edge, ....) all'indirizzo IP associato alla shield Wi-Fi.
  * Tale indirizzo sarà visualizzato su terminale, per le prime prove, e, in un secondo momento, su un display posizionato sul nodo.
  * Il programma di lancio lo trovate [Qui](https://github.com/domoticawifi/Network-nodes/blob/master/Sketch/Sketch%20Di%20Prova/sketch_SchedaWiFi_NodoMaster_Prova_AccensioneLED.ino).
  
@@ -155,7 +155,7 @@ Ecco i collegamenti:
  
  *N.B: Possiamo anche non utilizzare i resistori, perchè la tensione di uscita sui pin non supera i 3volt. Se dovessimo usare resistenze alte la luce risulterebbe più fievole, comportando un possibile ostacolo alla comunicazione*
  
- *Durante i collegamneti e i test abbiamo riscontrato un problema! Non sappiamo a cosa sia dovuto, ma se dovessimo alimentare il sensore IR ai 5v della shield Wi-Fi, i dati sono molto corrotti! Utilizzando l'alimentazione di Arduino i risultati sono migliori... comunque abbiamo dei piccoli problemi, dovuti a disturbi e alla scarsa schermatura, nel rilevare il valore dal sensore. Spiegheremo questo più avanti...*
+ *Durante i collegamneti e i test abbiamo riscontrato un problema! Non sappiamo a cosa sia dovuto, ma se dovessimo alimentare il sensore IR con i 5v della shield Wi-Fi, i dati risulterebbero molto corrotti! Utilizzando l'alimentazione di Arduino i risultati sono migliori... comunque abbiamo dei piccoli problemi, dovuti a disturbi e alla scarsa schermatura, nel rilevare il valore dal sensore. Spiegheremo questo più avanti...*
  
  
  Da aggiungere all'occorrente software, per la realizzazione del Nodo Master, è la libreria per la gestione dei segnali infrarossi per la shield ESP8266 (purtroppo non può essere utilizzata la stessa libreria di arduino!).
@@ -203,7 +203,7 @@ Ecco i collegamenti:
 Il collegamento dell'emettitore IR è obbligatorio farlo sul PIN3! Perchè la libreria di Arduino sull'invio del segnare infrarosso utilizza quel piedino per default. Se volessimo cambiare piedino dovremmo andare ad agire sulla libreria.
  
  
- Per le prime prove, si è installato, sui due nodi, un emettitore(Nodo Master) e un sensore infrarossi(Nodo 1), per un semplice test di comunicazione.
+ Per le prime prove, si è installato, sui due nodi, un emettitore(sul Nodo Master) e un sensore infrarossi(sul Nodo 1), per un semplice test di comunicazione.
  Si è inviato un piccolo dato, sottoforma di codifica NEC, dal Nodo Master al Nodo 1. Si hanno a disposizione tanti tipi di codifica: NEC, Sony, Sharp e tante altre...
  
  Nel nostro caso, ogni nodo avrà almeno una coppia led-sensore per l'invio e ricezione infrarossi, quindi il procedimento è più complesso.
@@ -213,7 +213,7 @@ Il collegamento dell'emettitore IR è obbligatorio farlo sul PIN3! Perchè la li
  * Attivazione Relè Nodo 2
  * Attivazione Attuatore Nodo 2
  
-Quindi i segnali che possono essere inoltrato dall'emmettitore IR(Nodo Master) sono essenzialmente 4; a questi ce da aggiungere un solo segnale di ritorno(Nodo 1, Nodo 2) che verifica la corretta ricezione del dato.
+Quindi i segnali che possono essere inoltrati dall'emettitore IR(sul Nodo Master) sono essenzialmente 4; a questi c'è da aggiungere un solo segnale di ritorno(Nodo 1, Nodo 2) che verifica la corretta ricezione del dato.
 
 Procediamo per gradi...
 
@@ -228,12 +228,12 @@ Tutto questo dovrà essere implementato con un elegante e bell'algoritmo.
 
 <img src="https://github.com/domoticawifi/Network-nodes/blob/master/img/Flow-Chart/Flowchart%20-%20Nodo%20Master.png"/>
 
-Questo è il flow chart che dovrà eseguire il Nodo Master una volta inviato il dato.
-Il Nodo 1 dovrè elaborare il dato inviato e mandarli la conferma.
+Questo è l'algoritmo che dovrà eseguire il Nodo Master una volta inviato il dato.
+Il Nodo 1 dovrè elaborare il dato inviato e mandargli la conferma.
 
 <img src="https://github.com/domoticawifi/Network-nodes/blob/master/img/Flow-Chart/Flowchart%20-%20Nodo%201.png"/>
 
-*N.B: Se dovesse passare un certo lasso di tempo(comunicazione interrotta) la comunicazione si interrompe!*
+*N.B: Se dovesse passare un certo lasso di tempo(es. 10 secondi) la comunicazione si interrompe!*
 
 
 Una volta eseguiti tutti i collegamenti, possiamo eseguire gli sketch dei due nodi:
@@ -246,7 +246,7 @@ Con il lancio di questi due programmi otteniamo il risultato voluto:
 * Il client si connette all'indirizzo IP della scheda wi-fi
 * Decide di cambiare lo stato di un attuatore e/o relè sul Nodo 1 
 * Il Nodo Master riceve il dato inviato e lo elabora inviandolo al Nodo 1
-* Il Nodo 1 elabora il dato ricevuto; in qusta fase il Nodo Master rimane in ascolto per 10 secondi
+* Il Nodo 1 elabora il dato ricevuto; in questa fase il Nodo Master rimane in ascolto per 10 secondi
 * Il Nodo 1, se accetta il dato, manda un ACK al Nodo Master
 * Il Nodo Master riceve l'ok è chiude la comunicazione aggiornando la pagina HTML che visualizzerà il client
 
@@ -270,15 +270,14 @@ Il ricevitore IR, del Nodo Master, ci ha dato parecchi problemi:
 * L'alimentazione della shield Wi-Fi dava parecchi problemi al sensore durante la lettura
 
 ##### *Come si è risolto tutto ciò?*
-Si è utilizzata, prima di tutto, un'alimentazione esterna, presa da un altro Arduino UNO (l'alimentazione può essere presa anche da una pila esterna), risolvendo in parte i problemi di lettura del sensore.
-Per il primo problema, una parte è stata risolta risolvendo il secondo problema, ma continuava, in modo random a ricevere valori casuali.
+Si è utilizzata, prima di tutto, un'alimentazione esterna, presa da un altro Arduino UNO (l'alimentazione può essere presa anche da una pila esterna), risolvendo in parte i problemi di lettura del sensore; in questo modo parte del primo problema è stata risolta, ma tuttavia continua, in modo random, a ricevere valori casuali.
 Non si è venuto a capo di questo!!!
 Si è cercato di risolvere la cosa nel migliore dei modi: Potrebbe essere un problema della scheda, un problema del sensore, un problema di alimentazione... Potrebbe essere tutto o niente... 
 
 Durante la fase di ascolto del Nodo Master, il Nodo 1 manda un ACK per circa 10 secondi; nei dieci secondi di ascolto, da parte del Nodo Master, vengono prelevati valori random non inviati dal Nodo 1. 
 Fortunatamente, nell'arco dei 10 secondi di ascolto, il dato, inviato dal Nodo 1, viene letto dal Nodo Master ricevendo l'ok di avvenuta ricezione, quindi i 2 problemi riscontrati sono stati risolti.
 
-*N.B: potrebbe capitare che il dato, inviato dal Nodo 1, non venga letto del sensore del Nodo Master, ma su 100 prove non è mai successo! Il dato prima o poi verrà letto!*
+*N.B: potrebbe capitare che il dato inviato dal Nodo 1 non venga letto del sensore del Nodo Master, ma su 100 prove non è mai successo! Il dato prima o poi verrà letto!*
 
  
  ## Terza fase: Collegamento Ottico Nodo Master -> Nodo 1 -> Nodo 2
