@@ -9,7 +9,7 @@ Abbiamo presvisto un terminale PC, un nodo master e due nodi, schematizzati in q
   * Terminale (Invia e riceve le informazioni dei nodi attraverso la rete accedendo all'indirizzo IP del Nodo Master)
   * Router (Instrada le richieste fatte tra terminale e Nodo Master sulla rete domestica e anche quella esterna andando ad aggiornare un DB)
   * Nodo Master (Nodo formato da un modulo [ESP8266 ESP-12E](https://acrobotic.com/acr-00018) per il collegamento WI-FI con il terminale, l'invio delle informazioni sul DB e la trasmissione di informazioni tra i vari nodi presenti nella rete locale).
-  * Nodo1 (Nodo formato da [Arduino NANO](https://www.arduino.cc/en/Main/arduinoBoardNano) che gestisce un attuatore/relè/led e, in futuro, un eventuale sensore
+  * Nodo1 (Nodo formato da [Arduino NANO](https://www.arduino.cc/en/Main/arduinoBoardNano) che gestisce un attuatore/relè/led e, in futuro, un eventuale sensore)
   * Nodo2(Stessa cosa del nodo precedente)
   
   *N.B: Lo storage delle informazioni su un DB, ci serve per cotrollare lo stato della rete, anche da smartphone o tablet, in         remoto (Internetworking: il router fungerà da gateway).
@@ -18,7 +18,7 @@ Abbiamo presvisto un terminale PC, un nodo master e due nodi, schematizzati in q
   
 ____________________________________________________________________________________________  
 # Comunicazioni  
-Le comunicazioni fra i nodi e il terminale avviene in questa maniera:
+La comunicazione fra i nodi e il terminale avviene in questa maniera:
   * Il terminale comunica con il solo Nodo Master tramite la rete WI-FI, e riceve ed invia a questo nodo le richieste da fare agli altri due nodi della rete.
   * Il Nodo Master comunica con il terminale, via WI-FI, e, con il Nodo1, attraverso un collegamento ottico (LED IR e Sensor IR), e la stessa comunicazione avviene tra il Nodo1 e Nodo2
   * Ogni nodo può comunicare solamente con il suo nodo adiacente formando un ponte di nodi
@@ -30,7 +30,7 @@ Le comunicazioni fra i nodi e il terminale avviene in questa maniera:
 * Attraverso una pagina HTML, appositamente caricata in locale attraverso la scheda Wi-Fi, avremo la possibilità di inviare informazioni alla shield da qualsiasi terminale noi vogliamo (es. PC, smartphone, tablet); inoltre dalla stessa pagina sarà possibile reperire lo stato di ogni nodo(attuatori ON/OFF e sensori)
 * Se volessimo inviare una certa informazione, come ad esempio l'accensione o lo spegnimento di un LED(Attuatore e/o Relè), non dovremmo far altro che selezionare l'apposito 'Radio Button' per poi determinare l'invio della Form attraverso il Bottone 'Invio'
 * In questa maniera verrà mandata una richiesta tramite rete WI-FI al Nodo Master gestito dalla scheda ESP8266
-* La scheda Wi-Fi riceverà la richiesta, la elaborerà e controllerà se il dato dovà essere inoltrato, tramite segnale infrarossi, al nodo adiacente(Nodo 1)
+* La scheda Wi-Fi riceverà la richiesta, la inoltrerà, tramite segnale infrarossi, al nodo adiacente(Nodo 1)
 * Il nodo adiacente(Nodo 1) riceve questo segnale e lo elabora per capire se è lui il destinatario
 * Se così non fosse lo manda all'altro nodo adiacente(Nodo 2) con il collegamento ottico
 * Quando il messaggio è arrivato a destinazione, la scheda arduino presente su tale nodo spegnerà/accenderà l'attuatore o relè
