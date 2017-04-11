@@ -283,7 +283,7 @@ Si è cercato di risolvere la cosa nel migliore dei modi: Potrebbe essere un pro
 
  
  ## Terza fase: Collegamento Ottico Nodo Master -> Nodo 1 -> Nodo 2
- Per questa terza fase implementiamo due prototipi:il primo avrà una semplice comunicazione senza risposta del Nodo 2(cioè senza verificare la ricezione del dato), mentre il secondo sarà quello più completo e strutturato in cui anche il Nodo 2 interagisce attraverso l'rchitettura "Connected Oriented" sfruttata già dagli altri due nodi.
+ Per questa terza fase implementiamo due prototipi:il primo avrà una semplice comunicazione senza risposta del Nodo 2(cioè senza verificare la ricezione del dato), mentre il secondo sarà quello più completo e strutturato in cui anche il Nodo 2 interagisce attraverso l'architettura "Connected Oriented" sfruttata già dagli altri due nodi.
  
  ### *Primo prototipo: Simple Connection*
  * Lo schema per il Nodo Master rimane lo stesso, senza nessuna variazione neanche nel codice(essendo già tutta implementata)
@@ -359,7 +359,7 @@ Elenchiamo quello che succede nello sketch da eseguire sul Nodo Master(gli altri
 * La pagina HTML viene aggiornata
 
 In remoto sarà presente uno smartphone o tablet android con un'app per il controllo dello stato.
-Dalla semplice app, realizzata con [AppInventor](http://appinventor.mit.edu/explore/), sarà possibile monitorare lo stato della rete e di tutti i noti.
+Dalla semplice app, realizzata con [AppInventor](http://appinventor.mit.edu/explore/), sarà possibile monitorare lo stato della rete e di tutti i nodi.
 In futuro potrebbe essere implementato anche un controllo, in remoto, dell'intera rete.
 
 ## *App Android*
@@ -371,13 +371,13 @@ Come dicevamo, l'app è stata realizzata attraverso un software open source onli
 Tale software è molto semplice ed intuitivo.
 in futuro verrà fatta una guida su come utilizzarlo.
 
-L'app presenta una schermata principale in cui ci sono due grassi bottoni:
+L'app presenta una schermata principale in cui ci sono due grossi bottoni:
 * Un occhio = rappresenta il controllo dello stato della rete
 * Un joypad = rappresenta il controllo in remoto delle modifiche da portare ai nodi
 
 Per il momento il controllo della modifica dei nodi non può essere effettuato (verrà implementato in un secondo momento)
 Cliccando sull'occhio abbiamo l'apertura della pagina "Controllo stato", in cui sarà presente lo stato di ogni nodo.
-tale stati saranno prelevati da Firebase.
+Tale stato sarà prelevato da Firebase.
 
 Potete scaricare il file APK da [QUI](https://github.com/domoticawifi/Network-nodes/blob/master/Android%20APP/NetworkNodes_App_Android.apk) oppure accedere alla cartella "Android APP" sulla pagina principale della reposity di GitHub.
 _____________________________________
