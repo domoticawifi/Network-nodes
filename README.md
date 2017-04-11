@@ -263,7 +263,7 @@ Si è pensato di mandare, attraverso il Nodo Master, lo stato precedente del dat
 
 *PS:
 Durante la fase di ascolto del Nodo Master, il Nodo 1 manda un ACK per circa 10 secondi; nei dieci secondi di ascolto, da parte del Nodo Master, vengono prelevati valori random non inviati dal Nodo 1. 
-Fortunatamente, nell'arco dei 10 secondi di ascolto, il dato, inviato dal Nodo 1, viene letto dal Nodo Master ricevendo l'ok di avvenuta ricezione, quindi i 2 problemi riscontrati sono stati risolti.*
+Fortunatamente, nell'arco dei 10 secondi di ascolto, il dato, inviato dal Nodo 1, viene letto dal Nodo Master ricevendo l'ok di avvenuta ricezione.*
 
 <img src="https://github.com/domoticawifi/Network-nodes/blob/master/img/Foto/Nodo%20Master%20%2B%20Nodo%201(Completo).jpg"/></a>
 
