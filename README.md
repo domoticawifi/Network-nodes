@@ -260,6 +260,8 @@ Purtroppo non possiamo prevenire ostacoli durante la comunicazione, ma su 100 co
 Mandando il WARNING il client sa che qualcosa non è andato nel modo giusto, perchè potrebbe risultare anche un guasto a qualche componente di comunicazione.
 Questo problema potrebbe essere in parte gestito...
 Si è pensato di mandare, attraverso il Nodo Master, lo stato precedente del dato che non è stato ricevuto; così facendo si ha la sicurezza, in parte, di far tornare il Nodo 1 allo stato precedente. Questo è possibile se e solo se la comunicazione è interrotta solo nella ricezione della risposta e non nell'invio del dato!*
+* *Durante la fase di ascolto del Nodo Master, il Nodo 1 manda un ACK per circa 10 secondi; nei dieci secondi di ascolto, da parte del Nodo Master, vengono prelevati valori random non inviati dal Nodo 1. 
+Fortunatamente, nell'arco dei 10 secondi di ascolto, il dato, inviato dal Nodo 1, viene letto dal Nodo Master ricevendo l'ok di avvenuta ricezione, quindi i 2 problemi riscontrati sono stati risolti.*
 
 <img src="https://github.com/domoticawifi/Network-nodes/blob/master/img/Foto/Nodo%20Master%20%2B%20Nodo%201(Completo).jpg"/></a>
 
@@ -274,8 +276,6 @@ Si è utilizzata, prima di tutto, un'alimentazione esterna, presa da un altro Ar
 Non si è venuto a capo di questo!!!
 Si è cercato di risolvere la cosa nel migliore dei modi: Potrebbe essere un problema della scheda, un problema del sensore, un problema di alimentazione... Potrebbe essere tutto o niente... 
 
-Durante la fase di ascolto del Nodo Master, il Nodo 1 manda un ACK per circa 10 secondi; nei dieci secondi di ascolto, da parte del Nodo Master, vengono prelevati valori random non inviati dal Nodo 1. 
-Fortunatamente, nell'arco dei 10 secondi di ascolto, il dato, inviato dal Nodo 1, viene letto dal Nodo Master ricevendo l'ok di avvenuta ricezione, quindi i 2 problemi riscontrati sono stati risolti.
 
 *N.B: potrebbe capitare che il dato inviato dal Nodo 1 non venga letto del sensore del Nodo Master, ma su 100 prove non è mai successo! Il dato prima o poi verrà letto!*
 
