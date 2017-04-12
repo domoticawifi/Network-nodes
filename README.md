@@ -6,6 +6,12 @@ _____________________________________
 
 # Indice
 * <a href="#ancora-struttura">Struttura</a>
+* <a href="#ancora-comunicazioni">Comunicazioni</a>
+ * <a href="#ancora-es-comunicazione">Esempio comunicazione</a>
+* <a href="#ancora-schemaNet">Schema Network</a>
+* <a href="#ancora-occorrente">Occorrente</a>
+ *<a href="#ancora-occ-hard">Hardware</a>
+ *<a href="#ancora-occ-soft">Software</a>
 
 _____________________________________
 
@@ -22,14 +28,14 @@ Abbiamo presvisto un terminale PC, un nodo master e due nodi, schematizzati in q
   Il problema della scheda ESP-12E è la scarsità di PIN disponibili: nel nostro caso è sato possibile collegare un solo attuatore/relè a tale nodo a differenza dei due collegati sugli altri nodi.*
   
 ____________________________________________________________________________________________  
-# Comunicazioni  
+# <a name="ancora-comunicazioni"></a>Comunicazioni  
 La comunicazione fra i nodi e il terminale avviene in questa maniera:
   * Il terminale comunica con il solo Nodo Master tramite la rete WI-FI, e riceve ed invia a questo nodo le richieste da fare agli altri due nodi della rete.
   * Il Nodo Master comunica con il terminale, via WI-FI, e, con il Nodo1, attraverso un collegamento ottico (LED IR e Sensor IR), e la stessa comunicazione avviene tra il Nodo1 e Nodo2
   * Ogni nodo può comunicare solamente con il suo nodo adiacente formando un ponte di nodi
   * Se il terminale deve contattare il Nodo2, la sua richiesta passerà prima a tutti i nodi
   
-## Esempio di comunicazione: Connected Oriented
+## <a name="ancora-es-comunicazione"></a>Esempio di comunicazione: Connected Oriented
 
 ## Terminale > Nodo Master > Nodo Interessato
 * Attraverso una pagina HTML, appositamente caricata in locale attraverso la scheda Wi-Fi, avremo la possibilità di inviare informazioni alla shield da qualsiasi terminale noi vogliamo (es. PC, smartphone, tablet); inoltre dalla stessa pagina sarà possibile reperire lo stato di ogni nodo(attuatori ON/OFF e sensori)
@@ -59,12 +65,14 @@ La comunicazione fra i nodi e il terminale avviene in questa maniera:
 Per verificare lo stato di ogni nodo, si è pensato di collegare un Display LCD o OLED. Su questo display compariranno le azioni che sta eseguendo tale nodo. Esempio: Nodo1 - Display (Sto comunicando...) -> Nodo2 - Display (Sto ricevendo...)*
 
 ___________________________________________________________________________________
-# Schema Network
+# <a name="ancora-schemaNet"></a>Schema Network
 <img src="https://github.com/domoticawifi/Network-nodes/blob/master/img/Schemi%20%26%20Circuiti/Progetto_Schema.png"/>
 Come possiamo vedere dall'immagine, abbiamo un PC che funziona da terminale:collegato alla rete WI-FI, invia e riceve informazioni attraverso il Nodo Master.
 Il Nodo Master, collegato alla rete, instrada le richieste e le informazioni, mandate dal terminale e dagli altri nodi, nella giusta direzione.
 
-## Occorrente Hardware
+<a name="ancora-occorrente"></a>
+
+## <a name="ancora-occ-hard"></a>Occorrente Hardware
   * 1 terminale (PC, Tablet, Smartphone)
   * 1 Router WI-FI
   * 1 ESP8266 ESP-12E oppure una qualsiasi shield WI-FI
@@ -75,7 +83,7 @@ Il Nodo Master, collegato alla rete, instrada le richieste e le informazioni, ma
   * Cavetti e jumper per i collegamenti
   * 3 Display LCD per verificare lo stato di ogni nodo
   
-## Occorrente Software
+## <a name="ancora-occ-soft"></a>Occorrente Software
   * [Arduino IDE 1.8.0](https://www.arduino.cc/en/main/software) o superiori
   * [Firebase](https://firebase.google.com/)
   * [Core ESP8266](https://github.com/domoticawifi/Network-nodes/blob/master/GestioneShieldESP8266.md)
