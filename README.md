@@ -354,7 +354,7 @@ Da destra verso sinistra: Nodo Master(con modulo ESP8266), Nodo 1(con Arduino UN
 
 *N.B: In questo caso la comunicazione, per attivare attuatori e relè sul Nodo 2 è del tipo semplice... cioè senza ack. Non si è ancora implementata una Connected Oriented tra Nodo 1 e Nodo 2.*
 
-#### <a name="ancora-protdue-video"></a>*Video*
+#### <a name="ancora-protuno-video"></a>*Video*
 
 ### <a name="ancora-protdue"></a>*Secondo prototipo: Connected Oriented*
 
