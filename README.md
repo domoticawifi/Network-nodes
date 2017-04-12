@@ -12,6 +12,18 @@ _____________________________________
 * <a href="#ancora-occorrente">Occorrente</a>
   * <a href="#ancora-occ-hard">Hardware</a>
   * <a href="#ancora-occ-soft">Software</a>
+* <a href="#ancora-faseop">Fase Operativa</a>
+  * <a href="#ancora-faseuno">1° Fase</a>
+  * <a href="#ancora-fasedue">2° Fase</a>
+    * <a href="#ancora-faseduemaster">Nodo Master</a>
+    * <a href="#ancora-faseduenoduno">Nodo 1</a>
+  * <a href="#ancora-fasetre">3° Fase</a>
+    * <a href="#ancora-protuno">Primo Prototipo: Simple Connection</a>
+    * <a href="#ancora-protdue">Secondo Prototipo: Connected Oriented</a>
+* <a href="#ancora-db">Database</a>
+* <a href="#ancora-app">Applicazione Android</a>
+* <a href="#ancora-problemi">Problemi rilevati</a>
+* <a href="#ancora-conclcost">Conclusione e Costi</a>
 
 _____________________________________
 
@@ -96,9 +108,9 @@ Per l'installazione e la gestione delle librerie clicca [QUI](https://github.com
 
 ________________________________________________________________________________________  
   
-# Fase Operativa
+# <a name="ancora-faseop"></a>Fase Operativa
 
- ## Prima fase: Collegamento Scheda WI-FI ad una rete LAN
+ ## <a name="ancora-faseuno"></a>Prima fase: Collegamento Scheda WI-FI ad una rete LAN
  Potete vedere la connessione Wi-Fi della shield cliccando [QUI](https://github.com/domoticawifi/Network-nodes/blob/master/GestioneShieldESP8266.md).
  
  * Una volta testata la connessione di questa shield, si è implementata un'interfaccia grafica in HTML per comunicare i cambiamenti di stati di alcuni attuatori e relè presenti sul Nodo Master (attuatori e relè sono sostituiti da semplici led per facilitare i collegamenti, ma il concetto non cambia).
@@ -134,10 +146,10 @@ Ecco i collegamenti:
  *N.B: Possiamo anche non utilizzare i resistori, perchè la tensione di uscita sui pin non supera i 3volt.*
  
  
- ## Seconda fase: Collegamento Ottico Nodo Master -> Nodo 1
+ ## <a name="ancora-fasedue"></a>Seconda fase: Collegamento Ottico Nodo Master -> Nodo 1
  Per questa fase, avremo la comunicazione fra due nodi, quindi dividiamola, per semplicità, in due sotto-fasi.
  
- ### *Nodo Master: Collegamento Ottico*
+ ### <a name="ancora-faseduemaster"></a>*Nodo Master: Collegamento Ottico*
  Lo schema che andremo a realizzare sarà il seguente:
  <img src="https://github.com/domoticawifi/Network-nodes/blob/master/img/Schemi%20%26%20Circuiti/Nodo%20Master%20-%20Immagine.png"/>
  
@@ -175,7 +187,7 @@ Ecco i collegamenti:
  Possiamo scaricarla da [qui](https://github.com/markszabo/IRremoteESP8266/), dove è presente una piccola guida per l'installazione.
  
  
- ### *Nodo 1: Collegamento Ottico*
+ ### <a name="ancora-faseduenoduno"></a>*Nodo 1: Collegamento Ottico*
  <img src="https://github.com/domoticawifi/Network-nodes/blob/master/img/Schemi%20%26%20Circuiti/Nodo%201%20-%20Incompleto.png"/>
  
  *N.B:Può essere usato, tranquillamente, Arduino UNO! Arduino Nano è esattamente uguale(tranne nella dimensione) ad Arduino UNO! Noi per le prove abbiamo utilizzato Arduino UNO per comodità...*
@@ -295,10 +307,10 @@ Si è cercato di risolvere la cosa nel migliore dei modi: Potrebbe essere un pro
 *N.B: potrebbe capitare che il dato inviato dal Nodo 1 non venga letto del sensore del Nodo Master, ma su 100 prove non è mai successo! Il dato prima o poi verrà letto!*
 
  
- ## Terza fase: Collegamento Ottico Nodo Master -> Nodo 1 -> Nodo 2
+ ## <a name="ancora-fasetre"></a>Terza fase: Collegamento Ottico Nodo Master -> Nodo 1 -> Nodo 2
  Per questa terza fase implementiamo due prototipi:il primo avrà una semplice comunicazione senza risposta del Nodo 2(cioè senza verificare la ricezione del dato), mentre il secondo sarà quello più completo e strutturato in cui anche il Nodo 2 interagisce attraverso l'architettura "Connected Oriented" sfruttata già dagli altri due nodi.
  
- ### *Primo prototipo: Simple Connection*
+ ### <a name="ancora-protuno"></a>*Primo prototipo: Simple Connection*
  * Lo schema per il Nodo Master rimane lo stesso, senza nessuna variazione neanche nel codice(essendo già tutta implementata)
  * Lo schema del Nodo 1 subische piccolissime variazioni(un'aggiunta di un solo LED infrarossi):
  <img src="https://github.com/domoticawifi/Network-nodes/blob/master/img/Schemi%20%26%20Circuiti/Nodo%201%20-%20Comunicazione%20Nodo%20Master%20-%20Nodo%201(Incompleta).png"/>
@@ -340,10 +352,10 @@ Da destra verso sinistra: Nodo Master(con modulo ESP8266), Nodo 1(con Arduino UN
 
 *N.B: In questo caso la comunicazione, per attivare attuatori e relè sul Nodo 2 è del tipo semplice... cioè senza ack. Non si è ancora implementata una Connected Oriented tra Nodo 1 e Nodo 2.*
 
-### *Secondo prototipo: Connected Oriented*
+### <a name="ancora-protdue"></a>*Secondo prototipo: Connected Oriented*
 
 _____________________________________
-# Database (Firebase)
+# <a name="ancora-db"></a>Database (Firebase)
 Adesso non ci resta che implementare un database dove salvare i nostri dati, che saranno visibili in remoto attraverso un'app Android.
 Questo è lo sketch da mettere nel Nodo Master:[Sketch Nodo Master Completo](https://github.com/domoticawifi/Network-nodes/blob/master/Sketch/Sketch%20Definitivi/Nodo_Master_Database.ino). Questo sketch fa si che ogni volta che si aggiorni la pagina, venga aggiornato anche il database.
 Il database che si è utilizzato per questo progetto è [Firebase](https://firebase.google.com/) (database NoSQL).
@@ -375,7 +387,7 @@ In remoto sarà presente uno smartphone o tablet android con un'app per il contr
 Dalla semplice app, realizzata con [AppInventor](http://appinventor.mit.edu/explore/), sarà possibile monitorare lo stato della rete e di tutti i nodi.
 In futuro potrebbe essere implementato anche un controllo, in remoto, dell'intera rete.
 
-## *App Android*
+## <a name="ancora-app"></a>*App Android*
 <img src="https://github.com/domoticawifi/Network-nodes/blob/master/img/Screenshot/Screenshot_2017-04-06-09-32-16.png"/>
 
 <img src="https://github.com/domoticawifi/Network-nodes/blob/master/img/Screenshot/Screenshot_2017-04-06-09-32-34.png"/>
@@ -395,7 +407,7 @@ Tale stato sarà prelevato da Firebase.
 Potete scaricare il file APK da [QUI](https://github.com/domoticawifi/Network-nodes/blob/master/Android%20APP/NetworkNodes_App_Android.apk) oppure accedere alla cartella "Android APP" sulla pagina principale della reposity di GitHub.
 _____________________________________
 
-# Problemi rilevati
+# <a name="ancora-problemi"></a>Problemi rilevati
 
 In questa parte verranno riportati tutti i problemi rilevati durante la realizzazione del progetto; questi problemi sono già riportati nella relazione, questa sezione è solo un resoconto di tutti i problemi e le loro risoluzioni.
 
@@ -415,7 +427,7 @@ In questa parte verranno riportati tutti i problemi rilevati durante la realizza
  
    
 _____________________________________
-# Conclusioni e costi complessivi
+# <a name="ancora-conclcost"></a>Conclusioni e costi complessivi
 
 ### *Costi:*
 I costi dei vari moduli, schede, cavi, breadboard, led e altro si aggira intorno a questo range: 30€ - 70€.
