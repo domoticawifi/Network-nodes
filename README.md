@@ -397,6 +397,7 @@ In questa parte verranno riportati tutti i problemi rilevati durante la realizza
 * L'interruzione della comunicazione può avvenire in due modi: 
    * Oggetto che ostacola la comunicazione ottica;
    * Malfunzionamento di uno dei componenti di comunicazione.
+   
   Per entrambi i casi si è previsto un javascript con un WARNING.
  
    
