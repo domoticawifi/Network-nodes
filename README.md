@@ -111,7 +111,7 @@ ________________________________________________________________________________
 # <a name="ancora-faseop"></a>Fase Operativa
 
  ## <a name="ancora-faseuno"></a>Prima fase: Collegamento Scheda WI-FI ad una rete LAN
- Potete vedere la connessione Wi-Fi della shield cliccando [QUI](https://github.com/domoticawifi/Network-nodes/blob/master/GestioneShieldESP8266.md).
+ Potete vedere la connessione Wi-Fi della shield cliccando <a href="https://github.com/domoticawifi/Network-nodes/blob/master/GestioneShieldESP8266.md#ancora-collegamento-wifi">QUI</a>.
  
  * Una volta testata la connessione di questa shield, si è implementata un'interfaccia grafica in HTML per comunicare i cambiamenti di stati di alcuni attuatori e relè presenti sul Nodo Master (attuatori e relè sono sostituiti da semplici led per facilitare i collegamenti, ma il concetto non cambia).
  * La pagina HTML viene mandata al terminale dalla scheda ESP8266 e aggiornata ogni qual volta avviene un cambiamento di stato dettato dal terminale.
