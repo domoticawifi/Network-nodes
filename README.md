@@ -7,11 +7,11 @@ _____________________________________
 # Indice
 * <a href="#ancora-struttura">Struttura</a>
 * <a href="#ancora-comunicazioni">Comunicazioni</a>
- * <a href="#ancora-es-comunicazione">Esempio comunicazione</a>
+  * <a href="#ancora-es-comunicazione">Esempio comunicazione</a>
 * <a href="#ancora-schemaNet">Schema Network</a>
 * <a href="#ancora-occorrente">Occorrente</a>
- *<a href="#ancora-occ-hard">Hardware</a>
- *<a href="#ancora-occ-soft">Software</a>
+  * <a href="#ancora-occ-hard">Hardware</a>
+  * <a href="#ancora-occ-soft">Software</a>
 
 _____________________________________
 
