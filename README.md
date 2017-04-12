@@ -4,7 +4,7 @@ Questo progetto vede la realizzazione, tramite Arduino, di una piccola rete LAN 
 
 _____________________________________
 
-# Indice
+# <a name="ancora-indice"></a> Indice
 * <a href="#ancora-struttura">Struttura</a>
 * <a href="#ancora-comunicazioni">Comunicazioni</a>
   * <a href="#ancora-es-comunicazione">Esempio comunicazione</a>
@@ -427,6 +427,8 @@ http://www.ebay.it/usr/nouteclab?_trksid=p2047675.l2559
 ### *Conclusioni:*
 
  __________________________________________________________________
+ 
+ ## <a href="#ancora-indice">Torna all'indice </a>
  
  ### Network-Nodes: Pietro Rignanese & Andrea Polenta Aprile 2017
  
