@@ -4,7 +4,12 @@ Questo progetto vede la realizzazione, tramite Arduino, di una piccola rete LAN 
 
 _____________________________________
 
-## Struttura
+# Indice
+* <a href="#ancora-struttura">Struttura</a>
+
+_____________________________________
+
+## <a name="ancora-struttura"></a> Struttura
 Abbiamo presvisto un terminale PC, un nodo master e due nodi, schematizzati in questa maniera (classifichiamo questa rete come P2P):
   * Terminale (Invia e riceve le informazioni dei nodi attraverso la rete accedendo all'indirizzo IP del Nodo Master)
   * Router (Instrada le richieste fatte tra terminale e Nodo Master sulla rete domestica e anche quella esterna andando ad aggiornare un DB)
