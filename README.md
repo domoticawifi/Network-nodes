@@ -381,6 +381,25 @@ Tale stato sarà prelevato da Firebase.
 
 Potete scaricare il file APK da [QUI](https://github.com/domoticawifi/Network-nodes/blob/master/Android%20APP/NetworkNodes_App_Android.apk) oppure accedere alla cartella "Android APP" sulla pagina principale della reposity di GitHub.
 _____________________________________
+
+# Problemi rilevati
+
+In questa parte verranno riportati tutti i problemi rilevati durante la realizzazione del progetto; questi problemi sono già riportati nella relazione, questa sezione è solo un resoconto di tutti i problemi e le loro risoluzioni.
+
+## *Problemi*
+* Alimentazione instabile shield ESP8266
+* Lettura instabile sensore IR Nodo Master
+* Interruzione comunicazione ottica da parte di un oggetto o altro
+
+## *Soluzioni*
+* L'alimentazione instabile (5v) della shield, non ci ha permesso di collegare il sensore IR con i 5v della scheda; si è risolto tale problema alimentando il sensore con i 5v di un'altra scheda Arduino.
+* La lettura instabile del sensore IR sul Nodo Master non è stato risolto! Purtroppo la scheda rileva letture random di valori non conformi a quelli inviati dal nodo adiacente. Questo problema è dato solo dal Nodo Master, mentre la comunicazione tra il Nodo 1 e Nodo 2 avviene in modo impeccabile. Questo problema è comunque in parte risolto grazie all'invio continuo dell'ACK da parte del Nodo 1 al Nodo Master, in modo da fargli leggere, prima o poi, l'ok di avvenuta ricezione. Purtroppo la sicuezza assoluta non c'è!
+* L'interruzione della comunicazione può avvenire in due modi: 
+   * Oggetto che ostacola la comunicazione ottica;
+   * Malfunzionamento di uno dei componenti di comunicazione.
+ 
+   
+_____________________________________
 # Conclusioni e costi complessivi
 
 ### *Costi:*
