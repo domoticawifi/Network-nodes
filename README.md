@@ -21,10 +21,10 @@ _____________________________________
     * <a href="#ancora-protuno">Primo Prototipo: Simple Connection</a>
       * <a href="#ancora-protuno-video">Video Dimostrativo Prototipo Uno</a>
     * <a href="#ancora-protdue">Secondo Prototipo: Connected Oriented</a>
-      * <a href="#ancora-protdue-video">Video Dimostrativo prototipo Due</a>
+      * <a href="#ancora-protdue-video">Video Dimostrativo Prototipo Due</a>
 * <a href="#ancora-db">Database</a>
 * <a href="#ancora-app">Applicazione Android</a>
-* <a href="#ancora-problemi">Problemi rilevati</a>
+* <a href="#ancora-problemi">Problemi Rilevati</a>
 * <a href="#ancora-conclcost">Conclusione e Costi</a>
 
 _____________________________________
