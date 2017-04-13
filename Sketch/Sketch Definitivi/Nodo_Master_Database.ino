@@ -9,16 +9,16 @@
 
 //Libreria per database esterno (Firebase)
 #include <FirebaseArduino.h>
-#define FIREBASE_HOST "******firebaseio.com"
-#define FIREBASE_AUTH "**********"
+#define FIREBASE_HOST "sentinel-83e9f.firebaseio.com"
+#define FIREBASE_AUTH "W7F3oHDG85MScrN0XiDnrCKbNGEBnrRf6DSffiul"
 
 //Librerie per gestione display
 #include <Wire.h> 
 #include <LiquidCrystal_I2C.h>
 
 //Definizione delle credenziali per la connessione per accedere al Router
-const char* ssid = "****";
-const char* password = "****";
+const char* ssid = "TIM-67955105";
+const char* password = "XDOaz2IzqaGGlIQCf197krEA";
 
 // Definiamo la mappatura della Shield ESP8266(Datasheet)
 #define D0 16 // Trasmettitore IR
@@ -154,6 +154,12 @@ void comunicazione()
   int RN2 = LOW;  // Relè Nodo 2
   int AN2 = LOW;  // Attuatore Nodo 2
 
+//Variabili di controllo per il cambiamento di stato effettuato\ Quando le variabili sono a TRUE il cambiamento è avvenuto mentre a FALSE il cambiamento potrebbe non essere stato effettuato
+  boolean CRN1 = true;
+  boolean CAN1 = true;
+  boolean CRN2 = true;
+  boolean CAN2 = true;
+
   WiFiClient cliente;
 
   String percorso = "NetworkNodes/"; //Stringa che conterrà il percorso del database firebase
@@ -175,6 +181,8 @@ void firebase_upload(String nodo, String dispositivo, String stato)
       return;
   }
 }
+
+boolean js = false; //Variabile per far partire o meno la modifica della pagina di errore
 
 void pag_html()
 {
@@ -307,8 +315,22 @@ void pag_html()
   cliente.println("              <td class='cinto'>");
   cliente.println("                  <table align='center' class='tinto'>");
   cliente.println("                      <tr>");
-  cliente.println("                          <td>Relè</td>");
-  cliente.println("                          <td>Attuatore</td>");
+  if(CRN1)
+  {
+    cliente.println("                          <td>Relè</td>");
+  }
+  else
+  {
+    cliente.println("                          <td bgcolor='#FF0000'><font color='#FF0000'>Relè</font></td>");
+  }
+  if(CAN1)
+  {
+    cliente.println("                          <td>Attuatore</td>");
+  }
+  else
+  {
+    cliente.println("                          <td bgcolor='#FF0000'><font color='#FF0000'>Attuatore</font></td>");
+  }
   cliente.println("                          <td>Sensore n°1</td>");
   cliente.println("                          <td>Sensore n°2</td>");
   cliente.println("                      </tr>");
@@ -428,6 +450,14 @@ void pag_html()
   cliente.println("              <input type='reset' value='Reset' align='center'/>");
   cliente.println("          </p>");
   cliente.println("      </form>");
+  if(js)
+  {
+    //Parte la pagina di errore
+    cliente.println("<h1 align='center'>Attenzione!!!! La connessione non è avvenuta nel modo corretto!</h1>");
+    cliente.println("<h2 align='center'>Potrebbe essersi verificato:</h2>");
+    cliente.println("<h3> 1. Ostacolo tra due nodi</h3>");
+    cliente.println("<h3> 2. Componente di comunicazione difettato di un nodo</h3>");
+  }
   cliente.println("   </body>");
   cliente.println("</html>");
 }
@@ -491,10 +521,13 @@ void loop()
       if(stato_conn)
       {
         RN1 = HIGH;
+        CRN1 = true;
       }
       else
       {
         RN1 = LOW;
+        js = true;
+        CRN1 = false;
       }
       //Resetto le variabili di controllo per una prossima comunicazione
       stato_conn = true;
@@ -525,10 +558,13 @@ void loop()
       if(stato_conn)
       {
         RN1 = LOW;
+        CRN1 = true;
       }
       else
       {
         RN1 = HIGH;
+        js = true;
+        CRN1 = false;
       }
       //Resetto le variabili di controllo per una prossima comunicazione
       stato_conn = true;
@@ -558,10 +594,13 @@ void loop()
       if(stato_conn)
       {
         AN1 = HIGH;
+        CAN1 = true;
       }
       else
       {
         AN1 = LOW;
+        js = true;
+        CAN1 = false;
       }
       //Resetto le variabili di controllo per una prossima comunicazione
       stato_conn = true;
@@ -591,10 +630,13 @@ void loop()
       if(stato_conn)
       {
         AN1 = LOW;
+        CAN1 = true;
       }
       else
       {
         AN1 = HIGH;
+        js = true;
+        CAN1 = false;
       }
       //Resetto le variabili di controllo per una prossima comunicazione
       stato_conn = true;
@@ -652,6 +694,7 @@ void loop()
     }
 
   pag_html(); //Pagina HTML
+  js = false;
 
   //
   delay(1);
