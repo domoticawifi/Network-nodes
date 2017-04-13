@@ -9,16 +9,16 @@
 
 //Libreria per database esterno (Firebase)
 #include <FirebaseArduino.h>
-#define FIREBASE_HOST "sentinel-83e9f.firebaseio.com"
-#define FIREBASE_AUTH "W7F3oHDG85MScrN0XiDnrCKbNGEBnrRf6DSffiul"
+#define FIREBASE_HOST "******.firebaseio.com"
+#define FIREBASE_AUTH "**********"
 
 //Librerie per gestione display
 #include <Wire.h> 
 #include <LiquidCrystal_I2C.h>
 
 //Definizione delle credenziali per la connessione per accedere al Router
-const char* ssid = "TIM-67955105";
-const char* password = "XDOaz2IzqaGGlIQCf197krEA";
+const char* ssid = "******";
+const char* password = "*******";
 
 // Definiamo la mappatura della Shield ESP8266(Datasheet)
 #define D0 16 // Trasmettitore IR
