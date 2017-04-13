@@ -91,8 +91,9 @@ void loop()
     if(results.value == 1)
     {
       Serial.println("Accensione Relay");
-      
-      lcd.print("R.ON ");
+
+      lcd.setCursor(0,1);
+      lcd.print("Relay ON     ");
       digitalWrite(relay,HIGH);
       ack();
     }
@@ -101,8 +102,8 @@ void loop()
     if(results.value == 257)
     {
       Serial.println("Segnimento Relay");
-      
-      lcd.print("R.OFF ");
+      lcd.setCursor(0,1);
+      lcd.print("Relay OFF     ");
       digitalWrite(relay,LOW);
       ack();
 
@@ -115,9 +116,8 @@ void loop()
     if(results.value == 17)
     {
       Serial.println("Accensione Attuatore");
-      
-      lcd.setCursor(5,1);
-      lcd.print("A.ON ");
+      lcd.setCursor(0,1);
+      lcd.print("Attuatore ON ");
       digitalWrite(attuatore,HIGH);
       ack();
     }
@@ -126,9 +126,8 @@ void loop()
     if(results.value == 16)
     {
       Serial.println("Spegnimento Attuatore");
-      
-      lcd.setCursor(5,1);
-      lcd.print("A.OFF");
+      lcd.setCursor(0,1);
+      lcd.print("Attuatore OFF ");
       digitalWrite(attuatore,LOW);
       ack();
     }
@@ -138,6 +137,8 @@ void loop()
     {
       irsend.sendNEC(0x0000011000, 32);
       Serial.println("Accensione Relay 2");
+      lcd.setCursor(0,1);
+      lcd.print("Relay Nodo2 ON  ");
 
       //Reinstanziamento della ricezione
       irrecv.enableIRIn();
@@ -152,6 +153,8 @@ void loop()
     {
       irsend.sendNEC(0x0001111000, 32);
       Serial.println("Accensione Attuatore 2");
+      lcd.setCursor(0,1);
+      lcd.print("Attua. Nodo2 ON ");
 
       //Reinstanziamento della ricezione
       irrecv.enableIRIn();
@@ -166,6 +169,8 @@ void loop()
     {
       irsend.sendNEC(0x0000010000, 32);
       Serial.println("Spegnimento Relay 2");
+      lcd.setCursor(0,1);
+      lcd.print("Relay Nodo2 OFF ");
 
       //Reinstanziamento della ricezione
       irrecv.enableIRIn();
@@ -180,6 +185,8 @@ void loop()
     {
       irsend.sendNEC(0x0011100000, 32);
       Serial.println("Spegnimento Attuatore 2");
+      lcd.setCursor(0,1);
+      lcd.print("Attua. Nodo2 OFF");
 
       //Reinstanziamento della ricezione
       irrecv.enableIRIn();
