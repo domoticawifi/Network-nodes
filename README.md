@@ -21,7 +21,9 @@ _____________________________________
     * <a href="#ancora-protuno">Primo Prototipo: Simple Connection</a>
       * <a href="#ancora-protuno-video">Video Dimostrativo Prototipo Uno</a>
     * <a href="#ancora-protdue">Secondo Prototipo: Connected Oriented</a>
-      * <a href="#ancora-protdue-video">Video Dimostrativo Prototipo Due</a>
+      * <a href="#ancora-prot-comunicazione-ponte">Comunicazione A Ponte: Bridge Comunication</a>
+      * <a href="#ancora-prot-comunicazione-diretta">Comunicazione Diretta: Direct Comunication</a>
+        * <a href="#ancora-protdue-video">Video Dimostrativo Prototipo Due</a>
 * <a href="#ancora-db">Database</a>
 * <a href="#ancora-app">Applicazione Android</a>
 * <a href="#ancora-problemi">Problemi Rilevati</a>
@@ -179,7 +181,7 @@ Ecco i collegamenti:
  Così facendo occuperemo tutti i pin disponibili.
  Purtroppo ESP-12E non ha tanti pin da poter essere utilizzati, perchè gli altri sono tutti gestiti dalla scheda stessa.
   
- La connessione della scheda al display LCD, vi rimando a [questa pagina](https://www.losant.com/blog/how-to-connect-lcd-esp8266-nodemcu) dove spiega, attraverso un tutorial.
+ Per connettere la scheda al display LCD, vi rimando a [questa pagina](https://www.losant.com/blog/how-to-connect-lcd-esp8266-nodemcu) dove spiega, attraverso un tutorial.
  
  *N.B: Possiamo anche non utilizzare i resistori, perchè la tensione di uscita sui pin non supera i 3volt. Se dovessimo usare resistenze alte la luce risulterebbe più fievole, comportando un possibile ostacolo alla comunicazione*
  
@@ -376,8 +378,41 @@ Da destra verso sinistra: Nodo Master(con modulo ESP8266), Nodo 1(con Arduino UN
 Link: https://3.sendvid.com/wea5vecv.mp4?t=1492005473&h=6d27b99049fd8de282a84a554cba12bf0d7332fe
 
 
-
 ### <a name="ancora-protdue"></a>*Secondo prototipo: Connected Oriented*
+
+Per il secondo prototipo bisogna sistemare delle cose:
+* Lo sketch del Nodo Master
+* Lo schema e lo sketch del Nodo 1
+* Lo schema e lo sketch del Nodo 2
+
+Per il primo prototipo non era richiesta la risposta dell'avvenuta ricezione del dato da parte del Nodo 2, mentre in questo prototipo vogliamo instaurare un "dialogo" tra Nodo 1 e Nodo 2, così come quello che avviene tra gli altri due nodi.
+Per far ciò dobbiamo collegare un altro sensore infrarosso, questa volta rivolto verso il Nodo 2, in modo da captare le frequenze infrarosse di quest'ultimo.
+Questo purtroppo non è possibile! Arduino non riesce a gestire due sensori IR perchè nella parte di programmazione non è possibile creare due oggetti(o istanze) di due diversi sensori con la stessa classe!
+Questo descritto è un problema in ambito di programmazione ma si è pensato a delle possibili soluzioni:
+* Un sensore IR sferico(360°) in modo da poter coprire, interamente, entrambi i nodi; risulterebbero dei problemi nella ricezione, perchè riceverà da entrambi i versi, ma logicamente potrebbe funzionare;
+* Una serie di specchi che converge il fascio del segnale infrarossi del Nodo 2 verso il sensore del Nodo 1; potrebbe sembrare fantascienza ma potremmo usare lo stesso principio dei telescopi;
+* Per ultimo, ma non meno importante, la "triangolazione".
+
+*Cos'è la "triangolazione"?*
+
+*Con triangolazione intendiamo la disposizione dei nodi a formare un triangolo.
+Come in questa figura:*
+<img scr="https://github.com/domoticawifi/Network-nodes/blob/master/img/Schemi%20%26%20Circuiti/Esempio%20Triangolazione.png"/>
+
+*In questo modo i nodi sono disposti in modo tale da poter inviare al Nodo 1 i segnali infrarossi.
+Questo però porterebbe a un'altra soluzione: la comunicazione istantanea tra il Nodo Master e Nodo 2.
+In questo caso il Nodo 1 non farebbe più da ponte e la comunicazione avverrebbe in modo diretto!
+A questo punto si aprono due strade:*
+* Comunicazione a ponte
+* Comunicazione diretta
+
+*N.B: La comunicazione diretta verrà istanziata dove sarà possibile questo tipo di comunicazione!*
+
+Per il momento tralasciamo l'idea degli specchi e del sensore sferico e cerchiamo di realizzare il nostro prototipo con il materiale che si ha già!
+
+### <a name="ancora-prot-comunicazione-ponte"></a>*Comunicazione a ponte*
+
+### <a name="ancora-prot-comunicazione-diretta"></a>*Comunicazione diretta*
 
 #### <a name="ancora-protdue-video"></a>*Video*
 
