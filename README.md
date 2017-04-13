@@ -179,6 +179,7 @@ Ecco i collegamenti:
  Così facendo occuperemo tutti i pin disponibili.
  Purtroppo ESP-12E non ha tanti pin da poter essere utilizzati, perchè gli altri sono tutti gestiti dalla scheda stessa.
   
+ La connessione della scheda al display LCD, vi rimando a [questa pagina](https://www.losant.com/blog/how-to-connect-lcd-esp8266-nodemcu) dove spiega, attraverso un tutorial.
  
  *N.B: Possiamo anche non utilizzare i resistori, perchè la tensione di uscita sui pin non supera i 3volt. Se dovessimo usare resistenze alte la luce risulterebbe più fievole, comportando un possibile ostacolo alla comunicazione*
  
@@ -216,6 +217,14 @@ Ecco i collegamenti:
  <tr>
   <td>PIN 8 </td>
   <td>Ricevitore IR</td>
+ </tr>
+ <tr>
+  <td>PIN A4 </td>
+  <td>Display SDA</td>
+ </tr>
+ <tr>
+  <td>PIN A5 </td>
+  <td>Display SCL</td>
  </tr>
  <tr>
   <td>5v </td>
@@ -343,6 +352,14 @@ I collegamenti:
  <td>PIN 8</td>
  <td>Ricevitore IR</td> 
  </tr>
+ <tr>
+ <td>PIN A4</td>
+ <td>Display SDA</td> 
+ </tr>
+ <tr>
+ <td>PIN A5</td>
+ <td>Display SCL</td> 
+ </tr>
 </table>
 
 Lo sketch da far eseguire a questa scheda è il [seguente](https://github.com/domoticawifi/Network-nodes/blob/master/Sketch/Sketch%20Definitivi/Nodo_2%20-%20Incompleto.ino)
@@ -357,6 +374,8 @@ Da destra verso sinistra: Nodo Master(con modulo ESP8266), Nodo 1(con Arduino UN
 #### <a name="ancora-protuno-video"></a>*Video*
 
 Link: https://3.sendvid.com/wea5vecv.mp4?t=1492005473&h=6d27b99049fd8de282a84a554cba12bf0d7332fe
+
+
 
 ### <a name="ancora-protdue"></a>*Secondo prototipo: Connected Oriented*
 
