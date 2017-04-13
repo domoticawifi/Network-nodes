@@ -397,7 +397,8 @@ Questo descritto è un problema in ambito di programmazione ma si è pensato a d
 
 *Con triangolazione intendiamo la disposizione dei nodi a formare un triangolo.
 Come in questa figura:*
-<img scr="https://github.com/domoticawifi/Network-nodes/blob/master/img/Schemi%20%26%20Circuiti/Esempio%20Triangolazione.png"/>
+
+<img src="https://github.com/domoticawifi/Network-nodes/blob/master/img/Schemi%20%26%20Circuiti/Esempio%20Triangolazione.png"/>
 
 *In questo modo i nodi sono disposti in modo tale da poter inviare al Nodo 1 i segnali infrarossi.
 Questo però porterebbe a un'altra soluzione: la comunicazione istantanea tra il Nodo Master e Nodo 2.
@@ -410,9 +411,9 @@ A questo punto si aprono due strade:*
 
 Per il momento tralasciamo l'idea degli specchi e del sensore sferico e cerchiamo di realizzare il nostro prototipo con il materiale che si ha già!
 
-### <a name="ancora-prot-comunicazione-ponte"></a>*Comunicazione a ponte*
+### <a name="ancora-prot-comunicazione-ponte"></a>*1. Comunicazione a ponte*
 
-### <a name="ancora-prot-comunicazione-diretta"></a>*Comunicazione diretta*
+### <a name="ancora-prot-comunicazione-diretta"></a>*2. Comunicazione diretta*
 
 #### <a name="ancora-protdue-video"></a>*Video*
 
