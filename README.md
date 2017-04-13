@@ -375,7 +375,7 @@ Da destra verso sinistra: Nodo Master(con modulo ESP8266), Nodo 1(con Arduino UN
 
 #### <a name="ancora-protuno-video"></a>*Video*
 
-Link: https://3.sendvid.com/wea5vecv.mp4?t=1492005473&h=6d27b99049fd8de282a84a554cba12bf0d7332fe
+Link: https://youtu.be/ombGCsYmXGk
 
 
 ### <a name="ancora-protdue"></a>*Secondo prototipo: Connected Oriented*
