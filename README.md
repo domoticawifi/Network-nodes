@@ -403,7 +403,7 @@ Come in questa figura:*
 *In questo modo i nodi sono disposti in modo tale da poter inviare al Nodo 1 i segnali infrarossi.*
 
 Logicamente è un modo corretto da realizzare, ma facendo alcune prove e test si è verificato che questa comunicazione non può avvenire!
-Il sensore del Nodo 1 è soggetto a troppe informazione e non riesce a captare nel modo corretto il segnake di ritorno del Nodo 2.
+Il sensore del Nodo 1 è soggetto a troppe informazione e non riesce a captare nel modo corretto il segnale di ritorno del Nodo 2.
 Si è pensato ad altri tipo di soluzione, da aggiungere alle altre elencate poco fa:
 * Cambiare la libreria di gestione Arduino per la comunicazione ottica in modo da poter collegare due sensori infrarossi su due pin differenti;
 * Gestire il cambio di sensore atraverso un circuito switch a transistor.
