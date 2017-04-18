@@ -408,7 +408,7 @@ Si è pensato ad altri tipo di soluzione, da aggiungere alle altre elencate poco
 * Cambiare la libreria di gestione Arduino per la comunicazione ottica in modo da poter collegare due sensori infrarossi su due pin differenti;
 * Gestire il cambio di sensore atraverso un circuito switch a transistor.
 
-<img scr="https://github.com/domoticawifi/Network-nodes/blob/master/img/Schemi%20%26%20Circuiti/schema%20circuito%20nodo%201%20per%20sensore%20IR.png"/>
+<img src="https://github.com/domoticawifi/Network-nodes/blob/master/img/Schemi%20%26%20Circuiti/schema%20circuito%20nodo%201%20per%20sensore%20IR.png"/>
 
 Si potrebbe progettare un "Secondo prototipo" con tutti i metodi risolutivi elencati e constatare quanti di questi metodi funzionano...
 
