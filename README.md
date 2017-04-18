@@ -402,20 +402,18 @@ Come in questa figura:*
 
 <img src="https://github.com/domoticawifi/Network-nodes/blob/master/img/Schemi%20%26%20Circuiti/Esempio%20Triangolazione.png"/>
 
-*In questo modo i nodi sono disposti in modo tale da poter inviare al Nodo 1 i segnali infrarossi.
-Questo però porterebbe a un'altra soluzione: la comunicazione istantanea tra il Nodo Master e Nodo 2.
-In questo caso il Nodo 1 non farebbe più da ponte e la comunicazione avverrebbe in modo diretto!
-A questo punto si aprono due strade:*
-* Comunicazione a ponte
-* Comunicazione diretta
+*In questo modo i nodi sono disposti in modo tale da poter inviare al Nodo 1 i segnali infrarossi.*
 
-*N.B: La comunicazione diretta verrà istanziata dove sarà possibile questo tipo di comunicazione!*
+Logicamente è un modo corretto da realizzare, ma facendo alcune prove e test si è verificato che questa comunicazione non può avvenire!
+Il sensore del Nodo 1 è soggetto a troppe informazione e non riesce a captare nel modo corretto il segnake di ritorno del Nodo 2.
+Si è pensato ad altri tipo di soluzione, da aggiungere alle altre elencate poco fa:
+* Cambiare la libreria di gestione Arduino per la comunicazione ottica in modo da poter collegare due sensori infrarossi su due pin differenti;
+* Gestire il cambio di sensore atraverso un circuito switch a transistor.
 
-Per il momento tralasciamo l'idea degli specchi e del sensore sferico e cerchiamo di realizzare il nostro prototipo con il materiale che si ha già!
+<img scr="https://github.com/domoticawifi/Network-nodes/blob/master/img/Schemi%20%26%20Circuiti/schema%20circuito%20nodo%201%20per%20sensore%20IR.png"/>
 
-### <a name="ancora-prot-comunicazione-ponte"></a>*1. Comunicazione a ponte*
+Si potrebbe progettare un "Secondo prototipo" con tutti i metodi risolutivi elencati e constatare quanti di questi metodi funzionano...
 
-### <a name="ancora-prot-comunicazione-diretta"></a>*2. Comunicazione diretta*
 
 #### <a name="ancora-protdue-video"></a>*Video*
 
