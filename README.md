@@ -476,6 +476,7 @@ In questa parte verranno riportati tutti i problemi rilevati durante la realizza
 * Alimentazione instabile shield ESP8266
 * Lettura instabile sensore IR Nodo Master
 * Interruzione comunicazione ottica da parte di un oggetto o altro
+* Comunicazione "Connected Oriented" Nodo 1 - Nodo 2
 
 ## *Soluzioni*
 * L'alimentazione instabile (5v) della shield, non ci ha permesso di collegare il sensore IR con i 5v della scheda; si è risolto tale problema alimentando il sensore con i 5v di un'altra scheda Arduino.
@@ -485,6 +486,14 @@ In questa parte verranno riportati tutti i problemi rilevati durante la realizza
    * Malfunzionamento di uno dei componenti di comunicazione.
    
   Per entrambi i casi si è previsto un javascript con un WARNING.
+  
+* Per la comunicazione "Connected Oriented" tra Nodo 1 e Nodo 2 si è pensato a una serie di soluzioni che potrebbero risolvere il problema:
+  * Sensore sferico;
+  * Triangolazione del segnale;
+  * Serie di specchi per dirigere il segnale;
+  * Modifica libreria Arduino per la gestione del segnale IR;
+  * Schema di switch per doppio sensore.
+  
  
    
 _____________________________________
