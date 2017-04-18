@@ -21,8 +21,6 @@ _____________________________________
     * <a href="#ancora-protuno">Primo Prototipo: Simple Connection</a>
       * <a href="#ancora-protuno-video">Video Dimostrativo Prototipo Uno</a>
     * <a href="#ancora-protdue">Secondo Prototipo: Connected Oriented</a>
-      * <a href="#ancora-prot-comunicazione-ponte">Comunicazione A Ponte: Bridge Comunication</a>
-      * <a href="#ancora-prot-comunicazione-diretta">Comunicazione Diretta: Direct Comunication</a>
         * <a href="#ancora-protdue-video">Video Dimostrativo Prototipo Due</a>
 * <a href="#ancora-db">Database</a>
 * <a href="#ancora-app">Applicazione Android</a>
