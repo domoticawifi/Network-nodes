@@ -22,10 +22,16 @@ int num_ricezioni = 1; //Conteggio delle ricezioni
 int relay = 2;
 int attuatore = 4;
 
+boolean R = true;
+boolean A = true;
+
 boolean dato_corrotto = true;  //Flag per il controllo del dato corrotto
 
 void setup() 
 { 
+  pinMode(10,INPUT);
+  pinMode(11,INPUT);
+  
   //Display
   lcd.init();                     
   lcd.backlight();
@@ -64,6 +70,58 @@ void ack()
 
 void loop() 
 {
+  if(digitalRead(10)==HIGH)
+  {
+    if(R)
+    {
+      digitalWrite(relay,HIGH);
+      R = false;
+      irsend.sendNEC(0x1000001010, 32);// invio del dato per la conferma della purezza del dato = 4369
+      delay(20);
+      irrecv.enableIRIn();
+      irrecv.decode(&results);
+      Serial.println("ON Relay");
+      delay(200);
+    }
+    else
+    {
+      digitalWrite(relay,LOW);
+      R = true;
+      irsend.sendNEC(0x1000000101, 32);// invio del dato per la conferma della purezza del dato = 4369
+      delay(20);
+      irrecv.enableIRIn();
+      irrecv.decode(&results);
+      Serial.println("OFF Relay");
+      delay(200);
+    }
+    
+  }
+  if(digitalRead(11)==HIGH)
+  {
+    if(A)
+    {
+      digitalWrite(attuatore,HIGH);
+      A = false;
+      irsend.sendNEC(0x1000111111, 32);// invio del dato per la conferma della purezza del dato = 4369
+      delay(20);
+      irrecv.enableIRIn();
+      irrecv.decode(&results);
+      Serial.println("ON Attua");
+      delay(200);
+    }
+    else
+    {
+      digitalWrite(attuatore,LOW);
+      A = true;
+      irsend.sendNEC(0x1000101010, 32);// invio del dato per la conferma della purezza del dato = 4369
+      delay(20);
+      irrecv.enableIRIn();
+      irrecv.decode(&results);
+      Serial.println("OFF Attua");
+      delay(200);
+    }
+  }
+  
   
   //Controlla se è stato ricevuto un dato sul sensore IR
   if (irrecv.decode(&results)) 
@@ -95,6 +153,7 @@ void loop()
       lcd.setCursor(0,1);
       lcd.print("Relay ON     ");
       digitalWrite(relay,HIGH);
+      R = false;
       ack();
     }
 
@@ -105,6 +164,7 @@ void loop()
       lcd.setCursor(0,1);
       lcd.print("Relay OFF     ");
       digitalWrite(relay,LOW);
+      R = true;
       ack();
 
       
@@ -119,6 +179,7 @@ void loop()
       lcd.setCursor(0,1);
       lcd.print("Attuatore ON ");
       digitalWrite(attuatore,HIGH);
+      A = false;
       ack();
     }
 
@@ -129,6 +190,7 @@ void loop()
       lcd.setCursor(0,1);
       lcd.print("Attuatore OFF ");
       digitalWrite(attuatore,LOW);
+      A = true;
       ack();
     }
 
