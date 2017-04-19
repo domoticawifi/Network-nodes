@@ -417,13 +417,16 @@ Come in questa figura:*
 
 Logicamente è un modo corretto da realizzare, ma facendo alcune prove e test si è verificato che questa comunicazione non può avvenire!
 Il sensore del Nodo 1 è soggetto a troppe informazione e non riesce a captare nel modo corretto il segnale di ritorno del Nodo 2.
-Si è pensato ad altri tipi di soluzione, da aggiungere alle altre elencate poco fa:
-* Cambiare la libreria di gestione Arduino per la comunicazione ottica in modo da poter collegare due sensori infrarossi su due pin differenti(*soluzione software*);
+Si è pensato ad un altro tipo di soluzione, da aggiungere alle altre elencate poco fa:
 * Gestire il cambio di sensore attraverso un circuito switch a transistor: due transistor per alimentare due diversi circuiti, in modo alternato, in base alla ricezione del dato(*soluzione hardware*).
 
 <img src="https://github.com/domoticawifi/Network-nodes/blob/master/img/Schemi%20%26%20Circuiti/schema%20circuito%20nodo%201%20per%20sensore%20IR.png"/>
 
 Si potrebbe progettare un "Secondo prototipo" con tutti i metodi risolutivi elencati e constatare quanti e quali di questi metodi funzionino...
+In questo caso realizzeremo l'ultimo metodo risolutivo:
+
+### *Risoluzione Switch a transistor:*
+
 
 
 #### <a name="ancora-protdue-video"></a>*Video*
