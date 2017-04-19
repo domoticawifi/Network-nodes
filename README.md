@@ -96,6 +96,7 @@ Il Nodo Master, collegato alla rete, instrada le richieste e le informazioni, ma
   * 3 Breadboard (830 fori)
   * Cavetti e jumper per i collegamenti
   * 3 Display LCD per verificare lo stato di ogni nodo
+  * 4 pulsanti
   
 ## <a name="ancora-occ-soft"></a>Occorrente Software
   * [Arduino IDE 1.8.0](https://www.arduino.cc/en/main/software) o superiori
@@ -179,7 +180,7 @@ Ecco i collegamenti:
  Così facendo occuperemo tutti i pin disponibili.
  Purtroppo ESP-12E non ha tanti pin da poter essere utilizzati, perchè gli altri sono tutti gestiti dalla scheda stessa.
   
- Per connettere la scheda al display LCD, vi rimando a [questa pagina](https://www.losant.com/blog/how-to-connect-lcd-esp8266-nodemcu) dove spiega, attraverso un tutorial.
+ Per connettere la scheda al display LCD, vi rimando a [questa pagina](https://www.losant.com/blog/how-to-connect-lcd-esp8266-nodemcu).
  
  *N.B: Possiamo anche non utilizzare i resistori, perchè la tensione di uscita sui pin non supera i 3volt. Se dovessimo usare resistenze alte la luce risulterebbe più fievole, comportando un possibile ostacolo alla comunicazione*
  
