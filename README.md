@@ -323,13 +323,16 @@ Si è cercato di risolvere la cosa nel migliore dei modi: Potrebbe essere un pro
  
  ### <a name="ancora-protuno"></a>*Primo prototipo: Simple Connection*
  * Lo schema per il Nodo Master rimane lo stesso, senza nessuna variazione neanche nel codice(essendo già tutta implementata)
- * Lo schema del Nodo 1 subische piccolissime variazioni(un'aggiunta di un solo LED infrarossi):
+ * Lo schema del Nodo 1 subische piccolissime variazioni(un'aggiunta di un solo LED infrarossi e due pulsanti per l'accensione dei dispositivi):
  <img src="https://github.com/domoticawifi/Network-nodes/blob/master/img/Schemi%20%26%20Circuiti/Nodo%201%20-%20Comunicazione%20Nodo%20Master%20-%20Nodo%201(Incompleta).png"/>
  
 Si è semplicemente aggiunto un altro diodo led infrarossi per inviare il segnale al Nodo 2.
 In questo caso abbiamo il LED IR aggiuntivo collegato allo stesso piedino del primo LED IR(in modo da sfruttare la libreria per l'invio del segnale IR, questo perchè, come dicevamo, la libreria IRremote utilizza, per default, il PIN3 di arduino).
 Il codice sorgente è leggermente diverso rispetto al primo.
 Lo sketch lo trovate [qui](https://github.com/domoticawifi/Network-nodes/blob/master/Sketch/Sketch%20Definitivi/Nodo_1%20-%20Comunicazione%20Nodo%20Master%20e%20Nodo%201.ino).
+
+Si sono aggiunti due pulsanti per controllare, in modo analogico, lo stato dei sispositivi collegati al Nodo 1.
+Una volta avvenuto il cambiamento viene comunicato lo stato al Nodo Master.
 
 * Lo schema del Nodo 2 è il seguente:
 <img src="https://github.com/domoticawifi/Network-nodes/blob/master/img/Schemi%20%26%20Circuiti/Nodo%202.png"/>
