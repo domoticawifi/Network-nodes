@@ -244,21 +244,21 @@ Il collegamento dell'emettitore IR è obbligatorio farlo sul PIN3! Perchè la li
  
  Nel nostro caso, ogni nodo avrà almeno una coppia led-sensore per l'invio e ricezione infrarossi, quindi il procedimento è più complesso.
  Il punto che va a favore è che si conosce il dato che potrebbe arrivare, questo perchè possono verificarsi solo queste situazioni:
- * Attivazione Relè Nodo 1
- * Attivazione Attuatore Nodo 1
- * Attivazione Relè Nodo 2
- * Attivazione Attuatore Nodo 2
+ * Attivazione Relè Nodo 1;
+ * Attivazione Attuatore Nodo 1;
+ * Attivazione Relè Nodo 2;
+ * Attivazione Attuatore Nodo 2.
  
 Quindi i segnali che possono essere inoltrati dall'emettitore IR(sul Nodo Master) sono essenzialmente 4; a questi c'è da aggiungere un solo segnale di ritorno(Nodo 1, Nodo 2) che verifica la corretta ricezione del dato.
 
 Procediamo per gradi...
 
-* Il Nodo 1 riceve un dato dal Nodo Master attraverso la comunicazione infrarossi
-* Il Nodo Master, una volta inviato il dato, rimane in ascolto per l'ok(ACK)
-* Il Nodo 1 elabora tale dato e verifica se può usarlo
-* Se può usarlo, lo elabora ed esegue un comando. Fatto questo manda l'ok al Nodo Master
-* Se non può usarlo manda al Nodo Master un dato per il rinvio del dato(il dato potrebbe essere corrotto)
-* Il Nodo Master, in base alla risposta del Nodo 1, ritrasmette il dato oppure chiude la comunicazione
+* Il Nodo 1 riceve un dato dal Nodo Master attraverso la comunicazione infrarossi;
+* Il Nodo Master, una volta inviato il dato, rimane in ascolto per l'ok(ACK);
+* Il Nodo 1 elabora tale dato e verifica se può usarlo;
+* Se può usarlo, lo elabora ed esegue un comando. Fatto questo manda l'ok al Nodo Master;
+* Se non può usarlo manda al Nodo Master un dato per il rinvio del dato(il dato potrebbe essere corrotto);
+* Il Nodo Master, in base alla risposta del Nodo 1, ritrasmette il dato oppure chiude la comunicazione.
 
 Tutto questo dovrà essere implementato con un elegante e bell'algoritmo. 
 
@@ -279,12 +279,12 @@ Una volta eseguiti tutti i collegamenti, possiamo eseguire gli sketch dei due no
 *N.B: Questi due programmi sono per la comunicazione fra Nodo Master e Nodo 1. Se dovessimo collegare un altro nodo(come faremo più in la) i due programmi cambieranno(cambierà solo il programma del Nodo 1).*
 
 Con il lancio di questi due programmi otteniamo il risultato voluto:
-* Il client si connette all'indirizzo IP della scheda wi-fi
-* Decide di cambiare lo stato di un attuatore e/o relè sul Nodo 1 
-* Il Nodo Master riceve il dato inviato e lo elabora inviandolo al Nodo 1
-* Il Nodo 1 elabora il dato ricevuto; in questa fase il Nodo Master rimane in ascolto per 10 secondi
-* Il Nodo 1, se accetta il dato, manda un ACK al Nodo Master
-* Il Nodo Master riceve l'ok è chiude la comunicazione aggiornando la pagina HTML che visualizzerà il client
+* Il client si connette all'indirizzo IP della scheda wi-fi;
+* Decide di cambiare lo stato di un attuatore e/o relè sul Nodo 1; 
+* Il Nodo Master riceve il dato inviato e lo elabora inviandolo al Nodo 1;
+* Il Nodo 1 elabora il dato ricevuto; in questa fase il Nodo Master rimane in ascolto per 10 secondi;
+* Il Nodo 1, se accetta il dato, manda un ACK al Nodo Master;
+* Il Nodo Master riceve l'ok è chiude la comunicazione aggiornando la pagina HTML che visualizzerà il client.
 
 Il compito del Nodo Master è quello di un server web e di un "Ponte di comunicazione" tra il terminale e gli altri nodi.
 
@@ -380,10 +380,10 @@ Link Completo: https://youtu.be/g6Z9CRAygbg
 
 ### <a name="ancora-protdue"></a>*Secondo prototipo: Connected Oriented*
 
-Per il secondo prototipo bisogna sistemare delle cose:
-* Lo sketch del Nodo Master
-* Lo schema e lo sketch del Nodo 1
-* Lo schema e lo sketch del Nodo 2
+Per il secondo prototipo si devo apportare delle piccole modifiche:
+* Modificare lo sketch del Nodo Master;
+* Modificare lo schema e lo sketch del Nodo 1;
+* Modificare loo schema e lo sketch del Nodo 2.
 
 Per il primo prototipo non era richiesta la risposta dell'avvenuta ricezione del dato da parte del Nodo 2, mentre in questo prototipo vogliamo instaurare un "dialogo" tra Nodo 1 e Nodo 2, così come quello che avviene tra gli altri due nodi.
 Per far ciò dobbiamo collegare un altro sensore infrarosso, questa volta rivolto verso il Nodo 2, in modo da captare le frequenze infrarosse di quest'ultimo.
@@ -404,9 +404,9 @@ Come in questa figura:*
 
 Logicamente è un modo corretto da realizzare, ma facendo alcune prove e test si è verificato che questa comunicazione non può avvenire!
 Il sensore del Nodo 1 è soggetto a troppe informazione e non riesce a captare nel modo corretto il segnale di ritorno del Nodo 2.
-Si è pensato ad altri tipo di soluzione, da aggiungere alle altre elencate poco fa:
+Si è pensato ad altri tipi di soluzione, da aggiungere alle altre elencate poco fa:
 * Cambiare la libreria di gestione Arduino per la comunicazione ottica in modo da poter collegare due sensori infrarossi su due pin differenti;
-* Gestire il cambio di sensore atraverso un circuito switch a transistor.
+* Gestire il cambio di sensore attraverso un circuito switch a transistor: due transistor per alimentare due diversi circuiti, in modo alternato, in base alla ricezione del dato.
 
 <img src="https://github.com/domoticawifi/Network-nodes/blob/master/img/Schemi%20%26%20Circuiti/schema%20circuito%20nodo%201%20per%20sensore%20IR.png"/>
 
