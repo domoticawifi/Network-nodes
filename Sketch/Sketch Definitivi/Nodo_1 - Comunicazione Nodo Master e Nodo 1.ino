@@ -22,6 +22,7 @@ int num_ricezioni = 1; //Conteggio delle ricezioni
 int relay = 2;
 int attuatore = 4;
 
+//Controllo dei dispositivi del Nodo 1 quando queste vengono attivate in modo analogico dal nodo stesso
 boolean R = true;
 boolean A = true;
 
@@ -29,8 +30,8 @@ boolean dato_corrotto = true;  //Flag per il controllo del dato corrotto
 
 void setup() 
 { 
-  pinMode(10,INPUT);
-  pinMode(11,INPUT);
+  pinMode(10,INPUT);  //Bottone Relay
+  pinMode(11,INPUT);  //Bottone Attuatore
   
   //Display
   lcd.init();                     
@@ -70,6 +71,7 @@ void ack()
 
 void loop() 
 {
+  //Controllo dello stato analogico dei dispositivi
   if(digitalRead(10)==HIGH)
   {
     if(R)
