@@ -9,16 +9,16 @@
 
 //Libreria per database esterno (Firebase)
 #include <FirebaseArduino.h>
-#define FIREBASE_HOST "sentinel-83e9f.firebaseio.com"
-#define FIREBASE_AUTH "W7F3oHDG85MScrN0XiDnrCKbNGEBnrRf6DSffiul"
+#define FIREBASE_HOST "*****.firebaseio.com"
+#define FIREBASE_AUTH "*********"
 
 //Librerie per gestione display
 #include <Wire.h> 
 #include <LiquidCrystal_I2C.h>
 
 //Definizione delle credenziali per la connessione per accedere al Router
-const char* ssid = "HUAWEI P8";
-const char* password = "pierino123";
+const char* ssid = "*******";
+const char* password = "******";
 
 String IP = "";
 
