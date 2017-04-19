@@ -7,13 +7,20 @@
 // Libreria di gestione infrarossi per la shield esp8266
 #include <IRremoteESP8266.h>
 
+//Libreria per database esterno (Firebase)
+#include <FirebaseArduino.h>
+#define FIREBASE_HOST "sentinel-83e9f.firebaseio.com"
+#define FIREBASE_AUTH "W7F3oHDG85MScrN0XiDnrCKbNGEBnrRf6DSffiul"
+
 //Librerie per gestione display
 #include <Wire.h> 
 #include <LiquidCrystal_I2C.h>
 
 //Definizione delle credenziali per la connessione per accedere al Router
-const char* ssid = "*****";
-const char* password = "*****";
+const char* ssid = "HUAWEI P8";
+const char* password = "pierino123";
+
+String IP = "";
 
 // Definiamo la mappatura della Shield ESP8266(Datasheet)
 #define D0 16 // Trasmettitore IR
@@ -91,6 +98,8 @@ void setup()
   // Inizializziamo il WebServer.
   server.begin();
   Serial.println("\nWebServer inizializzato.\n");
+
+  Firebase.begin(FIREBASE_HOST, FIREBASE_AUTH); //Inizializza firebase
 }
 int i = 0;
 
@@ -108,6 +117,10 @@ void comunicazione()
         //Dato ricevuto correttamente
         if(results.value == 4369)
         {
+          lcd.setCursor(0,0);
+          lcd.print("      ACK       ");
+          lcd.setCursor(0,1);
+          lcd.print("      O K       ");
           controllo_ricezione = false;
           controllo_invio = false;
           stato_conn = true;
@@ -147,7 +160,35 @@ void comunicazione()
   int RN2 = LOW;  // Relè Nodo 2
   int AN2 = LOW;  // Attuatore Nodo 2
 
+//Variabili di controllo per il cambiamento di stato effettuato\ Quando le variabili sono a TRUE il cambiamento è avvenuto mentre a FALSE il cambiamento potrebbe non essere stato effettuato
+  boolean CRN1 = true;
+  boolean CAN1 = true;
+  boolean CRN2 = true;
+  boolean CAN2 = true;
+
   WiFiClient cliente;
+
+  String percorso = "NetworkNodes/"; //Stringa che conterrà il percorso del database firebase
+
+void firebase_upload(String nodo, String dispositivo, String stato)
+{
+  percorso = "NetworkNodes/";
+  // rimozione valore precedente
+  percorso += nodo;
+  percorso += dispositivo;
+  Firebase.remove(percorso);
+
+  // settaggio valore attuale
+  Firebase.setString(percorso, stato);
+  // Errore connessione
+  if (Firebase.failed()) {
+      Serial.print("setting /message failed:");
+      Serial.println(Firebase.error());  
+      return;
+  }
+}
+
+boolean js = false; //Variabile per far partire o meno la modifica della pagina di errore
 
 void pag_html()
 {
@@ -247,10 +288,12 @@ void pag_html()
   if(RM==HIGH)
   {
      cliente.println("                          <td>ON</td>");
+     firebase_upload("NodoMaster/","Relay","ON");
   }
   else
   {
      cliente.println("                          <td>OFF</td>");
+     firebase_upload("NodoMaster/","Relay","OFF");
   }
   cliente.println("                          <td>/</td>");
   cliente.println("                          <td>0.00</td>");
@@ -278,8 +321,22 @@ void pag_html()
   cliente.println("              <td class='cinto'>");
   cliente.println("                  <table align='center' class='tinto'>");
   cliente.println("                      <tr>");
-  cliente.println("                          <td>Relè</td>");
-  cliente.println("                          <td>Attuatore</td>");
+  if(CRN1)
+  {
+    cliente.println("                          <td>Relè</td>");
+  }
+  else
+  {
+    cliente.println("                          <td bgcolor='#FF0000'><font color='#FF0000'>Relè</font></td>");
+  }
+  if(CAN1)
+  {
+    cliente.println("                          <td>Attuatore</td>");
+  }
+  else
+  {
+    cliente.println("                          <td bgcolor='#FF0000'><font color='#FF0000'>Attuatore</font></td>");
+  }
   cliente.println("                          <td>Sensore n°1</td>");
   cliente.println("                          <td>Sensore n°2</td>");
   cliente.println("                      </tr>");
@@ -289,18 +346,22 @@ void pag_html()
   if(RN1==HIGH)
   {
     cliente.println("                          <td>ON</td>");
+    firebase_upload("Nodo1/","Relay","ON");
   }
   else
   {
     cliente.println("                          <td>OFF</td>");
+    firebase_upload("Nodo1/","Relay","OFF");
   }
   if(AN1 ==HIGH)
   {
     cliente.println("                          <td>ON</td>");
+    firebase_upload("Nodo1/","Attuatore1","ON");
   }
   else
   {
     cliente.println("                          <td>OFF</td>");
+    firebase_upload("Nodo1/","Attuatore1","OFF");
   }  
   cliente.println("                          <td>0.00</td>");
   cliente.println("                          <td>0.00</td>");
@@ -344,18 +405,22 @@ void pag_html()
   if(RN2==HIGH)
   {
     cliente.println("                          <td>ON</td>");
+    firebase_upload("Nodo2/","Relay","ON");
   }
   else
   {
     cliente.println("                          <td>OFF</td>");
+    firebase_upload("Nodo2/","Relay","OFF");
   }
   if(AN2 ==HIGH)
   {
     cliente.println("                          <td>ON</td>");
+    firebase_upload("Nodo2/","Attuatore1","ON");
   }
   else
   {
     cliente.println("                          <td>OFF</td>");
+    firebase_upload("Nodo2/","Attuatore1","OFF");
   }  
   cliente.println("                          <td>0.00</td>");
   cliente.println("                          <td>0.00</td>");
@@ -391,19 +456,58 @@ void pag_html()
   cliente.println("              <input type='reset' value='Reset' align='center'/>");
   cliente.println("          </p>");
   cliente.println("      </form>");
+  String button = "   <div align='center'><a href='";
+  button += IP;
+  button += "'><button>Aggiorna</button></a></div>";
+  cliente.println(button); 
+  if(js)
+  {
+    //Parte la pagina di errore
+    cliente.println("<h1 align='center'>Attenzione!!!! La connessione non è avvenuta nel modo corretto!</h1>");
+    cliente.println("<h2 align='center'>Potrebbe essersi verificato:</h2>");
+    cliente.println("<h3> 1. Ostacolo tra due nodi</h3>");
+    cliente.println("<h3> 2. Componente di comunicazione difettato di un nodo</h3>");
+  }
   cliente.println("   </body>");
   cliente.println("</html>");
 }
 
+boolean analogic_input = false; //Input analogico dato all'attuatore o relè dei vari nodi
   
 void loop() 
 {  
   i=0;  //Settaggio a zero della variabile che conta il tempo di attesa
-  
+    
   // Vediamo se esiste una connessione con un client. Se non esiste ritorniamo al loop.
   cliente = server.available();
   if (!cliente) 
   {
+    if(irrecv.decode(&results))
+    {
+      Serial.println(results.value);
+      if(results.value==4112)
+      {
+        RN1=HIGH;
+        analogic_input = true;
+      }
+      if(results.value==257)
+      {
+        RN1=LOW;
+        analogic_input = true;
+      }
+      if(results.value==1118481)
+      {
+        AN1=HIGH;
+        analogic_input = true;
+      }
+      if(results.value==1052688)
+      {
+        AN1=LOW;
+        analogic_input = true;
+      }
+      irrecv.resume();
+      
+    }
     return;
   }
 
@@ -415,24 +519,53 @@ void loop()
     delay(1);
   }
 
-  //Realizziamo la lettura della form.
-  String form = cliente.readStringUntil('\r');
+  String form ="";
+  
+  if(analogic_input)
+  {
+    form = "http://";
+    form += IP;
+  }
+  else
+  {
+    //Realizziamo la lettura della form.
+    form = cliente.readStringUntil('\r');
+  }
+
+  analogic_input = false;
+  
+  
   Serial.println(form);
   cliente.flush();
 
 // Controllo della from restituita dall'aggiornamento della pagina HTML
   if(form.indexOf("RelayMaster=ON")!=-1)
     {
+      lcd.setCursor(0,0);
+      lcd.print("Relay ON        ");
+      lcd.setCursor(0,1);
+      lcd.print("Attendere...    ");
+      delay(100);
       digitalWrite(D4, HIGH); // Accensione Relè nodo master
       RM = HIGH;
     }
   if(form.indexOf("RelayMaster=OFF")!=-1)
     {
+      lcd.setCursor(0,0);
+      lcd.print("Relay OFF       ");
+      lcd.setCursor(0,1);
+      lcd.print("Attendere...    ");
+      delay(100);
       digitalWrite(D4, LOW);  // Spegnimento relè nodo master
       RM = LOW;
     }
   if(form.indexOf("Relay1=ON")!=-1)
     {
+      lcd.setCursor(0,0);
+      lcd.print("Relay Nodo1 ON  ");
+      lcd.setCursor(0,1);
+      lcd.print("Attendere...    ");
+      delay(100);
       Serial.println("NEC");
       do
       {
@@ -454,10 +587,13 @@ void loop()
       if(stato_conn)
       {
         RN1 = HIGH;
+        CRN1 = true;
       }
       else
       {
         RN1 = LOW;
+        js = true;
+        CRN1 = false;
       }
       //Resetto le variabili di controllo per una prossima comunicazione
       stato_conn = true;
@@ -468,6 +604,11 @@ void loop()
     
   if(form.indexOf("Relay1=OFF")!=-1)
     {
+      lcd.setCursor(0,0);
+      lcd.print("Relay Nodo1 OFF ");
+      lcd.setCursor(0,1);
+      lcd.print("Attendere...    ");
+      delay(100);
       Serial.println("NEC");
       do
       {
@@ -488,10 +629,13 @@ void loop()
       if(stato_conn)
       {
         RN1 = LOW;
+        CRN1 = true;
       }
       else
       {
         RN1 = HIGH;
+        js = true;
+        CRN1 = false;
       }
       //Resetto le variabili di controllo per una prossima comunicazione
       stato_conn = true;
@@ -501,6 +645,11 @@ void loop()
     }
   if(form.indexOf("Attuatore1=ON")!=-1)
     {
+      lcd.setCursor(0,0);
+      lcd.print("Attuat. Nodo1 ON");
+      lcd.setCursor(0,1);
+      lcd.print("Attendere...    ");
+      delay(100);
       Serial.println("NEC");
       do
       {
@@ -521,10 +670,13 @@ void loop()
       if(stato_conn)
       {
         AN1 = HIGH;
+        CAN1 = true;
       }
       else
       {
         AN1 = LOW;
+        js = true;
+        CAN1 = false;
       }
       //Resetto le variabili di controllo per una prossima comunicazione
       stato_conn = true;
@@ -534,6 +686,11 @@ void loop()
     }
   if(form.indexOf("Attuatore1=OFF")!=-1)
     {
+      lcd.setCursor(0,0);
+      lcd.print("Attua. Nodo1 OFF");
+      lcd.setCursor(0,1);
+      lcd.print("Attendere...    ");
+      delay(100);
       Serial.println("NEC");
       do
       {
@@ -554,10 +711,13 @@ void loop()
       if(stato_conn)
       {
         AN1 = LOW;
+        CAN1 = true;
       }
       else
       {
         AN1 = HIGH;
+        js = true;
+        CAN1 = false;
       }
       //Resetto le variabili di controllo per una prossima comunicazione
       stato_conn = true;
@@ -568,6 +728,11 @@ void loop()
 
     if(form.indexOf("Relay2=ON")!=-1)
     {
+      lcd.setCursor(0,0);
+      lcd.print("Relay Nodo2 ON  ");
+      lcd.setCursor(0,1);
+      lcd.print("Attendere...    ");
+      delay(100);
       int invio = 0;
       do
       {
@@ -580,6 +745,11 @@ void loop()
 
     if(form.indexOf("Relay2=OFF")!=-1)
     {
+      lcd.setCursor(0,0);
+      lcd.print("Relay Nodo2 OFF ");
+      lcd.setCursor(0,1);
+      lcd.print("Attendere...    ");
+      delay(100);
       int invio = 0;
       do
       {
@@ -592,6 +762,11 @@ void loop()
 
     if(form.indexOf("Attuatore2=ON")!=-1)
     {
+      lcd.setCursor(0,0);
+      lcd.print("Attuat. Nodo2 ON");
+      lcd.setCursor(0,1);
+      lcd.print("Attendere...    ");
+      delay(100);
       int invio = 0;
       do
       {
@@ -604,6 +779,11 @@ void loop()
 
     if(form.indexOf("Attuatore2=OFF")!=-1)
     {
+      lcd.setCursor(0,0);
+      lcd.print("Attua. Nodo2 OFF");
+      lcd.setCursor(0,1);
+      lcd.print("Attendere...    ");
+      delay(100);
       int invio = 0;
       do
       {
@@ -615,6 +795,12 @@ void loop()
     }
 
   pag_html(); //Pagina HTML
+  js = false;
+
+  lcd.setCursor(0,0);
+  lcd.print("IP device:      ");
+  lcd.setCursor(0,1);
+  lcd.print(WiFi.localIP());
 
   //
   delay(1);
