@@ -530,7 +530,7 @@ http://www.ebay.it/usr/nouteclab?_trksid=p2047675.l2559
  
  ## <a href="#ancora-indice">Torna all'indice </a>
  
- <a href="http://html.com/"><img src="https://github.com/domoticawifi/Network-nodes/blob/master/img/Loghi/HTML5_Logo_256.png"/></a> <a href="https://www.arduino.cc/"><img src="https://github.com/domoticawifi/Network-nodes/blob/master/img/Loghi/arduino-logo-.png"/></a> <a href="http://www.esp8266.com/wiki/doku.php?id=start"><img src="https://github.com/domoticawifi/Network-nodes/blob/master/img/Loghi/esp8266.png"/></a> <a href="http://appinventor.mit.edu/explore/"><img src="https://github.com/domoticawifi/Network-nodes/blob/master/img/Loghi/google-app-inventor-icon.jpg"/></a>
+ <a href="http://html.com/"><img src="https://github.com/domoticawifi/Network-nodes/blob/master/img/Loghi/HTML5_Logo_256.png"/></a> <a href="https://www.arduino.cc/"><img src="https://github.com/domoticawifi/Network-nodes/blob/master/img/Loghi/arduino-logo-.png"/></a> <a href="http://www.esp8266.com/wiki/doku.php?id=start"><img src="https://github.com/domoticawifi/Network-nodes/blob/master/img/Loghi/esp8266.png"/></a> <a href="http://appinventor.mit.edu/explore/"><img src="https://github.com/domoticawifi/Network-nodes/blob/master/img/Loghi/google-app-inventor-icon.jpg"/></a> <a href="https://firebase.google.com/"><img src="https://github.com/domoticawifi/Network-nodes/blob/master/img/Loghi/Firebase_16-logo.png"/></a>
  
  ### Network-Nodes: Pietro Rignanese & Andrea Polenta Aprile 2017
  
