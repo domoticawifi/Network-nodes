@@ -530,6 +530,8 @@ http://www.ebay.it/usr/nouteclab?_trksid=p2047675.l2559
  
  ## <a href="#ancora-indice">Torna all'indice </a>
  
+ <img src="https://github.com/domoticawifi/Network-nodes/blob/master/img/Loghi/HTML5_Logo_256.png"/> <img src="https://github.com/domoticawifi/Network-nodes/blob/master/img/Loghi/arduino-logo-.png"/> <img src="https://github.com/domoticawifi/Network-nodes/blob/master/img/Loghi/esp8266.png"/>
+ 
  ### Network-Nodes: Pietro Rignanese & Andrea Polenta Aprile 2017
  
   
