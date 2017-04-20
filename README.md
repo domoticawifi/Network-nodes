@@ -275,7 +275,7 @@ Il Nodo 1 dovrè elaborare il dato inviato e mandargli la conferma.
 
 Una volta eseguiti tutti i collegamenti, possiamo eseguire gli sketch dei due nodi:
 * [Programma Nodo Master](https://github.com/domoticawifi/Network-nodes/blob/master/Sketch/Sketch%20Definitivi/Nodo%20Master(Comunicazione%201%20Nodo).ino)
-* [Programma Nodo 1](https://github.com/domoticawifi/Network-nodes/blob/master/Sketch/Sketch%20Definitivi/Nodo%20Master(Comunicazione%201%20Nodo).ino)
+* [Programma Nodo 1](https://github.com/domoticawifi/Network-nodes/blob/master/Sketch/Sketch%20Definitivi/Nodo%201%20-%20Comunicazione%201%20Nodo.ino)
 
 *N.B: Questi due programmi sono per la comunicazione fra Nodo Master e Nodo 1. Se dovessimo collegare un altro nodo(come faremo più in la) i due programmi cambieranno(cambierà solo il programma del Nodo 1).*
 
@@ -530,7 +530,7 @@ http://www.ebay.it/usr/nouteclab?_trksid=p2047675.l2559
  
  ## <a href="#ancora-indice">Torna all'indice </a>
  
- <img src="https://github.com/domoticawifi/Network-nodes/blob/master/img/Loghi/HTML5_Logo_256.png"/> <img src="https://github.com/domoticawifi/Network-nodes/blob/master/img/Loghi/arduino-logo-.png"/> <img src="https://github.com/domoticawifi/Network-nodes/blob/master/img/Loghi/esp8266.png"/>
+ <img src="https://github.com/domoticawifi/Network-nodes/blob/master/img/Loghi/HTML5_Logo_256.png"/> <img src="https://github.com/domoticawifi/Network-nodes/blob/master/img/Loghi/arduino-logo-.png"/> <img src="https://github.com/domoticawifi/Network-nodes/blob/master/img/Loghi/esp8266.png"/> <img src="https://github.com/domoticawifi/Network-nodes/blob/master/img/Loghi/google-app-inventor-icon.jpg"/>
  
  ### Network-Nodes: Pietro Rignanese & Andrea Polenta Aprile 2017
  
