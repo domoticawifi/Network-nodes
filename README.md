@@ -400,7 +400,7 @@ ________________________________________________________
 Per il secondo prototipo si devono apportare delle piccole modifiche:
 * Modificare lo sketch del Nodo Master;
 * Modificare lo schema e lo sketch del Nodo 1;
-* Modificare loo schema e lo sketch del Nodo 2.
+* Modificare lo schema e lo sketch del Nodo 2.
 
 Per il primo prototipo non era richiesta la risposta dell'avvenuta ricezione del dato da parte del Nodo 2, mentre in questo prototipo vogliamo instaurare un "dialogo" tra Nodo 1 e Nodo 2, così come quello che avviene tra gli altri due nodi.
 Per far ciò dobbiamo collegare un altro sensore infrarosso, questa volta rivolto verso il Nodo 2, in modo da captare le frequenze infrarosse di quest'ultimo.
@@ -438,13 +438,12 @@ In questo caso realizzeremo l'ultimo metodo risolutivo:
 _____________________________________
 # <a name="ancora-db"></a>Database (Firebase)
 Adesso non ci resta che implementare un database dove salvare i nostri dati, che saranno visibili in remoto attraverso un'app Android.
-Questo è lo sketch da mettere nel Nodo Master:[Sketch Nodo Master Completo](https://github.com/domoticawifi/Network-nodes/blob/master/Sketch/Sketch%20Definitivi/Nodo_Master_Database.ino). Questo sketch fa si che ogni volta che si aggiorni la pagina, venga aggiornato anche il database.
 Il database che si è utilizzato per questo progetto è [Firebase](https://firebase.google.com/) (database NoSQL).
 Firebase è semplice ed intuitivo da utilizzare.
 La struttura che utilizza non è una struttura tabellare ma ad albero.
 
 Una volta implementato il DB dobbiamo effettuare la connessione a Firebase grazie ad una librearia per l'ESP8266 che è presente nell'occorrente software elencato a inizio pagina.
-Abbiamo bisogno, per il collegamento dell'HOSTNAME e dell'autorizzazione:
+Abbiamo bisogno, per il collegamento, dell'HOSTNAME e dell'autorizzazione:
 * Accedete allo sketch del Nodo Master attraverso Arduino IDE
 * Aprite Firebase
 * Andate al vostro DB creato in precedenza
@@ -511,7 +510,6 @@ In questa parte verranno riportati tutti i problemi rilevati durante la realizza
   * Sensore sferico;
   * Triangolazione del segnale;
   * Serie di specchi per dirigere il segnale;
-  * Modifica libreria Arduino per la gestione del segnale IR;
   * Schema di switch per doppio sensore.
   
  
