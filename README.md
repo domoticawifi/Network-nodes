@@ -1,6 +1,6 @@
 # Network-Nodes
 
-Questo progetto vede la realizzazione, tramite Arduino, di una piccola rete LAN (domestica o aziendale) che permette di far comunicare, attraverso un terminale PC (o qualsiasi altro device connesso alla rete), i nodi della rete; quest'ultimi collegati tra loro attraverso un collegamento ottico(infrarossi).
+Questo progetto vede la realizzazione, tramite Arduino, di una piccola rete [LAN](https://it.wikipedia.org/wiki/Local_Area_Network) (domestica o aziendale) che permette di far comunicare, attraverso un terminale PC (o qualsiasi altro device connesso alla rete), i nodi della rete; quest'ultimi collegati tra loro attraverso un collegamento ottico(infrarossi).
 
 _____________________________________
 
@@ -31,8 +31,8 @@ _____________________________________
 
 ## <a name="ancora-struttura"></a> Struttura
 Abbiamo presvisto un terminale PC, un nodo master e due nodi, schematizzati in questa maniera (classifichiamo questa rete come P2P):
-  * Terminale (Invia e riceve le informazioni dei nodi attraverso la rete accedendo all'indirizzo IP del Nodo Master)
-  * Router (Instrada le richieste fatte tra terminale e Nodo Master sulla rete domestica e anche quella esterna andando ad aggiornare un DB)
+  * Terminale (Invia e riceve le informazioni dei nodi attraverso la rete accedendo all'[indirizzo IP](https://it.wikipedia.org/wiki/Indirizzo_IP) del Nodo Master)
+  * [Router](https://it.wikipedia.org/wiki/Router) (Instrada le richieste fatte tra terminale e Nodo Master sulla rete domestica e anche quella esterna andando ad aggiornare un [DB](https://it.wikipedia.org/wiki/Base_di_dati))
   * Nodo Master (Nodo formato da un modulo [ESP8266 ESP-12E](https://acrobotic.com/acr-00018) per il collegamento WI-FI con il terminale, l'invio delle informazioni sul DB e la trasmissione di informazioni tra i vari nodi presenti nella rete locale).
   * Nodo1 (Nodo formato da [Arduino NANO](https://www.arduino.cc/en/Main/arduinoBoardNano) che gestisce un attuatore/relè/led e, in futuro, un eventuale sensore)
   * Nodo2(Stessa cosa del nodo precedente)
