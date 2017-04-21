@@ -426,10 +426,17 @@ Si è pensato ad un altro tipo di soluzione, da aggiungere alle altre elencate p
 
 <img src="https://github.com/domoticawifi/Network-nodes/blob/master/img/Schemi%20%26%20Circuiti/schema%20circuito%20nodo%201%20per%20sensore%20IR.png"/>
 
+*N.B: Questo potrebbe essere realizzato anche con un semplice relè! Basta collegare uno dei due sensori all'ingresso "Normalemente chiuso" e lìaltro al "Normalmente aperto" del relè... In modo che solo uno dei due sensori è in funzione!*
+
 Si potrebbe progettare un "Secondo prototipo" con tutti i metodi risolutivi elencati e constatare quanti e quali di questi metodi funzionino...
 In questo caso realizzeremo l'ultimo metodo risolutivo:
 
 ### *Risoluzione Switch a transistor:*
+<h2>Per quanto questo metodo possa essere logicamente corretto purtroppo non può essere realizzato!
+Perchè non è possibile collegare, allo stesso pin di Arduino, i due pin dei sensori che trasportano il segnale... Quando uno dei due sensori è interdetto l'altro sensore non percepisce nessun dato... Come se il circuito fosse aperto!</h2>
+
+### *Risoluzione Sensore Sferico:*
+
 
 
 
