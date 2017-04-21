@@ -514,10 +514,10 @@ In questa parte verranno riportati tutti i problemi rilevati durante la realizza
   Per entrambi i casi si è previsto un javascript con un WARNING.
   
 * Per la comunicazione "Connected Oriented" tra Nodo 1 e Nodo 2 si è pensato a una serie di soluzioni che potrebbero risolvere il problema:
-  * Sensore sferico;
-  * Triangolazione del segnale;
-  * Serie di specchi per dirigere il segnale;
-  * Schema di switch per doppio sensore.
+  * Sensore sferico <img src="https://github.com/domoticawifi/Network-nodes/blob/master/img/Loghi/green-ok-icon-2.png"/>
+  * Triangolazione del segnale <img scr="https://github.com/domoticawifi/Network-nodes/blob/master/img/Loghi/no-image-icon-9.png"/>
+  * Serie di specchi per dirigere il segnale <img src="https://github.com/domoticawifi/Network-nodes/blob/master/img/Loghi/green-ok-icon-2.png"/>
+  * Schema di switch per doppio sensore. <img scr="https://github.com/domoticawifi/Network-nodes/blob/master/img/Loghi/no-image-icon-9.png"/>
   
  
    
