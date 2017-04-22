@@ -433,11 +433,25 @@ Si è pensato ad un altro tipo di soluzione, da aggiungere alle altre elencate p
 Si potrebbe progettare un "Secondo prototipo" con tutti i metodi risolutivi elencati e constatare quanti e quali di questi metodi funzionino...
 In questo caso realizzeremo l'ultimo metodo risolutivo:
 
-### *Risoluzione Switch a transistor:*
-<h2>Per quanto questo metodo possa essere logicamente corretto purtroppo non può essere realizzato!
-Perchè non è possibile collegare, allo stesso pin di Arduino, i due pin dei sensori che trasportano il segnale... Quando uno dei due sensori è interdetto l'altro sensore non percepisce nessun dato... Come se il circuito fosse aperto!</h2>
+### *Risoluzione con "Switch a transistor":*
+Per quanto questo metodo possa essere logicamente corretto purtroppo non può essere realizzato!
+Perchè non è possibile collegare, allo stesso pin di Arduino, i due pin dei sensori che trasportano il segnale... Quando uno dei due sensori è interdetto l'altro sensore non percepisce nessun dato... Come se il circuito fosse aperto!
 
-### *Risoluzione Sensore Sferico:*
+### *Risoluzione con "Sensore Sferico" su Nodo 1:*
+Per questo tipo di risoluzione non abbiamo utilizzato un sensore sferico, ma ne abbiamo utilizzati due direzionali:
+uno rivolto verso il Nodo Master e l'altro verso il Nodo 2.
+In questo modo si ha una copertura totale della ricezione dei segnali provenienti da entrambe le direzioni.
+
+Ecco i tre nodi completi:
+
+### *Nodo Master*
+<img src="https://github.com/domoticawifi/Network-nodes/blob/master/img/Schemi%20%26%20Circuiti/Nodo%20Master%20-%20Completo(OK).png"/>
+
+### *Nodo 1*
+<img src="https://github.com/domoticawifi/Network-nodes/blob/master/img/Schemi%20%26%20Circuiti/Nodo%201%20-%20COMPLETO.png"/>
+
+### *Nodo 2*
+<img src="https://github.com/domoticawifi/Network-nodes/blob/master/img/Schemi%20%26%20Circuiti/Nodo%202%20-%20COMPLETO.png"/>
 
 
 
