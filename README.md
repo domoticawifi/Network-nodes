@@ -70,7 +70,7 @@ La comunicazione fra i nodi e il terminale avviene in questa maniera:
 * Il Nodo Master riceve la richiesta dal PC da instradare al giusto nodo
 * Il Nodo Master comunicherà con il Nodo1, essendo il suo adiacente
 * Verrà mandato un segnale ottico al Nodo1 con il dato da elaborare
-* Il Nodo1 riceve questo dato e lo elabora; una volta elaborato restituisce un ACK al Nodo Master
+* Il Nodo1 riceve questo dato e lo elabora; una volta elaborato restituisce un [ACK](https://it.wikipedia.org/wiki/ACK_(informatica)) al Nodo Master
 * Il Nodo Master chiude la comunicazione
 * Il Nodo1 se dovesse ricevere un dato corrotto richiede il rinvio del dato
 * Il Nodo1 elabora il dato ricevuto e capisce se appartiene a lui altrimenti lo manda, alla stessa maniera della prima comunicazione, al nodo adiacente (Nodo2)
@@ -618,6 +618,13 @@ Infatti:
      * Il Nodo 1 riceve l'ACK ed invia egli stesso la conferma al Nodo Master
      * Il Nodo Master riceve l'ACK di avvenuta ricezione
      * La pagina si aggiorna
+     
+ 
+In questo caso la comunicazione tra Nodo 1 - Nodo 2 avviene allo stesso e identico modo della comunicazione tra Nodo Master - Nodo 1:
+* Il Nodo 1 manda il dato(continuamente per 8-10 sec.) al Nodo 2 e rimane costantemente in ascolto
+* Il Nodo 2, una volta ricevuto il dato, manda continuamente l'ACK di avvenuta comunicazione
+* La comunicazione si chiude all'attesa di 10 sec. o con l'invio dell'ACK.
+* Se l'ok di comunicazione non avviene questo non giungerà nemmeno al Nodo Master, generando una pagina di errore!
 
 
 #### <a name="ancora-protdue-video"></a>*Video*
@@ -694,7 +701,7 @@ In questa parte verranno riportati tutti i problemi rilevati durante la realizza
   Per entrambi i casi si è previsto un javascript con un WARNING.
   
 * Per la comunicazione "Connected Oriented" tra Nodo 1 e Nodo 2 si è pensato a una serie di soluzioni che potrebbero risolvere il problema:
-  * Sensore sferico <img src="https://github.com/domoticawifi/Network-nodes/blob/master/img/Loghi/green-ok-icon-2.png"/>
+  * <a href="#ancora-protdue-sol2">Sensore sferico</a> <img src="https://github.com/domoticawifi/Network-nodes/blob/master/img/Loghi/green-ok-icon-2.png"/>
   * Triangolazione del segnale <img src="https://github.com/domoticawifi/Network-nodes/blob/master/img/Loghi/no-image-icon-9.png"/>
   * Serie di specchi per dirigere il segnale <img src="https://github.com/domoticawifi/Network-nodes/blob/master/img/Loghi/green-ok-icon-2.png"/>
   * Schema di switch per doppio sensore <img src="https://github.com/domoticawifi/Network-nodes/blob/master/img/Loghi/no-image-icon-9.png"/>
