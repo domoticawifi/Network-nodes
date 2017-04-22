@@ -1,6 +1,6 @@
 # Network-Nodes 
 
-<img src="https://github.com/domoticawifi/Network-nodes/blob/master/img/Loghi/net.png"/>
+<img src="https://github.com/domoticawifi/Network-nodes/blob/master/img/Loghi/NetworkNodesLogo.png"/>
 
 Questo progetto vede la realizzazione, tramite Arduino, di una piccola rete [LAN](https://it.wikipedia.org/wiki/Local_Area_Network) (domestica o aziendale) che permette di far comunicare, attraverso un terminale PC (o qualsiasi altro device connesso alla rete), i nodi della rete; quest'ultimi collegati tra loro attraverso un collegamento ottico(infrarossi).
 
