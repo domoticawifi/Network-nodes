@@ -480,7 +480,7 @@ Connessioni:
  </tr>
 </table>
 
-_______________________________________________-
+_____________________________________________________
 
 #### *Nodo 1*
 <img src="https://github.com/domoticawifi/Network-nodes/blob/master/img/Schemi%20%26%20Circuiti/Nodo%201%20-%20COMPLETO.png"/>
