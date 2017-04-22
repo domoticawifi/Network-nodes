@@ -480,6 +480,8 @@ Connessioni:
  </tr>
 </table>
 
+_______________________________________________-
+
 #### *Nodo 1*
 <img src="https://github.com/domoticawifi/Network-nodes/blob/master/img/Schemi%20%26%20Circuiti/Nodo%201%20-%20COMPLETO.png"/>
 
@@ -535,6 +537,8 @@ Connessioni:
   <td>Breadboard</td>
  </tr>
 </table>
+
+______________________________________________________
 
 
 #### *Nodo 2*
