@@ -603,6 +603,22 @@ Ecco lo schema definitivo:
 
 <img src="https://github.com/domoticawifi/Network-nodes/blob/master/img/Foto/freegifmaker.me_2axFX.gif"/>
 
+Attraverso questi collegamenti e li sketch da inserire all'interno di ogni scheda sarà possibile realizzare una comunicazione "Domanda-Risposta" per la comunicazione dei dati.
+Infatti:
+* Il client invierà la sua richiesta di modifica tramite la pagina HTML;
+* Il Nodo Master riceverà il comando decodificando l'URL della pagina ed invierà le azioni da seguire al Nodo 1
+* Il Nodo 1 elaborerà il dato inviato:
+
+   * Esegue l'azione se fosse il destinatario(accensione/spegnimento attuatore e/o relè)
+     * Restituisce l'ok di avventa lettura al Nodo Master
+     * Il Nodo Master riceve l'ACK e aggiorna la pagina
+   * Invia dato al Nodo 2 essendo quest'ultimo il destinatario
+     * Il Nodo 2 elabora il dato ed esegue le azioni (accensione/spegnimento)
+     * Restituisce l'ok di avvenuta ricezione al Nodo 1
+     * Il Nodo 1 riceve l'ACK ed invia egli stesso la conferma al Nodo Master
+     * Il Nodo Master riceve l'ACK di avvenuta ricezione
+     * La pagina si aggiorna
+
 
 #### <a name="ancora-protdue-video"></a>*Video*
 
