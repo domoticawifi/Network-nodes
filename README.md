@@ -498,7 +498,7 @@ Connessioni:
  </tr>
  <tr>
   <td>PIN 3 </td>
-  <td>Emettitore LED IR</td>
+  <td>Emettitore LED IR/LED IR2</td>
  </tr>
  <tr>
   <td>PIN 4 </td>
@@ -506,7 +506,7 @@ Connessioni:
  </tr>
  <tr>
   <td>PIN 8 </td>
-  <td>Ricevitore IR</td>
+  <td>Ricevitore IR/Ricev. IR2</td>
  </tr>
  <tr>
   <td>PIN A4 </td>
