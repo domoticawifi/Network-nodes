@@ -1,0 +1,55 @@
+-----------------------MANUALE APP------------------------
+
+
+VERSIONE 1.0
+DATA: APRILE 2017
+
+___________________________________________________________
+
+PIETRO RIGNANESE & ANDREA POLENTA
+
+___________________________________________________________
+
+
+L'applicazione si presenta in modo molto semplice ed è 
+suddivisa in tre schermate:
+	1. Schermata principale(HOME)
+	2. Schermata di controllo dello stato
+	3. Schermata per il controllo in remoto
+
+
+SCHERMATA PRINCIPALE---------------------------------------
+
+la schermata principale è formata da soli 2 bottoni
+per spostarsi nell'app.
+Il primo bottone rappresenta un occhio per spostarsi
+nella schermata di controllo dello stato.
+Mentre il secondo bottone, a forma di joypad, rappresenta
+la seconda schermata.
+
+------------------------------------------------------------
+
+SCHERMATA DI CONTROLLO DELLO STATO--------------------------
+
+La schermata e suddivisa in tre parti:
+1. Nodo master
+2. Nodo 1
+3. Nodo 2
+
+In ogni parte sono riportati i dispositivi collegati a quel 
+nodo e il loro stato.
+
+la connessione avviene attraverso un database
+Firebase: https://www.firebase.google.com/
+
+-------------------------------------------------------------
+
+SCHERMATA DI CONTROLLO IN REMOTO-----------------------------
+
+
+
+
+
+
+-------------------------------------------------------------
+
