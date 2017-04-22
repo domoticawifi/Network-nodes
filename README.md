@@ -600,7 +600,9 @@ Connessioni:
 La differenza, rispetto al primo prototipo, non è solo nello schema fisico, ma anche nella parte di codice per il controllo di ogni singolo nodo.
 Infatti gli sketch presentano forti variazioni ripetto agli sketch precedenti.
 
+
 Ecco lo schema definitivo:
+
 <img src="https://github.com/domoticawifi/Network-nodes/blob/master/img/Foto/freegifmaker.me_2axFX.gif"/>
 
 
