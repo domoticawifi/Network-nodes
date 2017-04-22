@@ -449,11 +449,21 @@ Ecco i tre nodi completi:
 #### *Nodo Master*
 <img src="https://github.com/domoticawifi/Network-nodes/blob/master/img/Schemi%20%26%20Circuiti/Nodo%20Master%20-%20Completo(OK).png"/>
 
+[Sketch Nodo Master](https://github.com/domoticawifi/Network-nodes/tree/master/Sketch/Sketch%20Definitivi/COMPLETO/Nodo_Master)
+
 #### *Nodo 1*
 <img src="https://github.com/domoticawifi/Network-nodes/blob/master/img/Schemi%20%26%20Circuiti/Nodo%201%20-%20COMPLETO.png"/>
 
+[Sketch Nodo 1](https://github.com/domoticawifi/Network-nodes/tree/master/Sketch/Sketch%20Definitivi/COMPLETO/Nodo_1)
+
+
 #### *Nodo 2*
 <img src="https://github.com/domoticawifi/Network-nodes/blob/master/img/Schemi%20%26%20Circuiti/Nodo%202%20-%20COMPLETO.png"/>
+
+[Sketch Nodo 2](https://github.com/domoticawifi/Network-nodes/tree/master/Sketch/Sketch%20Definitivi/COMPLETO/Nodo_2)
+
+La differenza, rispetto al primo prototipo, non è solo nello schema fisico, ma anche nella parte di codice per il controllo di ogni singolo nodo.
+Infatti gli sketch presentano forti variazioni ripetto agli sketch precedenti.
 
 
 
