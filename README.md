@@ -23,7 +23,9 @@ _____________________________________
     * <a href="#ancora-protuno">Primo Prototipo: Simple Connection</a>
       * <a href="#ancora-protuno-video">Video Dimostrativo Prototipo Uno</a>
     * <a href="#ancora-protdue">Secondo Prototipo: Connected Oriented</a>
-        * <a href="#ancora-protdue-video">Video Dimostrativo Prototipo Due</a>
+        * <a href="#ancora-protdue-sol1">Soluzione "Switch Transistor"</a>
+        * <a href="#ancora-protdue-sol2">Soluzione "Sensore Sferico"</a>
+          * <a href="#ancora-protdue-video">Video Dimostrativo Prototipo Due</a>
 * <a href="#ancora-db">Database</a>
 * <a href="#ancora-app">Applicazione Android</a>
 * <a href="#ancora-problemi">Problemi Rilevati</a>
@@ -433,24 +435,24 @@ Si è pensato ad un altro tipo di soluzione, da aggiungere alle altre elencate p
 Si potrebbe progettare un "Secondo prototipo" con tutti i metodi risolutivi elencati e constatare quanti e quali di questi metodi funzionino...
 In questo caso realizzeremo l'ultimo metodo risolutivo:
 
-### *Risoluzione con "Switch a transistor":*
+### <a name="ancora-protdue-sol1"></a>*Risoluzione con "Switch a transistor":*
 Per quanto questo metodo possa essere logicamente corretto purtroppo non può essere realizzato!
 Perchè non è possibile collegare, allo stesso pin di Arduino, i due pin dei sensori che trasportano il segnale... Quando uno dei due sensori è interdetto l'altro sensore non percepisce nessun dato... Come se il circuito fosse aperto!
 
-### *Risoluzione con "Sensore Sferico" su Nodo 1:*
+### <a name="ancora-protdue-sol2"></a>*Risoluzione con "Sensore Sferico" su Nodo 1:*
 Per questo tipo di risoluzione non abbiamo utilizzato un sensore sferico, ma ne abbiamo utilizzati due direzionali:
 uno rivolto verso il Nodo Master e l'altro verso il Nodo 2.
 In questo modo si ha una copertura totale della ricezione dei segnali provenienti da entrambe le direzioni.
 
 Ecco i tre nodi completi:
 
-### *Nodo Master*
+#### *Nodo Master*
 <img src="https://github.com/domoticawifi/Network-nodes/blob/master/img/Schemi%20%26%20Circuiti/Nodo%20Master%20-%20Completo(OK).png"/>
 
-### *Nodo 1*
+#### *Nodo 1*
 <img src="https://github.com/domoticawifi/Network-nodes/blob/master/img/Schemi%20%26%20Circuiti/Nodo%201%20-%20COMPLETO.png"/>
 
-### *Nodo 2*
+#### *Nodo 2*
 <img src="https://github.com/domoticawifi/Network-nodes/blob/master/img/Schemi%20%26%20Circuiti/Nodo%202%20-%20COMPLETO.png"/>
 
 
