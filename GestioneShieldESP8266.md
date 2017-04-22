@@ -51,3 +51,8 @@ Codice:
 * La scheda risulterà collegata alla rete LAN
 
 *N.B: Potete verificare l'indirizzo IP, di ogni dispositivo connesso, andando sull'indirizzo IP del router, accedendo tramite browser. Di solito i router hanno come indirizzo 192.168.0.1. Potete verificare il vostro indirizzo di router sul manuale di quest'ultimo*
+
+
+__________________________________________________
+
+<img src="https://github.com/domoticawifi/Network-nodes/blob/master/img/Loghi/esp8266.png"/>
