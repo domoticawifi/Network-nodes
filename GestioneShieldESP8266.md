@@ -33,7 +33,7 @@ Per collegare la shield Wi-Fi, ad un router, dobbiamo seguire questi passi:
 * Andare su *Strumenti* e selezionale la scheda ESP8266 corrispondente a quella inserita(nel nostro caso MODE MCU 1.0)
 * Impostare la porta di collegamento seriale (Esempio COM4)
 * Impostare il bound rate a 115200
-* Lanciare il [programma](https://github.com/domoticawifi/Network-nodes/blob/master/sketch_Connessione_Rete_WiFi.ino) per la connessione
+* Lanciare il [programma](https://github.com/domoticawifi/Network-nodes/blob/master/Sketch/Sketch%20Di%20Prova/sketch_Connessione_Rete_WiFi.ino) per la connessione
 
 ## Programma di lancio per il collegamento
 Analizziamo, riga per riga, il programma di lancio per il collegamento della scheda al router.
