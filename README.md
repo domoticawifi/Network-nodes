@@ -451,16 +451,147 @@ Ecco i tre nodi completi:
 
 [Sketch Nodo Master](https://github.com/domoticawifi/Network-nodes/tree/master/Sketch/Sketch%20Definitivi/COMPLETO/Nodo_Master)
 
+Connessioni:
+ 
+ <table>
+ <tr align='center'>
+  <td>ESP8266</td>
+  <td> </td>
+ </tr>
+ <tr>
+  <td>PIN D4</td>
+  <td>Relè</td>
+ </tr>
+ <tr>
+  <td>PIN D0 </td>
+  <td>Emettitore LED IR</td>
+ </tr>
+ <tr>
+  <td>PIN D3 </td>
+  <td>Ricevitore IR</td>
+ </tr>
+ <tr>
+  <td>PIN D1 </td>
+  <td>Display SDA</td>
+ </tr>
+ <tr>
+  <td>PIN D2 </td>
+  <td>Display SCL</td>
+ </tr>
+</table>
+
 #### *Nodo 1*
 <img src="https://github.com/domoticawifi/Network-nodes/blob/master/img/Schemi%20%26%20Circuiti/Nodo%201%20-%20COMPLETO.png"/>
 
 [Sketch Nodo 1](https://github.com/domoticawifi/Network-nodes/tree/master/Sketch/Sketch%20Definitivi/COMPLETO/Nodo_1)
+
+Connessioni:
+ 
+ <table>
+ <tr align='center'>
+  <td>Arduino UNO/NANO</td>
+  <td> </td>
+ </tr>
+ <tr>
+  <td>PIN 2</td>
+  <td>Relè</td>
+ </tr>
+ <tr>
+  <td>PIN 3 </td>
+  <td>Emettitore LED IR</td>
+ </tr>
+ <tr>
+  <td>PIN 4 </td>
+  <td>Attuatore</td>
+ </tr>
+ <tr>
+  <td>PIN 8 </td>
+  <td>Ricevitore IR</td>
+ </tr>
+ <tr>
+  <td>PIN A4 </td>
+  <td>Display SDA</td>
+ </tr>
+ <tr>
+  <td>PIN A5 </td>
+  <td>Display SCL</td>
+ </tr>
+ <tr>
+ <tr>
+  <td>PIN 10 </td>
+  <td>Pulsante Relay</td>
+ </tr>
+ <tr>
+  <td>PIN 11 </td>
+  <td>Pulsante Attuatore</td>
+ </tr>
+ <tr>
+ <tr>
+  <td>5v </td>
+  <td>Breadboard</td>
+ </tr>
+ <tr>
+  <td>GND </td>
+  <td>Breadboard</td>
+ </tr>
+</table>
 
 
 #### *Nodo 2*
 <img src="https://github.com/domoticawifi/Network-nodes/blob/master/img/Schemi%20%26%20Circuiti/Nodo%202%20-%20COMPLETO.png"/>
 
 [Sketch Nodo 2](https://github.com/domoticawifi/Network-nodes/tree/master/Sketch/Sketch%20Definitivi/COMPLETO/Nodo_2)
+
+Connessioni:
+ 
+ <table>
+ <tr align='center'>
+  <td>Arduino UNO/NANO</td>
+  <td> </td>
+ </tr>
+ <tr>
+  <td>PIN 2</td>
+  <td>Relè</td>
+ </tr>
+ <tr>
+  <td>PIN 3 </td>
+  <td>Emettitore LED IR</td>
+ </tr>
+ <tr>
+  <td>PIN 4 </td>
+  <td>Attuatore</td>
+ </tr>
+ <tr>
+  <td>PIN 8 </td>
+  <td>Ricevitore IR</td>
+ </tr>
+ <tr>
+  <td>PIN A4 </td>
+  <td>Display SDA</td>
+ </tr>
+ <tr>
+  <td>PIN A5 </td>
+  <td>Display SCL</td>
+ </tr>
+ <tr>
+ <tr>
+  <td>PIN 10 </td>
+  <td>Pulsante Relay</td>
+ </tr>
+ <tr>
+  <td>PIN 11 </td>
+  <td>Pulsante Attuatore</td>
+ </tr>
+ <tr>
+ <tr>
+  <td>5v </td>
+  <td>Breadboard</td>
+ </tr>
+ <tr>
+  <td>GND </td>
+  <td>Breadboard</td>
+ </tr>
+</table>
 
 La differenza, rispetto al primo prototipo, non è solo nello schema fisico, ma anche nella parte di codice per il controllo di ogni singolo nodo.
 Infatti gli sketch presentano forti variazioni ripetto agli sketch precedenti.
