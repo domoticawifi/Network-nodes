@@ -740,6 +740,21 @@ Vi allego il link del venditore dove abbiamo reperito tutto il materiale:
 http://www.ebay.it/usr/nouteclab?_trksid=p2047675.l2559
 
 ### *Conclusioni:*
+Riportiamo le conclusioni con un elenco puntato:
+* Miglioramento capacità tecniche e pratiche in:
+
+  * Informatica
+  * Programmazione
+  * Elettronica
+  * Comunicazioni
+  
+* Rapporti di coesione e lavoro di squadra
+* Rendere più performante la comunicazione ottica sostituendola con quella a onde radio
+  
+  * Utilizzando le onde radio si migliora la qualità del segnale inviato
+  * La comunicazione può avvenire in modo diretto tra Nodo Master e Nodo 2
+  * Si instaurerà un ponte di nodi, per la comunicazione, solamente se i nodi si trovassero fuori dal range di comunicazione
+  * Se dovesse presentarsi un ostacolo permanente o no, il segnale passerebbe ugualmente
 
  __________________________________________________________________
  
