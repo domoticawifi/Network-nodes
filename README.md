@@ -36,6 +36,9 @@ _____________________________________
 _____________________________________
 
 ## <a name="ancora-struttura"></a> Struttura
+
+<img src="https://github.com/domoticawifi/Network-nodes/blob/master/img/Miste/137-IlwQ0xQNZ2WSUfmP-s-.png"/>
+
 Abbiamo presvisto un terminale PC, un nodo master e due nodi, schematizzati in questa maniera (classifichiamo questa rete come [P2P](https://it.wikipedia.org/wiki/Peer-to-peer)):
   * Terminale (Invia e riceve le informazioni dei nodi attraverso la rete accedendo all'[indirizzo IP](https://it.wikipedia.org/wiki/Indirizzo_IP) del Nodo Master)
   * [Router](https://it.wikipedia.org/wiki/Router) (Instrada le richieste fatte tra terminale e Nodo Master sulla rete domestica e anche quella esterna andando ad aggiornare un [DB](https://it.wikipedia.org/wiki/Base_di_dati))
