@@ -27,6 +27,10 @@ _____________________________________
 * <a href="#ancora-db">Database</a>
 * <a href="#ancora-app">Applicazione Android</a>
 * <a href="#ancora-problemi">Problemi Rilevati</a>
+* <a href="#ancora-algor">Algoritmi</a>
+   * <a href="ancora-algor-nodomaster">Nodo Master</a>
+   * <a href="ancora-algor-nodo1">Nodo 1</a>
+   * <a href="ancora-algor-nodo2">Nodo 2</a>
 * <a href="#ancora-conclcost">Conclusione e Costi</a>
 
 _____________________________________
@@ -713,15 +717,15 @@ In questa parte verranno riportati tutti i problemi rilevati durante la realizza
 _____________________________________
 
 # <a name="ancora-algor"></a>Algoritmi
-### *Nodo Master:*
+### <a name="ancora-algor-nodomaster"></a>*Nodo Master:*
 
 <img src="https://github.com/domoticawifi/Network-nodes/blob/master/Sketch/Sketch%20Definitivi/COMPLETO/Nodo_Master/Nodo_Master.png"/>
 
-### *Nodo 1:*
+### <a name="ancora-algor-nodo1"></a>*Nodo 1:*
 
 <img src="https://github.com/domoticawifi/Network-nodes/blob/master/Sketch/Sketch%20Definitivi/COMPLETO/Nodo_1/Nodo%201.png"/>
 
-### *Nodo 2:*
+### <a name="ancora-algor-nodo2"></a>*Nodo 2:*
 <img src="https://github.com/domoticawifi/Network-nodes/blob/master/Sketch/Sketch%20Definitivi/COMPLETO/Nodo_2/Nodo%202.png"/>
 
 ______________________________________
