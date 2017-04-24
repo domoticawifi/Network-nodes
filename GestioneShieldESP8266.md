@@ -1,4 +1,4 @@
-# Gesione ESP8266
+# Gesione <a href="http://www.esp8266.com/wiki/doku.php"><img src="https://github.com/domoticawifi/Network-nodes/blob/master/img/Loghi/esp8266.png"/></a>
 
 ## Cos'è l'ESP8266?
 L'ESP8266 è una scheda che incorpora l'uso del Wi-Fi.
