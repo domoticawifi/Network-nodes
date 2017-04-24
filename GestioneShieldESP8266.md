@@ -26,7 +26,7 @@ La scheda, come si può vedere, è compatta, leggera, di buona fattura e può es
 Noi utilizziamo, per questo progetto, una ESP8266 ESP-12E, quindi selezioneremo la scheda ESP-12E MODE MCU 1.0.
 
 
-## <a name="ancora-collegamento-wifi"></a>Come collegare la scheda ESP8266 alla rete WI-FI
+## <a name="ancora-collegamento-wifi"></a>Come collegare la scheda ESP8266 alla rete WI-FI  <img src="https://github.com/domoticawifi/Network-nodes/blob/master/img/Loghi/main-qimg-5720273bd9b248d6d889d8c6524054f3.png"/>
 Per collegare la shield Wi-Fi, ad un router, dobbiamo seguire questi passi:
 * Collegare la shield, tramite cavo mini USB, al PC
 * Aprire l'IDE di Arduino 1.8.0 o superiori
