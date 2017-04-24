@@ -28,9 +28,9 @@ _____________________________________
 * <a href="#ancora-app">Applicazione Android</a>
 * <a href="#ancora-problemi">Problemi Rilevati</a>
 * <a href="#ancora-algor">Algoritmi</a>
-   * <a href="ancora-algor-nodomaster">Nodo Master</a>
-   * <a href="ancora-algor-nodo1">Nodo 1</a>
-   * <a href="ancora-algor-nodo2">Nodo 2</a>
+   * <a href="#ancora-algor-nodomaster">Nodo Master</a>
+   * <a href="#ancora-algor-nodo1">Nodo 1</a>
+   * <a href="#ancora-algor-nodo2">Nodo 2</a>
 * <a href="#ancora-conclcost">Conclusione e Costi</a>
 
 _____________________________________
