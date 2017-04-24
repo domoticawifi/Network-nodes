@@ -603,7 +603,7 @@ Ecco lo schema definitivo:
 
 <img src="https://github.com/domoticawifi/Network-nodes/blob/master/img/Foto/freegifmaker.me_2axFX.gif"/>
 
-Attraverso questi collegamenti e li sketch da inserire all'interno di ogni scheda sarà possibile realizzare una comunicazione "Domanda-Risposta" per la comunicazione dei dati.
+Attraverso questi collegamenti e gli sketch da inserire all'interno di ogni scheda sarà possibile realizzare una comunicazione "Domanda-Risposta" per la comunicazione dei dati.
 Infatti:
 * Il client invierà la sua richiesta di modifica tramite la pagina HTML;
 * Il Nodo Master riceverà il comando decodificando l'URL della pagina ed invierà le azioni da seguire al Nodo 1
@@ -625,6 +625,8 @@ In questo caso la comunicazione tra Nodo 1 - Nodo 2 avviene allo stesso e identi
 * Il Nodo 2, una volta ricevuto il dato, manda continuamente l'ACK di avvenuta comunicazione
 * La comunicazione si chiude all'attesa di 10 sec. o con l'invio dell'ACK.
 * Se l'ok di comunicazione non avviene questo non giungerà nemmeno al Nodo Master, generando una pagina di errore!
+
+*N.B: Per prevenire l'accavallarsi dei dati, inviati da entrambi i nodi, al Nodo 1 si è pensato di far mandare al Nodo Master il dato un tantum... In questo modo ci saranno dei buchi in cui il Nodo 1 percepirà solo il segnale inviato dal Nodo 2!*
 
 
 #### <a name="ancora-protdue-video"></a>*Video*
@@ -709,6 +711,21 @@ In questa parte verranno riportati tutti i problemi rilevati durante la realizza
  
    
 _____________________________________
+
+# <a name="ancora-algor"></a>Algoritmi
+### *Nodo Master:*
+
+<img src="https://github.com/domoticawifi/Network-nodes/blob/master/Sketch/Sketch%20Definitivi/COMPLETO/Nodo_Master/Nodo_Master.png"/>
+
+### *Nodo 1:*
+
+<img src="https://github.com/domoticawifi/Network-nodes/blob/master/Sketch/Sketch%20Definitivi/COMPLETO/Nodo_1/Nodo_1.png"/>
+
+### *Nodo 2:*
+<img src="https://github.com/domoticawifi/Network-nodes/blob/master/Sketch/Sketch%20Definitivi/COMPLETO/Nodo_2/Nodo_2.png"/>
+
+______________________________________
+
 # <a name="ancora-conclcost"></a>Conclusioni e costi complessivi
 
 ### *Costi:*
