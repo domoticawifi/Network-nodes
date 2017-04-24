@@ -122,7 +122,10 @@ ________________________________________________________________________________
   
 # <a name="ancora-faseop"></a>Fase Operativa
 
- ## <a name="ancora-faseuno"></a>Prima fase: Collegamento Scheda WI-FI ad una rete LAN
+ ## <a name="ancora-faseuno"></a>Prima fase: Collegamento Scheda WI-FI ad una rete LAN 
+ 
+ <img src="https://github.com/domoticawifi/Network-nodes/blob/master/img/Loghi/wifi-vector-logo.png"/>
+ 
  Potete vedere la connessione Wi-Fi della shield cliccando <a href="https://github.com/domoticawifi/Network-nodes/blob/master/GestioneShieldESP8266.md#ancora-collegamento-wifi">QUI</a>.
  
  * Una volta testata la connessione di questa shield, si è implementata un'interfaccia grafica in HTML per comunicare i cambiamenti di stati di alcuni attuatori e relè presenti sul Nodo Master (attuatori e relè sono sostituiti da semplici led per facilitare i collegamenti, ma il concetto non cambia).
@@ -158,7 +161,8 @@ Ecco i collegamenti:
  *N.B: Possiamo anche non utilizzare i resistori, perchè la tensione di uscita sui pin non supera i 3volt.*
  
  
- ## <a name="ancora-fasedue"></a>Seconda fase: Collegamento Ottico Nodo Master -> Nodo 1
+ ## <a name="ancora-fasedue"></a>Seconda fase: Collegamento Ottico Nodo Master -> Nodo 1 <img src="https://github.com/domoticawifi/Network-nodes/blob/master/img/Miste/IrReady.jpg"/>
+ 
  Per questa fase, avremo la comunicazione fra due nodi, quindi dividiamola, per semplicità, in due sotto-fasi.
  
  ### <a name="ancora-faseduemaster"></a>*Nodo Master: Collegamento Ottico*
