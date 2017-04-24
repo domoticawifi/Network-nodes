@@ -719,10 +719,10 @@ _____________________________________
 
 ### *Nodo 1:*
 
-<img src="https://github.com/domoticawifi/Network-nodes/blob/master/Sketch/Sketch%20Definitivi/COMPLETO/Nodo_1/Nodo_1.png"/>
+<img src="https://github.com/domoticawifi/Network-nodes/blob/master/Sketch/Sketch%20Definitivi/COMPLETO/Nodo_1/Nodo%201.png"/>
 
 ### *Nodo 2:*
-<img src="https://github.com/domoticawifi/Network-nodes/blob/master/Sketch/Sketch%20Definitivi/COMPLETO/Nodo_2/Nodo_2.png"/>
+<img src="https://github.com/domoticawifi/Network-nodes/blob/master/Sketch/Sketch%20Definitivi/COMPLETO/Nodo_2/Nodo%202.png"/>
 
 ______________________________________
 
