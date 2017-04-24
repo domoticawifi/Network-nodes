@@ -423,9 +423,9 @@ Come in questa figura:*
 
 <img src="https://github.com/domoticawifi/Network-nodes/blob/master/img/Schemi%20%26%20Circuiti/Esempio%20Triangolazione.png"/>
 
-*In questo modo i nodi sono disposti in modo tale da poter inviare al Nodo 1 i segnali infrarossi.*
+*Così facendo i nodi sono disposti in modo tale da poter inviare al Nodo 1 i segnali infrarossi.*
 
-Logicamente è un modo corretto da realizzare, ma facendo alcune prove e test si è verificato che questa comunicazione non può avvenire!
+Logicamente è una disposizione corretta da realizzare, ma facendo alcune prove e test si è verificato che questa comunicazione non può avvenire!
 Il sensore del Nodo 1 è soggetto a troppe informazione e non riesce a captare nel modo corretto il segnale di ritorno del Nodo 2.
 Si è pensato ad un altro tipo di soluzione, da aggiungere alle altre elencate poco fa:
 * Gestire il cambio di sensore attraverso un circuito switch a transistor: due transistor per alimentare due diversi circuiti, in modo alternato, in base alla ricezione del dato(*soluzione hardware*).
@@ -748,7 +748,7 @@ Riportiamo le conclusioni con un elenco puntato:
   * Elettronica
   * Comunicazioni
   
-* Rapporti di coesione e lavoro di squadra
+* Miglioramento rapporti di coesione e lavoro di squadra
 * Rendere più performante la comunicazione ottica sostituendola con quella a onde radio
   
   * Utilizzando le onde radio si migliora la qualità del segnale inviato
