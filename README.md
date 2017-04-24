@@ -755,6 +755,12 @@ Riportiamo le conclusioni con un elenco puntato:
   * La comunicazione può avvenire in modo diretto tra Nodo Master e Nodo 2
   * Si instaurerà un ponte di nodi, per la comunicazione, solamente se i nodi si trovassero fuori dal range di comunicazione
   * Se dovesse presentarsi un ostacolo permanente o no, il segnale passerebbe ugualmente
+  
+ ### Tempi di comunicazione:
+ 
+ <img src="https://github.com/domoticawifi/Network-nodes/blob/master/img/Grafici/Comunicazione%20Nodo%20Master%20-%20Nodo%201.png"/>
+ 
+ <img src="https://github.com/domoticawifi/Network-nodes/blob/master/img/Grafici/comunicazione%20nodo%201%20-%20nodo%202.png"/>
 
  __________________________________________________________________
  
