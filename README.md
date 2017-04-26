@@ -642,6 +642,17 @@ In questo caso la comunicazione tra Nodo 1 - Nodo 2 avviene allo stesso e identi
 
 
 #### <a name="ancora-protdue-video"></a>*Video*
+<table align='center'>
+  <tr align='center'>
+   <td>Video </td>
+   <td>Link</td>
+  </tr>
+  <tr align='center'>
+   <td>Completo</td>
+   <td>https://www.youtube.com/watch?v=MiBDAAoGOk4&t=38s</td>
+   </tr>
+ </table>
+
 
 _____________________________________
 # <a name="ancora-db"></a>Database (Firebase)
