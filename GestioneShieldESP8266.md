@@ -15,7 +15,7 @@ La scheda, come si può vedere, è compatta, leggera, di buona fattura e può es
 * Vai su *File* > *Impostazioni*
 * Inserisci questo link `http://arduino.esp8266.com/stable/package_esp8266com_index.json` nelle URL aggiuntive per la gestione delle schede e clicca su OK
 
-<img src="https://github.com/domoticawifi/Network-nodes/tree/master/img/Screenshot/schermata.png"/>
+<img src="https://github.com/domoticawifi/Network-nodes/blob/master/img/Screenshot/schermata.png"/>
 
 * Vai su *Strumenti* > *Gestione Schede* e installa la piattaforma "ESP8266"
 
