@@ -14,7 +14,13 @@ La scheda, come si può vedere, è compatta, leggera, di buona fattura e può es
 * Lancia l'IDE di Arduino dal tuo PC
 * Vai su *File* > *Impostazioni*
 * Inserisci questo link `http://arduino.esp8266.com/stable/package_esp8266com_index.json` nelle URL aggiuntive per la gestione delle schede e clicca su OK
+
+<img src="https://github.com/domoticawifi/Network-nodes/tree/master/img/Screenshot/schermata.png"/>
+
 * Vai su *Strumenti* > *Gestione Schede* e installa la piattaforma "ESP8266"
+
+<img src="https://github.com/domoticawifi/Network-nodes/blob/master/img/Screenshot/schermata%202.png"/>
+
 * Installare la [libreria ESP8266](https://github.com/googlesamples/firebase-arduino/archive/master.zip) aggiuntiva della scheda
 
 *N.B: Installazione di questo pacchetto aggiuntivo per l'IDE di Arduino, comprende tante schede WI-FI in commercio*
@@ -55,4 +61,4 @@ Codice:
 
 __________________________________________________
 
-<img src="https://github.com/domoticawifi/Network-nodes/blob/master/img/Loghi/esp8266.png"/>
+<img src="https://github.com/domoticawifi/Network-nodes/blob/master/img/Loghi/esp8266.png"/> <img src="https://github.com/domoticawifi/Network-nodes/blob/master/img/Loghi/wifi-vector-logo.png"/>
