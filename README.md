@@ -675,9 +675,7 @@ Dalla semplice app, realizzata con [AppInventor](http://appinventor.mit.edu/expl
 In futuro potrebbe essere implementato anche un controllo, in remoto, dell'intera rete.
 
 ## <a name="ancora-app"></a>*App Android*
-<img src="https://github.com/domoticawifi/Network-nodes/blob/master/img/Screenshot/Screenshot_2017-04-06-09-32-16.png"/>
-
-<img src="https://github.com/domoticawifi/Network-nodes/blob/master/img/Screenshot/Screenshot_2017-04-06-09-32-34.png"/>
+<img src="https://github.com/domoticawifi/Network-nodes/blob/master/img/Screenshot/Screenshot_2017-04-06-09-32-16.png"/>  <img src="https://github.com/domoticawifi/Network-nodes/blob/master/img/Screenshot/Screenshot_2017-04-06-09-32-34.png"/>
 
 Come dicevamo, l'app è stata realizzata attraverso un software open source online della Google: App Inventor.
 Tale software è molto semplice ed intuitivo.
