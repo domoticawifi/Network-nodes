@@ -17,6 +17,13 @@
  *  Strumenti > Scheda: > Mode MCU 1.0
  *  Struemnti > Porta > COM
  *  
+ *  COLLEGAMENTI:
+ *  PIN D0 -> EMETTITORE LED IR
+ *  PIN D1 -> DISPLAY
+ *  PIN D2 -> DISPLAY
+ *  PIN D3 -> RICEVITORE IR
+ *  PIN D4 -> RELE'
+ *  
  *  Per domande, informazioni o altro contattateci sui social
  *  Pietro Rignanese (Manfredonia - Italy - Stedente UNIVPM)
  *  Andrea Polente  (Montecassiano - Italy - Studente UNIVPM)
@@ -51,8 +58,8 @@
 #include <LiquidCrystal_I2C.h>
 
 //Definizione delle credenziali per la connessione per accedere al Router
-const char* ssid = "TIM-67955105";
-const char* password = "XDOaz2IzqaGGlIQCf197krEA";
+const char* ssid = "HUAWEI P8";
+const char* password = "pierino123";
 
 //Variabile contenente l'indirizzo IP assegnato alla shield ESP-12E
 String IP = "";
@@ -536,7 +543,16 @@ void pag_html()
 //-------------------------------------------------------------------------------------------------
 
 //Input analogico dei vari dispositivi connessi al nodo(Input a pulsante)
-boolean analogic_input = false; 
+boolean analogic_input = false;
+
+boolean change_state_rn1_on = true;
+boolean change_state_rn1_off = true;
+boolean change_state_an1_on = true;
+boolean change_state_an1_off = true;
+boolean change_state_rn2_on = true;
+boolean change_state_rn2_off = true;
+boolean change_state_an2_on = true;
+boolean change_state_an2_off = true;
   
 void loop() 
 {  
@@ -554,21 +570,29 @@ void loop()
       if(results.value==4112)
       {
         RN1=HIGH;
+        change_state_rn1_on = false;
+        change_state_rn1_off = true;
         analogic_input = true;
       }
       if(results.value==257)
       {
         RN1=LOW;
+        change_state_rn1_on = true;
+        change_state_rn1_off = false;
         analogic_input = true;
       }
       if(results.value==1118481)
       {
         AN1=HIGH;
+        change_state_an1_on = false;
+        change_state_an1_off = true;
         analogic_input = true;
       }
       if(results.value==1052688)
       {
         AN1=LOW;
+        change_state_an1_off = false;
+        change_state_an1_on = true;
         analogic_input = true;
       }
       irrecv.resume();
@@ -635,39 +659,47 @@ void loop()
       lcd.print("Attendere...    ");
       delay(100);
       Serial.println("ACCENSIONE RELAY NODO 1");
-      do
+      
+      if(change_state_rn1_on)
+      
       {
-        //Controllo tempo di attesa
-        if(i<1000)
+        change_state_rn1_on  = false;
+        change_state_rn1_off = true;
+        do
         {
-          irsend.sendNEC(0x0000000001, 32); //Invio dato al nodo 1 per l'accensione del relè nodo 1
-          comunicazione();
-          i++;  //Aumenta di +1 il tempo di attesa
+          //Controllo tempo di attesa
+          if(i<1000)
+          {
+            irsend.sendNEC(0x0000000001, 32); //Invio dato al nodo 1 per l'accensione del relè nodo 1
+            comunicazione();
+            i++;  //Aumenta di +1 il tempo di attesa
+          }
+          else
+          {
+            controllo_invio = false;
+          }
+         }while(controllo_invio);
+        
+        Serial.println("Anch'io...");
+        //Controllo stato connessione per modificare o meno la pagina HTML
+        if(stato_conn)
+        {
+          RN1 = HIGH;
+          CRN1 = true;
         }
         else
         {
-          controllo_invio = false;
+          RN1 = LOW;
+          js = true;
+          CRN1 = false;
         }
-       }while(controllo_invio);
+        //Resetto le variabili di controllo per una prossima comunicazione
+        stato_conn = true;
+        controllo_invio=true;
+        controllo_ricezione=true;
+        i=0;      
+      }
       
-      Serial.println("Anch'io...");
-      //Controllo stato connessione per modificare o meno la pagina HTML
-      if(stato_conn)
-      {
-        RN1 = HIGH;
-        CRN1 = true;
-      }
-      else
-      {
-        RN1 = LOW;
-        js = true;
-        CRN1 = false;
-      }
-      //Resetto le variabili di controllo per una prossima comunicazione
-      stato_conn = true;
-      controllo_invio=true;
-      controllo_ricezione=true;
-      i=0;      
     }
     
   if(form.indexOf("Relay1=OFF")!=-1)
@@ -678,38 +710,45 @@ void loop()
       lcd.print("Attendere...    ");
       delay(100);
       Serial.println("SPEGNIMENTO RELAY NODO 1");
-      do
+      if(change_state_rn1_off)
+      
       {
-        if(i<1000)
+        change_state_rn1_off = false;
+        change_state_rn1_on = true;
+        do
         {
-          irsend.sendNEC(0x0000000101, 32); // Invio dato al nodo 1 per lo spegnimento del relè nodo 1
-          comunicazione();
-          i++;
+          if(i<1000)
+          {
+            irsend.sendNEC(0x0000000101, 32); // Invio dato al nodo 1 per lo spegnimento del relè nodo 1
+            comunicazione();
+            i++;
+          }
+          else
+          {
+            controllo_invio = false;
+          }
+         }while(controllo_invio);
+        
+        Serial.println("Anch'io...");
+        //Controllo stato connessione per modificare o meno la pagina HTML
+        if(stato_conn)
+        {
+          RN1 = LOW;
+          CRN1 = true;
         }
         else
         {
-          controllo_invio = false;
+          RN1 = HIGH;
+          js = true;
+          CRN1 = false;
         }
-       }while(controllo_invio);
+        //Resetto le variabili di controllo per una prossima comunicazione
+        stato_conn = true;
+        controllo_invio=true;
+        controllo_ricezione=true;
+        i=0;
+      }
       
-      Serial.println("Anch'io...");
-      //Controllo stato connessione per modificare o meno la pagina HTML
-      if(stato_conn)
-      {
-        RN1 = LOW;
-        CRN1 = true;
-      }
-      else
-      {
-        RN1 = HIGH;
-        js = true;
-        CRN1 = false;
-      }
-      //Resetto le variabili di controllo per una prossima comunicazione
-      stato_conn = true;
-      controllo_invio=true;
-      controllo_ricezione=true;
-      i=0;
     }
   if(form.indexOf("Attuatore1=ON")!=-1)
     {
@@ -719,38 +758,45 @@ void loop()
       lcd.print("Attendere...    ");
       delay(100);
       Serial.println("ACCENSIONE ATTUATORE NODO 2");
-      do
+      if(change_state_an1_on)
+      
       {
-        if(i<1000)
+        change_state_an1_on = false;
+        change_state_an1_off = true;
+        do
         {
-          irsend.sendNEC(0x0000000011, 32); //Invio dato al nodo 1 per l'accensione dell'attuatore nodo 1
-          comunicazione();
-          i++;
+          if(i<1000)
+          {
+            irsend.sendNEC(0x0000000011, 32); //Invio dato al nodo 1 per l'accensione dell'attuatore nodo 1
+            comunicazione();
+            i++;
+          }
+          else
+          {
+            controllo_invio = false;
+          }
+         }while(controllo_invio);
+        
+        Serial.println("Anch'io...");
+        //Controllo stato connessione per modificare o meno la pagina HTML
+        if(stato_conn)
+        {
+          AN1 = HIGH;
+          CAN1 = true;
         }
         else
         {
-          controllo_invio = false;
+          AN1 = LOW;
+          js = true;
+          CAN1 = false;
         }
-       }while(controllo_invio);
+        //Resetto le variabili di controllo per una prossima comunicazione
+        stato_conn = true;
+        controllo_invio=true;
+        controllo_ricezione=true;
+        i=0;
+        }
       
-      Serial.println("Anch'io...");
-      //Controllo stato connessione per modificare o meno la pagina HTML
-      if(stato_conn)
-      {
-        AN1 = HIGH;
-        CAN1 = true;
-      }
-      else
-      {
-        AN1 = LOW;
-        js = true;
-        CAN1 = false;
-      }
-      //Resetto le variabili di controllo per una prossima comunicazione
-      stato_conn = true;
-      controllo_invio=true;
-      controllo_ricezione=true;
-      i=0;
     }
   if(form.indexOf("Attuatore1=OFF")!=-1)
     {
@@ -760,38 +806,45 @@ void loop()
       lcd.print("Attendere...    ");
       delay(100);
       Serial.println("SPEGNIMENTO ATTUATORE NODO 1");
-      do
+      if(change_state_an1_off)
+      
       {
-        if(i<1000)
+        change_state_an1_off = false;
+        change_state_an1_on = true;
+        do
         {
-          irsend.sendNEC(0x0000000010, 32); // Invio dato al nodo 1 per lo spegnimento dell'attuatore nodo 1
-          comunicazione();
-          i++;
+          if(i<1000)
+          {
+            irsend.sendNEC(0x0000000010, 32); // Invio dato al nodo 1 per lo spegnimento dell'attuatore nodo 1
+            comunicazione();
+            i++;
+          }
+          else
+          {
+            controllo_invio = false;
+          }
+         }while(controllo_invio);
+        
+        Serial.println("Anch'io...");
+        //Controllo stato connessione per modificare o meno la pagina HTML
+        if(stato_conn)
+        {
+          AN1 = LOW;
+          CAN1 = true;
         }
         else
         {
-          controllo_invio = false;
+          AN1 = HIGH;
+          js = true;
+          CAN1 = false;
         }
-       }while(controllo_invio);
+        //Resetto le variabili di controllo per una prossima comunicazione
+        stato_conn = true;
+        controllo_invio=true;
+        controllo_ricezione=true;
+        i=0;
+      }
       
-      Serial.println("Anch'io...");
-      //Controllo stato connessione per modificare o meno la pagina HTML
-      if(stato_conn)
-      {
-        AN1 = LOW;
-        CAN1 = true;
-      }
-      else
-      {
-        AN1 = HIGH;
-        js = true;
-        CAN1 = false;
-      }
-      //Resetto le variabili di controllo per una prossima comunicazione
-      stato_conn = true;
-      controllo_invio=true;
-      controllo_ricezione=true;
-      i=0;
     }
 //-------------------------------------------------------------------------------------------------------------
 
@@ -799,7 +852,12 @@ void loop()
     if(form.indexOf("Relay2=ON")!=-1)
     {int conta = 0;
       Serial.println("ACCENSIONE RELAY NODO 2");
-      do
+      if(change_state_rn2_on)
+      
+      {
+        change_state_rn2_on = false;
+        change_state_rn2_off = true;
+        do
       {
         
         if(i<1000)
@@ -824,7 +882,7 @@ void loop()
       if(stato_conn)
       {
         RN2 = HIGH;
-        CAN1 = true;
+        CRN2 = true;
       }
       else
       {
@@ -837,6 +895,8 @@ void loop()
       controllo_invio=true;
       controllo_ricezione=true;
       i=0;
+      }
+      
       
       
     }
@@ -844,6 +904,11 @@ void loop()
     if(form.indexOf("Relay2=OFF")!=-1)
     {int conta = 0;
     Serial.println("SPEGNIMENTO RELAY NODO 2");
+    if(change_state_rn2_off)
+      
+    {
+      change_state_rn2_off = false;
+      change_state_rn2_on = true;
       do
       {
         
@@ -869,7 +934,7 @@ void loop()
       if(stato_conn)
       {
         RN2 = LOW;
-        CAN1 = true;
+        CRN2 = true;
       }
       else
       {
@@ -882,6 +947,8 @@ void loop()
       controllo_invio=true;
       controllo_ricezione=true;
       i=0;
+    }
+    
       
       
       
@@ -890,6 +957,11 @@ void loop()
     if(form.indexOf("Attuatore2=ON")!=-1)
     {int conta = 0;
     Serial.println("ACCENSIONE ATTUATORE NODO 2");
+    if(change_state_an2_on)
+      
+    {
+      change_state_an2_on = false;
+      change_state_an2_off = true;
       do
       {
         
@@ -929,6 +1001,8 @@ void loop()
       controllo_invio=true;
       controllo_ricezione=true;
       i=0;
+    }
+    
       
       
     }
@@ -936,6 +1010,11 @@ void loop()
     if(form.indexOf("Attuatore2=OFF")!=-1)
     {int conta = 0;
     Serial.println("SPEGNIMENTO ATTUATORE NODO 2");
+    if(change_state_an2_off)
+      
+    {
+      change_state_an2_off = false;
+      change_state_an2_on = true;
       do
       {
         
@@ -962,7 +1041,7 @@ void loop()
       if(stato_conn)
       {
         AN2 = LOW;
-        CAN1 = true;
+        CAN2 = true;
       }
       else
       {
@@ -975,6 +1054,8 @@ void loop()
       controllo_invio=true;
       controllo_ricezione=true;
       i=0;
+    }
+    
           
     }
 
