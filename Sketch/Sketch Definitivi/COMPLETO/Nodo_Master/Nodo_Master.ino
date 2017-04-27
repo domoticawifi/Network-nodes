@@ -58,8 +58,8 @@
 #include <LiquidCrystal_I2C.h>
 
 //Definizione delle credenziali per la connessione per accedere al Router
-const char* ssid = "HUAWEI P8";
-const char* password = "pierino123";
+const char* ssid = "****";
+const char* password = "****";
 
 //Variabile contenente l'indirizzo IP assegnato alla shield ESP-12E
 String IP = "";
@@ -545,6 +545,7 @@ void pag_html()
 //Input analogico dei vari dispositivi connessi al nodo(Input a pulsante)
 boolean analogic_input = false;
 
+//Serie di variabili che verificano il cambio di stato
 boolean change_state_rn1_on = true;
 boolean change_state_rn1_off = true;
 boolean change_state_an1_on = true;
