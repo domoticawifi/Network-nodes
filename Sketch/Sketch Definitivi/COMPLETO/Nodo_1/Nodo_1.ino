@@ -11,6 +11,16 @@
  * Strumenti > Scheda: > Arduino UNO/NANO
  * Strumenti > Porta > COM
  * 
+ * Collegamenti:
+ * PIN 2  -> Relè
+ * PIN 3  -> Emettitore LED Infrared
+ * PIN 4  -> Attuatore
+ * PIN 8  -> Ricevitore IR
+ * PIN 10 -> Pulsante Relè
+ * PIN 11 -> Pulsante Attuatore
+ * PIN A4 -> Display 
+ * PIN A5 -> Display
+ * 
  * Contatti:
  * 
  *  orteip_94@live.it
@@ -55,7 +65,7 @@ void setup()
   lcd.init();                     
   lcd.backlight();
   lcd.home();
-  lcd.print("Nodo 1");
+  lcd.print("  --Nodo 1--  ");
 
   //Inizializzazione pin arduino
   pinMode(relay,OUTPUT);
@@ -99,6 +109,10 @@ boolean comunicazione()
       Serial.println(results.value);
       if(results.value == 4369)
       {
+        lcd.setCursor(0,0);
+        lcd.print("     ACK OK     ");
+        lcd.setCursor(0,1);
+        lcd.print("                ");
         Serial.println("OK");
         return true;
       }
@@ -117,6 +131,11 @@ void loop()
   
   if(digitalRead(10)==HIGH)
   {
+    lcd.setCursor(0,0);
+    lcd.print("  Pulsante 1");
+    lcd.setCursor(0,1);
+    lcd.print("                ");
+    delay(100);
     if(R)
     {
       digitalWrite(relay,HIGH);
@@ -143,6 +162,11 @@ void loop()
   }
   if(digitalRead(11)==HIGH)
   {
+    lcd.setCursor(0,0);
+    lcd.print("  Pulsante 2");
+    lcd.setCursor(0,1);
+    lcd.print("                ");
+    delay(100);
     if(A)
     {
       digitalWrite(attuatore,HIGH);
@@ -246,6 +270,8 @@ void loop()
     {
       irsend.sendNEC(0x0000011000, 32);
       Serial.println("Accensione Relay 2");
+      lcd.setCursor(0,1);
+      lcd.print("Relay 2 ON ");
 
       //Reinstanziamento della ricezione
       irrecv.enableIRIn();
@@ -264,6 +290,8 @@ void loop()
     {
       irsend.sendNEC(0x0001111000, 32);
       Serial.println("Accensione Attuatore 2");
+      lcd.setCursor(0,1);
+      lcd.print("Attuatore 2 ON ");
 
       //Reinstanziamento della ricezione
       irrecv.enableIRIn();
@@ -282,6 +310,8 @@ void loop()
     {
       irsend.sendNEC(0x0000010000, 32);
       Serial.println("Spegnimento Relay 2");
+      lcd.setCursor(0,1);
+      lcd.print("Relay 2 OFF     ");
 
       //Reinstanziamento della ricezione
       irrecv.enableIRIn();
@@ -300,6 +330,8 @@ void loop()
     {
       irsend.sendNEC(0x0011100000, 32);
       Serial.println("Spegnimento Attuatore 2");
+      lcd.setCursor(0,1);
+      lcd.print("Attuatore 2 OFF");
 
       //Reinstanziamento della ricezione
       irrecv.enableIRIn();
@@ -323,6 +355,10 @@ void loop()
       irrecv.enableIRIn();
       irrecv.decode(&results);
     }
+    lcd.setCursor(0,0);
+    lcd.print(" ---NODO 1--- ");
+    lcd.setCursor(0,1);
+    lcd.print("                ");
  
     irrecv.resume(); // Ricezione del prossimo valore
  }
